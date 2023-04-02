@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from 'axios';
+import './logreg.scss'
 
 import { BASE_URL_PUBLIC } from "../../service/config";
 
-import { userStatus } from "../service/checkStatus";
+// import { userStatus } from "../../service/config";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -25,7 +26,7 @@ const Login = () => {
             {withCredentials: true}
         );
         
-        navigate("/", {state: await userStatus()})
+        // navigate("/", {state: await userStatus()})
         setMessage(response.data.message)
 
 
@@ -36,9 +37,9 @@ const Login = () => {
     };
 
   return (
-    <div className="login">
+    <div className="logreg">
         <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="logreg-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="login"
@@ -55,7 +56,12 @@ const Login = () => {
             setUserLogin({ ...userLogin, password: e.target.value })
           }
         />
-        <input className="login-button" type="submit" value="Login" />
+        <button className="login-button" type="submit" value="Login">
+          Anmelden
+        </button>
+        <button className="passwort-vergessen">
+          Passwort vergessen?
+        </button>
         <p>{message}</p>
       </form>
     </div>

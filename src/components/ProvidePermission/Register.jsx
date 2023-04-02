@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL_PUBLIC } from "../../service/config";
+import './logreg.scss'
+
 
 function Register() {
     
@@ -36,9 +38,9 @@ const handleSubmit = async (e) => {
 };
 
     return(
-        <div className="register">
+        <div className="logreg">
         <h2>Account erstellen</h2>
-        <form onSubmit={handleSubmit}>
+        <form className="logreg-form" onSubmit={handleSubmit}>
           <input
             type="text"
             name="username"

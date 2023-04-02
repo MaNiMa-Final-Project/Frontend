@@ -1,0 +1,42 @@
+
+.logreg {
+
+    margin: 5rem 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: solid;
+    box-shadow: 5px 5px 5px 5px rgb(153, 150, 150);
+    border-radius: 5px;
+    padding: 0.5rem;
+
+    h2{
+        margin: auto;
+        font-size: 1.5rem;
+    }
+
+    .logreg-form{
+        display: flex;
+        flex-direction: column;
+        input{
+            border: solid;
+            border-radius: 5px;
+            margin: 1rem;
+            padding: 1rem;
+        }
+        .login-button{
+            border: solid;
+            border-radius: 5px;
+            margin: 0 2rem;
+            padding: 0.5rem;
+        }
+        .passwort-vergessen{
+            width: fit-content;
+            margin: 1rem auto;
+            padding: 0.5rem;
+            font-size: small;
+            color: blue;
+        }
+    }
+}
