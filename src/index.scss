@@ -58,4 +58,78 @@
 }
 
 
+<<<<<<< HEAD
+=======
+/* ! grosse Bildschirme */
+/* Fuer 4K-Bildschirme */
+@media (min-width: 3840px) {
+        /* Ihre CSS-Regeln hier */
+
+}
+  
+/* Fuer Ultrawide-Bildschirme */
+@media (min-width: 3440px) {
+    /* Ihre CSS-Regeln hier */
+
+}
+
+/* ! Monitore */
+
+/* Fuer kleine Monitore */
+@media (min-width: 1280px) and (max-width: 1439px) {
+    /* Ihre CSS-Regeln hier */
+    
+
+}
+  
+/* Fuer mittelgrosse Monitore */
+@media (min-width: 1440px) and (max-width: 1679px) {
+    /* Ihre CSS-Regeln hier */
+
+}
+  
+/* Fuer grosse Monitore */
+@media (min-width: 1680px) {
+
+}
+
+/* ! Tablets */
+
+/* Fuer kleine Tablets */
+@media (min-width: 600px) and (max-width: 767px) {
+    /* Ihre CSS-Regeln hier */
+
+}
+  
+/* Fuer mittelgrosse Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Ihre CSS-Regeln hier */
+
+}
+  
+/* Fuer grosse Tablets */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Ihre CSS-Regeln hier */
+
+}
+
+/* ! Mobilgeraete */
+
+/* Fuer Smartphones */
+@media (max-width: 480px) {
+    /* Ihre CSS-Regeln hier */
+
+}
+  
+/* Fuer Phablets */
+@media (min-width: 481px) and (max-width: 767px) {
+    /* Ihre CSS-Regeln hier */
+
+}
+
+
+
+
+
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
 

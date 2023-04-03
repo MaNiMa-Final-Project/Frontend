@@ -59,7 +59,13 @@ const handleSubmit = async (e) => {
             placeholder="Passwort"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input className="register-button" type="submit" value="Registrieren" />
+
+          <button className="logreg-button" type="submit">
+            Anmelden
+          </button>
+
+
+
           <p>{message}</p>
         </form>
       </div>

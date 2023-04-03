@@ -1,0 +1,54 @@
+
+.homeGridContainer{
+    margin: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    .cardContainer{
+        box-shadow: 5px 5px 5px 5px rgb(153, 150, 150);
+        border-radius: 5px;
+        padding: 1,5rem;
+        margin: 0 auto;
+        border: 1px solid black;
+        width: 18rem;
+
+        .cardPicture {
+            width: 40%;
+        }
+
+        .cardBody{
+            width: 80%;
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-rows: 70px 500px 1fr;
+
+
+
+            .courseTitle {
+                font-size: 2rem;
+                padding: 1rem;
+                margin: 0 auto;
+                height: 10%;
+            }
+
+            .courseDescription{
+                background-color: red;
+                font-size: 1rem;
+                padding: 1rem;
+                margin: 0 auto;
+            }
+
+            .AddToCartBtn{
+                border: solid;
+                border-radius: 5px;
+                margin:  2rem;
+                padding: 1rem;
+                width: calc(100% - 4rem);
+                text-align: center;
+            }
+        }
+    }
+}
+

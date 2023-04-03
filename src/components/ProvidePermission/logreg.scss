@@ -1,6 +1,7 @@
 .logreg {
 
-    margin: 5rem 25rem;
+    margin: 5rem auto;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,15 +19,25 @@
     .logreg-form {
         display: flex;
         flex-direction: column;
+<<<<<<< HEAD
 
         input {
             border: solid;
+=======
+        padding: 2rem;
+        input{
+            border: solid 1px black;
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
             border-radius: 5px;
             margin: 1rem;
             padding: 1rem;
         }
+<<<<<<< HEAD
 
         .login-button {
+=======
+        .logreg-button{
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
             border: solid;
             border-radius: 5px;
             margin: 0 2rem;
@@ -46,6 +57,7 @@
 
 /* Fuer Smartphones */
 @media (max-width: 550px) {
+<<<<<<< HEAD
     /* Ihre SCSS-Regeln hier */
 
     .logreg {
@@ -56,12 +68,31 @@
 
 }
 
+=======
+    /* Ihre CSS-Regeln hier */
+
+    
+    .logreg{
+        width: 100%;
+        margin: 0 auto;
+    }
+   
+
+}
+
+
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
 /* Fuer mittelgrosse Tablets */
 @media (min-width: 551px) and (max-width: 991px) {
     /* Ihre SCSS-Regeln hier */
 
+<<<<<<< HEAD
     .logreg {
         width: 70%;
+=======
+    .logreg{
+        width: 75%;
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
         margin: 0 auto;
     }
 }
@@ -69,34 +100,63 @@
 
 /* Fuer grosse Tablets */
 @media (min-width: 992px) and (max-width: 1199px) {
+<<<<<<< HEAD
     /* Ihre SCSS-Regeln hier */
 
     .logreg {
+=======
+
+    .logreg{
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
         width: 75%;
         margin: 0 auto;
     }
 
+<<<<<<< HEAD
     .logreg-form {
 
         padding: 2rem 0 !important;
 
+=======
+    .logreg-form{
+        
+        padding: 1rem 0 !important;
+       
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
     }
 }
 
 
 /* Fuer mittelgrosse Monitore */
 @media (min-width: 1200px) and (max-width: 1679px) {
+<<<<<<< HEAD
     /* Ihre SCSS-Regeln hier */
 
 
     .logreg {
+=======
+    /* Ihre CSS-Regeln hier */
+
+
+    .logreg{
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
         width: 85%;
         margin: 0 auto;
     }
 
+<<<<<<< HEAD
     .logreg-form {
 
         padding: 3rem 0 !important;
         font-size: 2rem;
     }
 }
+=======
+    .logreg-form{
+        
+        padding: 3rem 0 !important;
+        font-size: 2rem;
+    }
+
+}
+>>>>>>> 0f64e26156d78d8e13a8964b653723a7fc2f44fd
