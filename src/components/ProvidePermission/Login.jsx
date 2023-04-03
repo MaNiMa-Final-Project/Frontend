@@ -56,7 +56,7 @@ const Login = () => {
             setUserLogin({ ...userLogin, password: e.target.value })
           }
         />
-        <button className="login-button" type="submit" value="Login">
+        <button className="logreg-button" type="submit" value="Login">
           Anmelden
         </button>
         <button className="passwort-vergessen">
