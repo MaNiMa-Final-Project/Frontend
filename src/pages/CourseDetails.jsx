@@ -1,6 +1,17 @@
+import { useParams } from "react-router-dom";
+
+import '../components/CourseDetails/courseDetails.scss'
+
 export default function CourseDetails(){
 
+    const { id } = useParams();
+    console.log("🚀 ~ file: CourseDetails.jsx:6 ~ CourseDetails ~ id:", id)
+
+    
+
     return(
-        <h1>CourseDetails</h1>
+        <div className="courseDetailContainer">
+
+        </div>
     )
 }

@@ -1,0 +1,14 @@
+
+
+.courseDetailContainer{
+    
+    width: 100%;
+    height: 200px;
+    border: solid;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4em; /* Abstand zwischen den Items */
+    padding: 1em; /* Abstand zum Rand des Grids */
+
+
+}

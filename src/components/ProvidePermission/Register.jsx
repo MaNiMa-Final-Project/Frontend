@@ -25,16 +25,16 @@ const handleSubmit = async (e) => {
     }
 
     try {
-      const response = await axios.post( BASE_URL_PUBLIC+'register', newUser, {
-        withCredentials: true
-      });
-      //navigate('/login',{})
-      setMessage(response.data.message)
+        const response = await axios.post( BASE_URL_PUBLIC+'register', newUser, {
+            withCredentials: true
+        });
+        //navigate('/login',{})
+        setMessage(response.data.message)
 
-    } catch (error) {
-        console.log("🚀 ~ file: Register.js:31 ~ handleSubmit ~ error:", error.response.data)
-        setMessage(error.response.data.message)
-    }
+        } catch (error) {
+            console.log("🚀 ~ file: Register.js:31 ~ handleSubmit ~ error:", error.response.data)
+            setMessage(error.response.data.message)
+        }
 };
 
     return(
