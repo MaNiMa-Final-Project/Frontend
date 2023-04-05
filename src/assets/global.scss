@@ -63,9 +63,24 @@ body{
     }
 }
 
+<<<<<<< HEAD
+
+/* ! grosse Bildschirme */
+/* Fuer 4K-Bildschirme */
+@media (min-width: 3840px) {
+        /* Ihre CSS-Regeln hier */
+
+}
+  
+/* Fuer Ultrawide-Bildschirme */
+@media (min-width: 3440px) {
+    /* Ihre CSS-Regeln hier */
+
+=======
 //!Layout
 .layout{
     padding: 2rem calc(1em + 33.33vw/3);
+>>>>>>> 5e9389f73eddd8f603882280978f975ac392357a
 }
 
 //!Footer
@@ -82,3 +97,8 @@ body{
 
 
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 5e9389f73eddd8f603882280978f975ac392357a
