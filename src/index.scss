@@ -8,7 +8,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
+
+body{
+    background-color: rgb(165, 159, 151);
+}
+
+//!Header
 
 .nav {
     background-color: #333;
@@ -57,6 +64,7 @@
     }
 }
 
+<<<<<<< HEAD
 
 /* ! grosse Bildschirme */
 /* Fuer 4K-Bildschirme */
@@ -69,64 +77,29 @@
 @media (min-width: 3440px) {
     /* Ihre CSS-Regeln hier */
 
+=======
+//!Layout
+.layout{
+    padding: 2rem calc(1em + 33.33vw/3);
+>>>>>>> 5e9389f73eddd8f603882280978f975ac392357a
 }
 
-/* ! Monitore */
+//!Footer
+.footer{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
 
-/* Fuer kleine Monitore */
-@media (min-width: 1280px) and (max-width: 1439px) {
-    /* Ihre CSS-Regeln hier */
-    
-
-}
-  
-/* Fuer mittelgrosse Monitore */
-@media (min-width: 1440px) and (max-width: 1679px) {
-    /* Ihre CSS-Regeln hier */
-
-}
-  
-/* Fuer grosse Monitore */
-@media (min-width: 1680px) {
-
-}
-
-/* ! Tablets */
-
-/* Fuer kleine Tablets */
-@media (min-width: 600px) and (max-width: 767px) {
-    /* Ihre CSS-Regeln hier */
-
-}
-  
-/* Fuer mittelgrosse Tablets */
-@media (min-width: 768px) and (max-width: 991px) {
-    /* Ihre CSS-Regeln hier */
-
-}
-  
-/* Fuer grosse Tablets */
-@media (min-width: 992px) and (max-width: 1199px) {
-    /* Ihre CSS-Regeln hier */
-
-}
-
-/* ! Mobilgeraete */
-
-/* Fuer Smartphones */
-@media (max-width: 480px) {
-    /* Ihre CSS-Regeln hier */
-
-}
-  
-/* Fuer Phablets */
-@media (min-width: 481px) and (max-width: 767px) {
-    /* Ihre CSS-Regeln hier */
-
+    p{
+        margin: 2rem;
+    }
 }
 
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5e9389f73eddd8f603882280978f975ac392357a
