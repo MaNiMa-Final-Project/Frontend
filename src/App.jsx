@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import { useLegitUser } from './hooks/useLegitUser';
 import { useEffect } from 'react';
 
 import Login from './components/ProvidePermission/Login'
