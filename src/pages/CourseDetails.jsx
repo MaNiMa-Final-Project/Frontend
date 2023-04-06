@@ -11,7 +11,7 @@ export default function CourseDetails(){
 
     return(
         <div className="courseDetailContainer">
-
+            
         </div>
     )
 }
