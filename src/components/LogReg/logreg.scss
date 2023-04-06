@@ -44,6 +44,13 @@
         .mailLabel{
             margin: auto;
         }
+
+        button:disabled {
+            opacity: 0.5; /* reduziert die Deckkraft des Buttons */
+            cursor: not-allowed; /* ändert den Cursor, um anzuzeigen, dass der Button nicht klickbar ist */
+            /* Fügen Sie hier weitere Stile hinzu, um das Aussehen des ausgegrauten Buttons anzupassen */
+        }
+          
     }
 }
 

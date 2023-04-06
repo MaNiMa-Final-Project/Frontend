@@ -5,9 +5,6 @@ import { useLegitUser } from '../hooks/useLegitUser.jsx'
 
 function Navbar(){
     const userData = useLegitUser();
-    console.log("🚀 ~ file: Header.jsx:8 ~ Navbar ~ userData:", userData)
-
-
     const navigate = useNavigate();
 
     const handleLogout =  () => userData.userLogout(navigate);

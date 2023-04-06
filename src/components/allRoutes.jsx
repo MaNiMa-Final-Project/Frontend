@@ -27,9 +27,8 @@ export const routingData = () => {
     // console.log("--------------------------------------------------------");
     // console.log("doppelte negation  "+(!((!userData.isCreator) || (!userData.isAdmin))));
     // console.log("normal "+(userData.isCreator || userData.isAdmin));
-    // console.log("einfache negation "+(!(userData.isCreator || userData.isAdmin)));
+    // console.log("einfache negation (benutzen wir) "+(!(userData.isCreator || userData.isAdmin)));
     // console.log("--------------------------------------------------------");
-
 
     useEffect(()=>{
         userData.fetchUser();
