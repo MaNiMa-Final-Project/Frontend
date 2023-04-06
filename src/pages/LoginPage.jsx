@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import axios from 'axios';
-import './logreg.scss'
-
-import { BASE_URL_PUBLIC } from "../../service/config";
-
-// import { userStatus } from "../../service/config";
+import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL_PUBLIC } from "../service/config";
+import '../components/LogReg/logreg.scss'
 
-const Login = () => {
+
+export default function LoginPage(){
+
     const navigate = useNavigate();
     
     const [userLogin, setUserLogin] = useState({
@@ -29,9 +28,7 @@ const Login = () => {
         
         setMessage(response.data.message)
 
-        setTimeout(()=>{
-            navigate("/", {})
-        },500)
+            navigate("/");
 
       } catch (error) {
         setMessage(error.response.data)
@@ -72,4 +69,3 @@ const Login = () => {
   );
 };
 
-export default Login;

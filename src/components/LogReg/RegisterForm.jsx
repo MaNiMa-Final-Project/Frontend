@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL_PUBLIC } from "../../service/config";
-import './logreg.scss'
+import { BASE_URL_PUBLIC } from "../service/config";
+import '../components/LogReg/logreg.scss'
 
+export default function RegisterForm(){
 
-function Register() {
-    
     const navigate = useNavigate();
 
     const [username, setUsername] = useState("")
@@ -15,27 +14,26 @@ function Register() {
 
     const [message, setMessage] = useState("");
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    let newUser = {
-      username: username,
-      email: email,
-      password: password
-    }
-
-    try {
-        const response = await axios.post( BASE_URL_PUBLIC+'register', newUser, {
-            withCredentials: true
-        });
-        //navigate('/login',{})
-        setMessage(response.data.message)
-
-        } catch (error) {
-            console.log("🚀 ~ file: Register.js:31 ~ handleSubmit ~ error:", error.response.data)
-            setMessage(error.response.data.message)
+        let newUser = {
+        username: username,
+        email: email,
+        password: password
         }
-};
+
+        try {
+            const response = await axios.post( BASE_URL_PUBLIC+'register', newUser, {
+                withCredentials: true
+            });
+            //navigate('/login',{})
+            setMessage(response.data.message)
+
+            } catch (error) {
+                setMessage(error.response.data.message)
+            }
+    };
 
     return(
         <div className="logreg">
@@ -70,6 +68,6 @@ const handleSubmit = async (e) => {
         </form>
       </div>
     )
-}
 
-export default Register;
+
+}

@@ -1,8 +1,6 @@
 
 
-export default function ShoppingCart(){
-
-
+export default function ShoppingCartPage(){
 
     return(
 
