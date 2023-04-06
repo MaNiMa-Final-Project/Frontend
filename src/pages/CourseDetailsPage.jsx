@@ -23,7 +23,7 @@ export default function CourseDetailsPage(){
 
     return(
         <div className="courseDetailContainer">
-
+            
         </div>
     )
 }
