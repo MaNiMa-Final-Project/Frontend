@@ -7,35 +7,40 @@ import validateEmail from "../utils(pure fkt)/validateEmail";
 
 
 export default function RegisterPage() {
-
-    const debouncedFetchData = debounce(fetchData, 300);
-
-
     const [email, setEmail] = useState('');
     const [isValid, setIsValid] = useState(false)
     const [message, setMessage] = useState('');
+
+    const debouncedFetchData = debounce(fetchData, 300);
+
+    useEffect(()=>{
+        let formattedEmail = email.trim().toLowerCase()
+        if (validateEmail(formattedEmail)) {
+            debouncedFetchData()
+        } else {
+            setIsValid(false)
+        }
+    },[email]);
+
+    const handleNextPage = () => {
+        console.log('next page');
+    }
 
     async function fetchData() {
         try {
             const response = await axios.post( BASE_URL_PUBLIC+'register/email', {email: email}, {
                 withCredentials: true
             });
-            console.log("🚀 ~ file: RegisterPage.jsx:23 ~ fetchData ~ response:", response)
-
             setIsValid(response.data.success);
-            console.log(response.data.success);
+            if (!response.data.success) {
+                setMessage('Choose another email')
+            } else {
+                setMessage('')
+            }
         } catch(error) {
           console.error(error);
         }
-      }
-
-    const handleInput = (e) => {
-        let email = e.target.value.trim().toLowerCase();
-        setEmail(email)
-        if (validateEmail(email)) {
-            debouncedFetchData()
-        }
-    };
+    }
     
     
     return(
@@ -50,13 +55,14 @@ export default function RegisterPage() {
                     id="mailInput"
                     placeholder="Email"
                     value={email}
-                    onChange={handleInput}
+                    onChange={(e)=>{setEmail(e.target.value)}}
                 />
 
                 <button 
                     className="logreg-button" 
                     type="submit"
                     disabled={!isValid}
+                    onClick={handleNextPage}
 
                     >
                     Weiter
