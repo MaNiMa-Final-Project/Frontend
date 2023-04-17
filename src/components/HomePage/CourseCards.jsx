@@ -10,11 +10,7 @@ export default function CourseCards(){
     const handleAddToCart = (evt, id) => {
         // Button
         evt.stopPropagation();
-
         cartData.addToCart(id);
-
-        console.log(cartData.cart);
-
     }
 
     const handleCourseDetailView = (evt, id) => {

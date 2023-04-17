@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import '../components/CreateCourse/createCourse.scss'
 
 
 
@@ -11,7 +12,7 @@ export default function CreateCoursePage() {
     const [end, setEnd] = useState("");
     const [description, setDescription] = useState("");
 
-    const handleSubmit = event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         let start = new Date(`1995-12-17T${start}:00`).getTime();
@@ -31,7 +32,7 @@ export default function CreateCoursePage() {
 
         try {
 
-            let response =  axios.post('BASE_URL_PROTECTED', newCourse, {
+            let response = await axios.post('BASE_URL_PROTECTED', newCourse, {
                 withCredentials: true
             })
             setMessage('Kurs erfolgreich erstellt!')
