@@ -6,7 +6,7 @@ import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import DashboardPage from '../pages/DashboardPage';
 import ShoppingCartPage from '../pages/ShoppingCartPage';
-import CreateCoursePage from '../pages/CreateCoursePage';
+// import CreateCoursePage from '../pages/CreateCoursePage';
 import CourseDetailsPage from '../pages/CourseDetailsPage';
 import { useLegitUser } from '../hooks/useLegitUser';
 
