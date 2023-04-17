@@ -1,11 +1,15 @@
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useLegitUser } from '../hooks/useLegitUser.jsx'
+import { useCartData } from '../hooks/useCartData.jsx';
 
 
 function Navbar(){
     const userData = useLegitUser();
+    const cartData = useCartData();
     const navigate = useNavigate();
+
+    console.log(cartData.cart);
 
     const handleLogout =  () => userData.userLogout(navigate);
 
@@ -24,6 +28,11 @@ function Navbar(){
             <li><Link to="/register">Anmelden</Link></li>
         </>
 
+    let cartBadge = cartData.cart.length > 0 ?
+        <span className='cartBadge'>{cartData.cart.length}</span>
+        :
+        <></>
+
     return(
         <nav className="nav">
             <ul>
@@ -37,7 +46,7 @@ function Navbar(){
             </form>
 
             <ul className="controls">
-                <li><Link to="/shoppingcart">Warenkorb</Link></li>
+                <li className='cartAnchor' ><Link to="/shoppingcart">Warenkorb{cartBadge}</Link></li>
                 {logOutOrIn}
             </ul>
         </nav>

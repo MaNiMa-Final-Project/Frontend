@@ -9,6 +9,7 @@ export default function CourseDetailsPage() {
     const { id } = useParams();
 
     const [course, setCourse] = useState(null);
+    console.log("🚀 ~ file: CourseDetailsPage.jsx:12 ~ CourseDetailsPage ~ course:", course)
 
     useEffect(() => {
 
