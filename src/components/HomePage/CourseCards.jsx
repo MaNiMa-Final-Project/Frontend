@@ -1,14 +1,20 @@
+import { useCartData } from '../../hooks/useCartData'
 import { useNavigate } from "react-router-dom";
 import { data } from "../../service/fakeData"
 
 export default function CourseCards(){
+    const cartData = useCartData();
 
     const navigate = useNavigate();
 
     const handleAddToCart = (evt, id) => {
         // Button
         evt.stopPropagation();
-        console.log(id);
+
+        cartData.addToCart(id);
+
+        console.log(cartData.cart);
+
     }
 
     const handleCourseDetailView = (evt, id) => {
