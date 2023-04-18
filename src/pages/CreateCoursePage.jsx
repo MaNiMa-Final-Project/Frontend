@@ -124,6 +124,7 @@ export default function CreateCoursePage() {
 
                 <button type="submit">Create Course</button>
             </form>
+            {message}
         </div>
     );
 }

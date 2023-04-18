@@ -20,21 +20,15 @@ export default function CourseDetailsPage() {
                 console.log(TEMP_URL_COURSE+`course/${id}`);
 
                 let response = await axios.get(TEMP_URL_COURSE+`course/${id}`);
+                setCourse(response.data);
 
-                console.log("🚀 ~ file: CourseDetailsPage.jsx:22 ~ response:", response)
             } catch (error) {
-                
+                console.error(error)
             }
 
 
         })();
 
-        // async function fetchData() {
-        //     const response = await fetch(`${TEMP_URL_COURSE}course/${id}`);
-        //     const json = await response.json();
-        //     setData(json);
-        // }
-        // fetchData();
     }, []);
 
 
