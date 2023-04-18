@@ -2,12 +2,42 @@
 
 .CreateCourse{
     margin: 5rem auto;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    border: solid;
+    border: solid red;
     box-shadow: 5px 5px 5px 5px rgb(153, 150, 150);
     border-radius: 5px;
     padding: 0.5rem;
+
+    .CourseForm {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        label {
+            padding: 0.5rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        textarea {
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        button {
+            border: solid;
+
+            border-radius: 5px;
+            width: 75%;
+            margin: 1rem auto;
+            padding: 0.5rem;
+        }
+    }
 }

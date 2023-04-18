@@ -6,25 +6,19 @@ export const useCartData = create(
 
     persist(
         (set, get) => ({
+            cart: get("cart-storage") || [],
 
-            cart: get("cart") || [],
-            // cart: new Set(get("cart") ?? []),
-        
             addToCart: (courseId) => {
                 set((state) => ({
-                    cart: [...state.cart, courseId],
-                    // cart: new Set(state.cart).add(courseId),    
-                }));
+                    cart: Array.from(new Set(state.cart).add(courseId)),
+                }))
             },
+
             removeFromCart: (courseId) => {
-                set((state) => {
-                const newCart = new Set(state.cart);
-                newCart.delete(courseId);
-                return { cart: newCart };
-        });
-    },
-
-
+                set((state) => ({
+                    cart: state.cart.filter((id) => id !== courseId),
+                }))
+            }
         }),
         {
             name: 'cart-storage', 
@@ -34,23 +28,3 @@ export const useCartData = create(
 );
 
 
-// import { create } from "zustand";
-
-// export const useCartData = create((set) => ({
-
-//     cart: new Set(),
-    
-//     addToCart: (courseId) => {
-//         set((state) => ({
-//             cart: new Set(state.cart).add(courseId)
-//         }));
-//     },
-
-//     removeFromCart: (courseId) => {
-//         set((state) => {
-//             const newCart = new Set(state.cart);
-//             newCart.delete(courseId);
-//             return { cart: newCart };
-//         });
-//     },
-// }));

@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { BASE_URL_PROTECTED } from "../service/config";
 import axios from "axios";
 import '../components/CreateCourse/createCourse.scss'
 
 
 
 export default function CreateCoursePage() {
+    
     const [title, setTitle] = useState("");
     const [creator, setCreator] = useState("");
     const [beginning, setBeginning] = useState("");
@@ -12,13 +14,18 @@ export default function CreateCoursePage() {
     const [end, setEnd] = useState("");
     const [description, setDescription] = useState("");
 
+    const [message, setMessage] = useState("");
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        let start = new Date(`1995-12-17T${start}:00`).getTime();
-        let end = new Date(`1995-12-17T${end}:00`).getTime();
+        let formatStart = new Date(`1995-12-17T${start}:00`).getTime();
+        let formatEnd = new Date(`1995-12-17T${end}:00`).getTime();
 
-        let duration = end - start
+        let milliseconds = formatEnd - formatStart;
+
+        console.log(getHoursAndMinutes(milliseconds));
+
 
         let newCourse = {
             title: title,
@@ -26,13 +33,14 @@ export default function CreateCoursePage() {
             beginning: beginning,
             start: start,
             end: end,
-            duration: new Date(duration).getHours(),
+            duration: milliseconds,
             description: description
         }
+        console.log("🚀 ~ file: CreateCoursePage.jsx:36 ~ handleSubmit ~ newCourse:", newCourse)
 
         try {
 
-            let response = await axios.post('BASE_URL_PROTECTED', newCourse, {
+            let response = await axios.post(BASE_URL_PROTECTED+'createcourse', newCourse, {
                 withCredentials: true
             })
             setMessage('Kurs erfolgreich erstellt!')
@@ -44,20 +52,29 @@ export default function CreateCoursePage() {
 
         }
 
-        setTitle("");
-        setCreator("");
-        setBeginning("");
-        setStart("");
-        setEnd("");
-        setDescription("");
+        // setTitle("");
+        // setCreator("");
+        // setBeginning("");
+        // setStart("");
+        // setEnd("");
+        // setDescription("");
 
 
     };
 
+    function getHoursAndMinutes(milliseconds) {
+      let hours = Math.floor(milliseconds / (60 * 60 * 1000));
+      let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
+      return `${hours} hours and ${minutes} minutes`;
+    }
+    
+
+    
+
     return (
         <div className="CreateCourse">
             <h2>Kurs Erstellen</h2>
-            <form onSubmit={handleSubmit}>
+            <form className="CourseForm" onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input
                     type="text"
@@ -76,7 +93,7 @@ export default function CreateCoursePage() {
 
                 <label>Beginning</label>
                 <input
-                    type="text"
+                    type="date"
                     id="beginning"
                     value={beginning}
                     placeholder="Beginning"
@@ -84,7 +101,7 @@ export default function CreateCoursePage() {
 
                 <label>Start</label>
                 <input
-                    type="text"
+                    type="time"
                     id="start"
                     value={start}
                     placeholder="Start"
@@ -92,7 +109,7 @@ export default function CreateCoursePage() {
 
                 <label>End</label>
                 <input
-                    type="text"
+                    type="time"
                     id="end"
                     value={end}
                     placeholder="End"

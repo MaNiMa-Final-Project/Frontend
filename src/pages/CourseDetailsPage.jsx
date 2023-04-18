@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+
+import axios from "axios";
 import { TEMP_URL_COURSE } from "../service/config";
 import '../components/CourseDetails/courseDetails.scss'
 
@@ -9,16 +11,30 @@ export default function CourseDetailsPage() {
     const { id } = useParams();
 
     const [course, setCourse] = useState(null);
-    console.log("🚀 ~ file: CourseDetailsPage.jsx:12 ~ CourseDetailsPage ~ course:", course)
 
     useEffect(() => {
 
-        async function fetchData() {
-            const response = await fetch(`${TEMP_URL_COURSE}course/${id}`);
-            const json = await response.json();
-            setData(json);
-        }
-        fetchData();
+        (async () => {
+
+            try {
+                console.log(TEMP_URL_COURSE+`course/${id}`);
+
+                let response = await axios.get(TEMP_URL_COURSE+`course/${id}`);
+
+                console.log("🚀 ~ file: CourseDetailsPage.jsx:22 ~ response:", response)
+            } catch (error) {
+                
+            }
+
+
+        })();
+
+        // async function fetchData() {
+        //     const response = await fetch(`${TEMP_URL_COURSE}course/${id}`);
+        //     const json = await response.json();
+        //     setData(json);
+        // }
+        // fetchData();
     }, []);
 
 

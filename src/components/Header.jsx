@@ -9,8 +9,6 @@ function Navbar(){
     const cartData = useCartData();
     const navigate = useNavigate();
 
-    console.log(cartData.cart);
-
     const handleLogout =  () => userData.userLogout(navigate);
 
     let dashboard = userData.success ? 
@@ -46,6 +44,7 @@ function Navbar(){
             </form>
 
             <ul className="controls">
+            
                 <li className='cartAnchor' ><Link to="/shoppingcart">Warenkorb{cartBadge}</Link></li>
                 {logOutOrIn}
             </ul>

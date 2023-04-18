@@ -2,6 +2,8 @@ import { create } from "zustand";
 import axios from 'axios';
 import { BASE_URL_PUBLIC } from '../service/config'
 
+
+
 export const useLegitUser = create((set) => ({
 
     user: null,
@@ -63,5 +65,15 @@ export const useLegitUser = create((set) => ({
       }
     }
 }));
+
+const connection = window.__REDUX_DEVTOOLS_EXTENSION__?.connect({
+  name: "custom_hooks",
+});
+
+connection?.init(useLegitUser.getState());
+
+useLegitUser.subscribe((newState) => {
+  connection?.send("State", newState);
+})
 
 
