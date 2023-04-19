@@ -4,17 +4,27 @@ import { useEffect, useState } from "react";
 import { BASE_URL_PUBLIC } from "../service/config";
 import '../components/LogReg/logreg.scss'
 import validateEmail from "../utils(pure fkt)/validateEmail";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export default function RegisterPage() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const [email, setEmail] = useState('');
     const [isValid, setIsValid] = useState(false)
     const [message, setMessage] = useState('');
 
-    const debouncedFetchData = debounce(fetchData, 300);
+    const debouncedFetchData = debounce(fetchData, 100);
+    
+    useEffect(()=>{
+        if (location.state) {
+           setEmail(location.state.email);
+        }
+    },[]);
 
     useEffect(()=>{
-        let formattedEmail = email.trim().toLowerCase()
+        let formattedEmail = email.trim().toLowerCase();
         if (validateEmail(formattedEmail)) {
             debouncedFetchData()
         } else {
@@ -23,7 +33,7 @@ export default function RegisterPage() {
     },[email]);
 
     const handleNextPage = () => {
-        console.log('next page');
+        navigate('/registerForm', {state: {email: email}})
     }
 
     async function fetchData() {
@@ -32,6 +42,7 @@ export default function RegisterPage() {
                 withCredentials: true
             });
             setIsValid(response.data.success);
+
             if (!response.data.success) {
                 setMessage('Choose another email')
             } else {
@@ -45,7 +56,7 @@ export default function RegisterPage() {
     
     return(
         <div className="logreg">
-            <form className="logreg-form">
+            <div className="logreg-form">
                 <label className="mailLabel" htmlFor="mailInput">
                     Gib die E-Mail-Adresse ein, die du für Konto verwenden möchtest
                 </label>
@@ -67,7 +78,7 @@ export default function RegisterPage() {
                     >
                     Weiter
                 </button>
-            </form>
+            </div>
             {message}
         </div>
     )
