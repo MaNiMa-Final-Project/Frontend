@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import HomePage from '../pages/HomePage'
 import RegisterPage from '../pages/RegisterPage';
+import RegisterForm from '../components/LogReg/RegisterForm';
 import LoginPage from '../pages/LoginPage';
 import DashboardPage from '../pages/DashboardPage';
 import ShoppingCartPage from '../pages/ShoppingCartPage';
@@ -13,6 +14,7 @@ import { useLegitUser } from '../hooks/useLegitUser';
 export const paths = {
     homePath: "/",
     registerPath: "/register",
+    registerForm: "/registerform",
     loginPath: "/login",
     dashboardPath: "/dashboard",
     shoppingCartPath: "/shoppingcart",
@@ -44,6 +46,12 @@ export const routingData = () => {
         {
             path: paths.registerPath,
             element: <RegisterPage />,
+            isProtected: false,
+            redirectPath: paths.homePath,
+        },
+        {
+            path: paths.registerForm,
+            element: <RegisterForm />,
             isProtected: false,
             redirectPath: paths.homePath,
         },

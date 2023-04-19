@@ -9,6 +9,7 @@ export default function CreateCoursePage() {
     
     const [title, setTitle] = useState("");
     const [creator, setCreator] = useState("");
+    const [price, setPrice] = useState("");
     const [beginning, setBeginning] = useState("");
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
@@ -30,6 +31,7 @@ export default function CreateCoursePage() {
         let newCourse = {
             title: title,
             creator: creator,
+            price: price,
             beginning: beginning,
             start: start,
             end: end,
@@ -90,6 +92,14 @@ export default function CreateCoursePage() {
                     value={creator}
                     placeholder="Creator"
                     onChange={event => setCreator(event.target.value)} />
+
+                <label>Price</label>
+                <input
+                    type="number"
+                    id="price"
+                    value={creator}
+                    placeholder="Price"
+                    onChange={event => setPrice(event.target.value)} />
 
                 <label>Beginning</label>
                 <input

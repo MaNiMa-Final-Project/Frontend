@@ -50,6 +50,15 @@
             cursor: not-allowed; /* ändert den Cursor, um anzuzeigen, dass der Button nicht klickbar ist */
             /* Fügen Sie hier weitere Stile hinzu, um das Aussehen des ausgegrauten Buttons anzupassen */
         }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            button{
+                margin: 0;
+                width: 35%;
+            }
+        }
           
     }
 }
