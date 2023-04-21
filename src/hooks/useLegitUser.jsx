@@ -4,7 +4,7 @@ import { BASE_URL_PUBLIC } from '../service/config'
 
 
 
-export const useLegitUser = create((set) => ({
+export const useLegitUser = create((set, get) => ({
 
     user: null,
     success: false,
@@ -63,17 +63,16 @@ export const useLegitUser = create((set) => ({
           isCreator: false,
         });
       }
+    },
+
+    isCourseFavorite(courseId){
+      if (get().user !== null) {
+        return (get().user.notedCourses.some((course) => course === courseId));
+      }
     }
+
 }));
 
-const connection = window.__REDUX_DEVTOOLS_EXTENSION__?.connect({
-  name: "custom_hooks",
-});
 
-connection?.init(useLegitUser.getState());
-
-useLegitUser.subscribe((newState) => {
-  connection?.send("State", newState);
-})
 
 

@@ -1,6 +1,9 @@
-import { Navigate, redirect, Route, Routes } from 'react-router-dom';
-import Layout from './components/Layout';
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+import '@fortawesome/fontawesome-free/css/brands.css';
+import '@fortawesome/fontawesome-free/css/solid.css';
 
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
 import { routingData } from './components/allRoutes';
 
 

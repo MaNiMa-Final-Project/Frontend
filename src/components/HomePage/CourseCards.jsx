@@ -1,7 +1,8 @@
 import { useCartData } from '../../hooks/useCartData'
 import { useNavigate } from "react-router-dom";
-import { data } from "../../service/fakeData"
 import { useEffect, useState } from 'react';
+
+import MarkAsFavorite from './MarkAsFavorite';
 
 import axios from "axios";
 import { BASE_URL_PUBLIC } from "../../service/config";
@@ -26,23 +27,24 @@ export default function CourseCards(){
     const navigate = useNavigate();
 
     const handleAddToCart = (evt, id) => {
-        // Button
         evt.stopPropagation();
         cartData.addToCart(id);
     }
 
     const handleCourseDetailView = (evt, id) => {
-        // Anchor
         evt.preventDefault();
         navigate(`course/${id}`, {});
     }
 
-
+    const handleMarkAsFavoriteClick = (evt) => evt.stopPropagation();
+    
 
     return courses.map(course => {
         return(
             <a onClick={(evt)=>handleCourseDetailView(evt, course._id)} key={course._id} className="cardContainer">
-                {/* <img className='cardPicture' src="..." alt="" /> */}
+                <div onClick={handleMarkAsFavoriteClick}>
+                    <MarkAsFavorite courseId={course._id}/>
+                </div>
                 <div className='cardBody'>
                     <h5 className='courseTitle'>
                         {course.title}
