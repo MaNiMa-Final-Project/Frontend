@@ -31,7 +31,7 @@ export default function CreateCoursePage() {
         let newCourse = {
             title: title,
             creator: creator,
-            price: price,
+            price: parseInt(price),
             beginning: beginning,
             start: start,
             end: end,
@@ -97,7 +97,7 @@ export default function CreateCoursePage() {
                 <input
                     type="number"
                     id="price"
-                    value={creator}
+                    value={price}
                     placeholder="Price"
                     onChange={event => setPrice(event.target.value)} />
 
