@@ -1,14 +1,11 @@
 .logreg {
 
-    margin: 5rem auto;
-    width: 25%;
+    margin: 10rem auto;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    border: solid;
-    box-shadow: 5px 5px 5px 5px rgb(153, 150, 150);
-    border-radius: 5px;
     padding: 0.5rem;
 
     h2 {
@@ -21,8 +18,8 @@
         flex-direction: column;
         padding: 2rem;
         input{
-            border: solid 1px black;
-            border-radius: 5px;
+            border: solid 1px rgb(23, 175, 198);
+            border-radius: 1px;
             margin: 1rem;
             padding: 1rem;
         }

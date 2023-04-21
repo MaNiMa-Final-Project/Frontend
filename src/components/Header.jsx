@@ -44,8 +44,10 @@ function Navbar(){
             </form>
 
             <ul className="controls">
-            
-                <li className='cartAnchor' ><Link to="/shoppingcart">Warenkorb{cartBadge}</Link></li>
+                <li className='kurse' ><Link to="/kurse">KURSE{}</Link></li>
+                <li className='dozenten' ><Link to="/dozenten">DOZENTEN{}</Link></li>
+                <li className='cartAnchor' ><Link to="/shoppingcart">SHOP{cartBadge}</Link></li>
+                <li className='info' ><Link to="/info">INFO{}</Link></li>
                 {logOutOrIn}
             </ul>
         </nav>

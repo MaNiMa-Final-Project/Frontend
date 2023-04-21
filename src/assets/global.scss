@@ -1,6 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 *,
 *::before,
@@ -12,13 +16,16 @@
 }
 
 body{
-    background-color: rgb(165, 159, 151);
+    background-color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+   
+
 }
 
 //!Header
 .nav {
-    background-color: #333;
-    color: white;
+    background-color: #fdfdfd;
+    color: rgb(128, 125, 125);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,14 +40,14 @@ body{
         li.active {
             background-color: red;
         
-            text-decoration: underline;
+            text-decoration: none;
             text-decoration-color: red;
         }
 
         li:hover {
 /*             background-color: yellow;
  */        
-            text-decoration: underline;
+            text-decoration: none;
             text-decoration-color: #777;
             text-decoration-thickness: 3px;
         }
