@@ -34,7 +34,7 @@ function Navbar(){
     return(
         <nav className="nav">
             <ul>
-                <li><Link to="/" className="site-title">MaNiMa</Link></li>
+                <li><Link to="/" className="site-title">ArtShuttleX</Link></li>
                 {dashboard}
                 {createEvent}
             </ul>
