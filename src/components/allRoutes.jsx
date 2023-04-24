@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import Kurse from '../pages/Kurse';
+import Dozenten from '../pages/Dozenten';
+import Info from '../pages/Info';
 import HomePage from '../pages/HomePage'
 import RegisterPage from '../pages/RegisterPage';
 import RegisterForm from '../components/LogReg/RegisterForm';
@@ -19,7 +22,10 @@ export const paths = {
     dashboardPath: "/dashboard",
     shoppingCartPath: "/shoppingcart",
     createCoursePath: "/create",
-    coursePath: "/course/:id"
+    coursePath: "/course/:id",
+    dozentenPath: "/dozenten",
+    infoPath: "/info",
+    kursePath: "/kurse"
 };
 
 export const routingData = () => {
@@ -73,6 +79,28 @@ export const routingData = () => {
             isProtected: false,
             redirectPath: null,
         },
+
+        {
+            path: paths.dozentenPath,
+            element: < Dozenten />,
+            isProtected: false,
+            redirectPath: null,
+        },
+
+        {
+            path: paths.infoPath,
+            element: < Info />,
+            isProtected: false,
+            redirectPath: null,
+        },
+
+        {
+            path: paths.kursePath,
+            element: < Kurse />,
+            isProtected: false,
+            redirectPath: null,
+        },
+
         //!protected
         //? admin oder creator
         {
