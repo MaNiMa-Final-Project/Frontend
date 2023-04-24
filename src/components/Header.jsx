@@ -34,13 +34,15 @@ function Navbar(){
     return(
         <nav className="nav">
             <ul>
-                <li><Link to="/" className="site-title">MaNiMa</Link></li>
+            
+                <li><Link to="/" className="site-title"><img src={"src/assets/images/artshuttle_logo.png"} width="100" height="100" /></Link></li>
                 {dashboard}
                 {createEvent}
+        
             </ul>
             
             <form>
-                <input type="text" placeholder="Search" />
+                <input type="text" placeholder="Suche" />
             </form>
 
             <ul className="controls">
