@@ -20,7 +20,7 @@ export default function Footer() {
         <p>FAQ</p>
         <p>Nutzungsbedingungen</p>
         <p>Datenschutzerklärung</p>
-        <p>Cookie-Richtlinie</p>
+        <p>Widerrufsbelehrung</p>
         <p>Impressum</p> 
         <p>© 2023 VG Bildkunst</p> 
       </div>
