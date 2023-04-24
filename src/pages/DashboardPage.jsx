@@ -2,6 +2,8 @@ import axios from "axios";
 import { BASE_URL_PROTECTED } from "../service/config";
 import { useState, useEffect } from "react";
 
+import '../components/Dashboard/dashboard.scss'
+
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -50,11 +52,16 @@ export default function DashboardPage(){
                 {/* Vorgemerkte Kurse anzeigen */}
                 <h1>Vorgemerkte Kurse anzeigen</h1>
                     {user.notedCourses && (
-                        <ul>
-                            {user.notedCourses.map((course) => (
-                                <li key={uuidv4()}>{course.title}</li>
-                            ))}
-                        </ul>
+                        <div className="innerCourseContainer">
+                            <ul>
+                                {user.notedCourses.map((course, index) => (
+                                    <li key={uuidv4()}>
+                                        {index+1}. {course.title}
+                                        <button>Add to Cart</button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     )}
                 </section>
 
@@ -63,11 +70,15 @@ export default function DashboardPage(){
                 
                 <h1>Bevorstehende Kurse</h1>
                     {user.upcomingCourses && (
-                        <ul>
-                            {user.upcomingCourses.map((course) => (
-                                <li key={uuidv4()}>{course.title}</li>
-                            ))}
-                        </ul>
+                        <div className="innerCourseContainer">
+                            <ul>
+                                {user.upcomingCourses.map((course, index) => (
+                                    <li key={uuidv4()}>
+                                        {index+1}. {course.title}
+                                        <button>Course Details</button>
+                                    </li>                                  ))}
+                            </ul>
+                        </div>
                     )}
                 </section>
 
@@ -76,23 +87,24 @@ export default function DashboardPage(){
 
                 <h1>Teilgenommene Kurse anzeigen</h1>
                     {user.attendedCourses && (
-                        <ul>
-                            {user.attendedCourses.map((course) => (
-                                <li key={uuidv4()}>{course.title}</li>
-                            ))}
-                        </ul>
+                        <div className="innerCourseContainer">
+                            <ul>
+                                {user.attendedCourses.map((course, index) => (
+                                    <li key={uuidv4()}>
+                                        {index+1}. {course.title}
+                                        <button>Comment the course</button>
+                                    </li>                                ))}
+                            </ul>
+                        </div>
                     )}
                 </section>
 
                 <aside className="sidebar">
-                    {/* Profil bearbeiten Button */}
-                    <button onClick={() => setEditingProfile(true)}>Profil bearbeiten</button>
 
                     {/* Profil bearbeiten Formular */}
-                    {editingProfile && (
+                    
                         <>
-                            <h2>Profil bearbeiten</h2>
-                            <form onSubmit={(e) => {
+                            <form className="profileForm" onSubmit={(e) => {
                                 e.preventDefault();
                                 const formData = new FormData(e.target);
                                 handleProfileEdit({
@@ -101,20 +113,30 @@ export default function DashboardPage(){
                                     avatar: formData.get('avatar')
                                 });
                             }}>
+
+                                <label htmlFor="avatar">Avatar:</label>
+                                <input type="file" id="avatar" name="avatar" accept="image/*" /> 
+
                                 <label htmlFor="firstName">Vorname:</label>
                                 <input type="text" id="firstName" name="firstName" defaultValue={user.firstName} />
 
                                 <label htmlFor="lastName">Nachname:</label>
                                 <input type="text" id="lastName" name="lastName" defaultValue={user.lastName} />
 
-                                <label htmlFor="avatar">Avatar:</label>
-                                <input type="file" id="avatar" name="avatar" accept="image/*" /> 
+                                <hr/>
 
-                                <button type="submit">Änderungen speichern</button>
-                                <button onClick={() => setEditingProfile(false)}>Abbrechen</button>
+                                {/* Profil bearbeiten Button */}
+                                <button onClick={() => setEditingProfile(true)}>Profil bearbeiten</button>
+
+                                {editingProfile && 
+                                    <>
+                                        <button type="submit">Änderungen speichern</button>
+                                        <button onClick={() => setEditingProfile(false)}>Abbrechen</button>
+                                    </>
+                                }
+
                             </form>
                         </>
-                    )}
                 </aside>
             </div>
 
