@@ -4,7 +4,7 @@
     grid-template:             
         "a a d" 1fr        
         "b b d" 1fr
-        "c c d" 1fr / 1fr 1fr 1fr;;
+        "c c d" 1fr / 1fr 1fr 1fr;
 
 
     grid-gap: 20px;
@@ -82,5 +82,49 @@
         grid-area: d;
         
     }
+
+    //! Admin
+
+
+    .adminViewContainer {
+
+
+        display: grid;
+
+        grid-template:             
+            "a b" 1fr        
+            "a b" 1fr
+            "a b" 1fr / 1fr 1fr;
+    
+    
+        grid-gap: 20px;
+        gap: 1.5rem;
+
+        border: solid;
+
+        height: 200px;
+
+        .userSection {
+            grid-area: a;
+            height: 100px;
+
+            border: solid;
+        }
+    
+        .courseSection {
+            grid-area: b;
+            height: 100px;
+
+
+            border: solid;
+        }
+
+    }
+
+
+
+
+    //! Creator
+
 }
 
