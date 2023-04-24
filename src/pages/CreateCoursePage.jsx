@@ -2,11 +2,12 @@ import { useState } from "react";
 import { BASE_URL_PROTECTED } from "../service/config";
 import axios from "axios";
 import '../components/CreateCourse/createCourse.scss'
+import { useEffect } from "react";
 
 
 
 export default function CreateCoursePage() {
-    
+
     const [title, setTitle] = useState("");
     const [creator, setCreator] = useState("");
     const [price, setPrice] = useState("");
@@ -14,9 +15,13 @@ export default function CreateCoursePage() {
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
     const [description, setDescription] = useState("");
+    const [image, setImage] = useState("");
 
     const [message, setMessage] = useState("");
 
+    useEffect(()=> {
+        console.log(image);
+    },[image])
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -31,6 +36,7 @@ export default function CreateCoursePage() {
         let newCourse = {
             title: title,
             creator: creator,
+            image: image,
             price: parseInt(price),
             beginning: beginning,
             start: start,
@@ -42,7 +48,7 @@ export default function CreateCoursePage() {
 
         try {
 
-            let response = await axios.post(BASE_URL_PROTECTED+'createcourse', newCourse, {
+            let response = await axios.post(BASE_URL_PROTECTED + 'createcourse', newCourse, {
                 withCredentials: true
             })
             setMessage('Kurs erfolgreich erstellt!')
@@ -65,13 +71,23 @@ export default function CreateCoursePage() {
     };
 
     function getHoursAndMinutes(milliseconds) {
-      let hours = Math.floor(milliseconds / (60 * 60 * 1000));
-      let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
-      return `${hours} hours and ${minutes} minutes`;
+        let hours = Math.floor(milliseconds / (60 * 60 * 1000));
+        let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
+        return `${hours} hours and ${minutes} minutes`;
     }
-    
 
-    
+    function imageChangeHandler (evt) {
+
+        const filereader = new FileReader();
+        const imgFile = filereader.readAsDataURL(evt.target.files[0]);
+        filereader.onloadend = (evt) => {
+            const filedata = filereader.result;
+            setImage(filedata);
+        }
+    }
+
+
+
 
     return (
         <div className="CreateCourse">
@@ -124,6 +140,15 @@ export default function CreateCoursePage() {
                     value={end}
                     placeholder="End"
                     onChange={event => setEnd(event.target.value)} />
+
+                <label htmlFor="image">Place Image</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        id="image"
+                        onChange={imageChangeHandler} />
+               
+            <img src={image} alt="" />
 
                 <label>Description</label>
                 <textarea
