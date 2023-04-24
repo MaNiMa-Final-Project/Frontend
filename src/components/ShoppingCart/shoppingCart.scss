@@ -1,8 +1,12 @@
 
 
 .cartContainer {
-    border-collapse: collapse;
     padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+
 
     table{
         width: 100%;
@@ -35,10 +39,11 @@
 
     .cartSummary{
         margin-top: 2rem;
-        width: 40%;
-        height: width;
         border: solid 1px;
-        float: right;
+        width: 40%;
+
+        align-self: flex-end;
+        
 
         .cartTotal{
             .cartSummaryHeader{
@@ -48,12 +53,34 @@
             }
 
             .cartSummaryBody{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 padding: 1rem;
+                margin: 1rem;
+                border-top: solid 1px;
+                border-bottom: solid 1px;
+
 
                 h2{
-                    padding: 1rem;
+                    padding: 0.5rem;
                 }
 
+            }
+
+            .cartSummaryFooter{
+                display: flex;
+                flex-direction: column;
+
+
+                button{
+                    background-color: blue;
+                    border-radius: 5px;
+                    padding: 1rem;
+                    margin: 1rem;
+                    color: aliceblue;
+                    font-size: large;
+                }
             }
         }
     }

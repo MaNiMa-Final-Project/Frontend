@@ -42,7 +42,7 @@ export default function ShoppingCartPage(){
             <tr key={course._id} className='tableRow'>
                 
                 <td className='tableDataCell'><button onClick={() => handleCartDelete(course._id)} ><FontAwesomeIcon icon={faSquareXmark} /></button></td>
-                <td className='tableDataCell'>{course.title}</td>
+                <td className='tableDataCell'><strong>{course.title}</strong></td>
 
                 <td className='tableDataCell'>{date}</td>
                 <td className='tableDataCell'>{course.duration}</td>
@@ -86,15 +86,26 @@ export default function ShoppingCartPage(){
 
                 </tfoot>
             </table>
+
             <div className='cartSummary'>
                 <div className='cartTotal'>
                     <div className='cartSummaryHeader'>
                         <h1>Cart totals</h1>
                     </div>
+
                     <div className='cartSummaryBody'>
-                        <hr />
-                        <h2>Total</h2>
-                        {subTotal}
+                        <strong>
+                            <h2>Total</h2>
+                        </strong>
+                        <strong>
+                            {subTotal} €
+                        </strong>
+                    </div>
+
+
+                    <div className='cartSummaryFooter'>
+                        <button>Proceed to checkout</button>
+                        <button>Back to Shop</button>
                     </div>
                 </div>
             </div>
