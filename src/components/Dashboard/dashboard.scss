@@ -4,10 +4,9 @@
     grid-template:             
         "a a d" 1fr        
         "b b d" 1fr
-        "c c d" 1fr / 1fr 1fr 1fr;;
+        "c c d" 1fr / 1fr 1fr 1fr;
 
 
-    grid-gap: 20px;
     gap: 1.5rem;
 
     button{
@@ -82,5 +81,111 @@
         grid-area: d;
         
     }
+
+
+
 }
+
+//! Admin
+
+
+.adminViewContainer {
+
+
+    display: grid;
+
+    grid-template:             
+        " a b " 80px
+        " c c " 1fr        
+        " c c " 1fr / 1fr 1fr;
+
+    gap: 1.5rem;
+
+    h1{
+        text-align: center;
+    }
+
+    .userSection {
+        border: solid 1px;
+        grid-area: a;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .courseSection {
+        border: solid 1px;
+        grid-area: b;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    form{
+        height: 75px;
+        padding: 0.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input {
+        width: auto;
+        border: solid 1px;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
+    button, select{
+        border: solid 1px;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin: 0.5rem;
+        background-color: blue;
+        color: aliceblue;
+        font-weight:600;
+    }
+
+    .resultSection{
+        grid-area: c;
+        width: 100%;
+        border: solid 1px;
+
+        h1{
+            font-weight: 800;
+        }
+        .resultList {
+
+            margin: 1rem;
+
+            li{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: larger;
+                padding: 1rem 2rem;
+                border-top: solid 1px;
+                border-bottom: solid 1px;
+
+                p{
+                    margin:0.2rem;
+                }
+
+                .role {
+                    font-weight: 600;
+                }
+
+                .selectForm{
+                    border: solid 1px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+//! Creator
 
