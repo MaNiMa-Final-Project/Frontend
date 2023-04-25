@@ -12,18 +12,18 @@ function Navbar(){
     const handleLogout =  () => userData.userLogout(navigate);
 
     let dashboard = userData.success ? 
-        <li><Link to="/dashboard">Dashboard</Link></li> : <></>
+        <li><Link to="/dashboard">DASHBOARD</Link></li> : <></>
 
     let createEvent = userData.isAdmin || userData.isCreator ?
-        <li><Link to="/create">create Course</Link></li> : <></>
+        <li><Link to="/newcourse">Kurs erstellen</Link></li> : <></>
         
 
     let logOutOrIn = userData.success ?
-            <li onClick={handleLogout}>Logout</li>
+            <li onClick={handleLogout}>LOGOUT</li>
         :
         <>
-            <li><Link to="/login">Einloggen</Link></li>
-            <li><Link to="/register">Anmelden</Link></li>
+            <li><Link to="/login">EINLOGGEN</Link></li>
+            <li><Link to="/register">REGISTRIEREN</Link></li>
         </>
 
     let cartBadge = cartData.cart.length > 0 ?

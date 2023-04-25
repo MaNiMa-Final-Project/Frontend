@@ -21,7 +21,7 @@ export const paths = {
     loginPath: "/login",
     dashboardPath: "/dashboard",
     shoppingCartPath: "/shoppingcart",
-    createCoursePath: "/create",
+    createCoursePath: "/newcourse",
     coursePath: "/course/:id",
     dozentenPath: "/dozenten",
     infoPath: "/info",
