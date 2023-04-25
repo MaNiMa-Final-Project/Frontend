@@ -16,6 +16,9 @@ function Navbar(){
 
     let createEvent = userData.isAdmin || userData.isCreator ?
         <li><Link to="/newcourse">Kurs erstellen</Link></li> : <></>
+
+    let createCreator = userData.isAdmin ?
+        <li><Link to="/newcreator">Dozenten erstellen</Link></li> : <></>
         
 
     let logOutOrIn = userData.success ?
@@ -38,6 +41,7 @@ function Navbar(){
                 <li><Link to="/" className="site-title"><img src={"src/assets/images/artshuttle_logo.png"} width="100" height="100" /></Link></li>
                 {dashboard}
                 {createEvent}
+                {createCreator}
         
             </ul>
             

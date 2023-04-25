@@ -11,6 +11,7 @@ import LoginPage from '../pages/LoginPage';
 import DashboardPage from '../pages/DashboardPage';
 import ShoppingCartPage from '../pages/ShoppingCartPage';
 import CreateCoursePage from '../pages/CreateCoursePage';
+import CreateCreatorPage from '../pages/CreateCreatorPage';
 import CourseDetailsPage from '../pages/CourseDetailsPage';
 import { useLegitUser } from '../hooks/useLegitUser';
 
@@ -22,6 +23,7 @@ export const paths = {
     dashboardPath: "/dashboard",
     shoppingCartPath: "/shoppingcart",
     createCoursePath: "/newcourse",
+    createCreatorPath: "/newcreator",
     coursePath: "/course/:id",
     dozentenPath: "/dozenten",
     infoPath: "/info",
@@ -79,24 +81,21 @@ export const routingData = () => {
             isProtected: false,
             redirectPath: null,
         },
-
         {
             path: paths.dozentenPath,
-            element: < Dozenten />,
+            element: <Dozenten />,
             isProtected: false,
             redirectPath: null,
         },
-
         {
             path: paths.infoPath,
-            element: < Info />,
+            element: <Info />,
             isProtected: false,
             redirectPath: null,
         },
-
         {
             path: paths.kursePath,
-            element: < Kurse />,
+            element: <Kurse />,
             isProtected: false,
             redirectPath: null,
         },
@@ -107,6 +106,13 @@ export const routingData = () => {
             path: paths.createCoursePath,
             element: <CreateCoursePage />,
             isProtected: (!(userData.isCreator || userData.isAdmin)),
+            redirectPath: paths.homePath,
+        },
+        //?admin
+        {
+            path: paths.createCreatorPath,
+            element: <CreateCreatorPage />,
+            isProtected: !userData.isAdmin,
             redirectPath: paths.homePath,
         },
         //? every user

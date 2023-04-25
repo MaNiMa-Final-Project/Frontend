@@ -57,8 +57,6 @@ export default function RegisterForm(){
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-
-
         let newUser = {
           nickName: username,
           firstName: name,
@@ -66,7 +64,6 @@ export default function RegisterForm(){
           email: email,
           password: password
         }
-        console.log("🚀 ~ file: RegisterForm.jsx:30 ~ handleSubmit ~ newUser:", newUser)
 
         try {
             const response = await axios.post( BASE_URL_PUBLIC+'register', newUser, {

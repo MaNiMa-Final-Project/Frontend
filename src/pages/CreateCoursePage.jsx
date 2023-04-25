@@ -73,7 +73,9 @@ export default function CreateCoursePage() {
     function getHoursAndMinutes(milliseconds) {
         let hours = Math.floor(milliseconds / (60 * 60 * 1000));
         let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
-        return `${hours} hours and ${minutes} minutes`;
+        if(hours === 0) return `${minutes} m`;
+        if(minutes === 0) return `${hours} h`;
+        return `${hours} h and ${minutes} m`;
     }
 
     function imageChangeHandler (evt) {

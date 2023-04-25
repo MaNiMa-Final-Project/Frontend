@@ -8,6 +8,19 @@ export default function UserDashboard({user}) {
 
     const [editingProfile, setEditingProfile] = useState(false);
 
+    const handleProfileEdit = async (newData) => {
+        try {
+            const response = await axios.put(`${BASE_URL_PROTECTED}profile`, newData, {
+                withCredentials: true,
+            });
+
+            setUser(response.data);
+            alert(`Dein Profil wurde erfolgreich aktualisiert!`);
+            setEditingProfile(false);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return(
 
