@@ -20,7 +20,7 @@ export default function courses() {
     return (<>
         {courses ? courses.map(course => {
 
-            return <div className="Kurse">
+            return <div key={course._id}className="Kurse">
                 <h1>{course.title}</h1>
                 <p>Creator: {course.creator}</p>
                 <p>Start: {course.start}</p>

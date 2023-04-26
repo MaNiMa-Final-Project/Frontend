@@ -55,6 +55,9 @@ export default function CourseCards(){
                     <button onClick={(evt)=>handleAddToCart(evt, course._id)} className='AddToCartBtn'>
                         Add to Card
                     </button>
+                    <button onClick={(evt) =>deleteCourseById(evt, course_id)} className='DeleteCourseBtn'>
+                        Delete Course
+                    </button>
                 </div>
             </a>
         )
