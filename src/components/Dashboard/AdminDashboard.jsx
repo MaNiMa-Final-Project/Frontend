@@ -2,6 +2,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import './dashboard.scss'
 import { TEMP_URL_COURSE, BASE_URL_PROTECTED } from '../../service/config';
+import formatCurrencyDE from '../../service/formatCurrencyDE.js'
+
 
 export default function AdminDashboard() {
 
@@ -79,10 +81,17 @@ export default function AdminDashboard() {
         <span>
           {index+1}. 
           <p>Kursname: {course.title}</p>
-          <p>Dozent: {dozent.nickName}</p>
-        </span>
-        <button>edit</button>
+          <p>Preis: {formatCurrencyDE(course.price)} </p>
 
+          <p>Dozent: {dozent.nickName}</p>
+          <p>Teilnehmer: </p>
+
+        </span>
+        <button>Rundmail</button>
+
+        <button>Bearbeiten</button>
+
+        <button>Löschen</button>
 
       </li>
     })
@@ -100,6 +109,8 @@ export default function AdminDashboard() {
               <p>Nutzername: {user.nickName}</p>
               <p>Vorname: {user.firstName}</p>
               <p>Nachname: {user.lastName}</p>
+              <p>Besuchte Kurse:</p>
+              <p>Kommentare:</p>
             </span>
             <form onSubmit={(e) => handleFormSubmit(e, user._id)}>
               <select value={selectedValue} onChange={handleSelectChange}>
@@ -110,7 +121,10 @@ export default function AdminDashboard() {
               </select>
               <button type="submit">Submit</button>
             </form>
+            <button>mail</button>
+
             <button>anonymize</button>
+
             <button>delete</button>
 
         </li>
