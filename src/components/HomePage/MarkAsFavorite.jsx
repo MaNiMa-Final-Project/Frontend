@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BASE_URL_PUBLIC } from "../../service/config";
 
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useLegitUser } from "../../hooks/useLegitUser";
@@ -40,7 +40,9 @@ export default function MarkAsFavorite({evt, courseId}){
     };
 
     const labelStyle = {
-        display: 'inline-block',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         border: '1px solid #ccc',
         backgroundColor: 'white',
         borderRadius: '50%',
@@ -48,8 +50,9 @@ export default function MarkAsFavorite({evt, courseId}){
         cursor: 'pointer',
         width: '1.5em',
         height: '1.5em',
-        lineHeight: '1.5em',
-        margin: '5px'
+        lineHeight: '2em',
+        margin: '0 5px',
+        color: 'gray'
     };
 
     return (
@@ -60,7 +63,7 @@ export default function MarkAsFavorite({evt, courseId}){
                 onChange={handleFavoriteChange}
                 style={checkboxStyle}
             />
-            {isFavorite ? <span style={{ textShadow: '0 0 3px black', color: 'red' }}><FontAwesomeIcon icon={faHeart} /></span> : <FontAwesomeIcon icon={faHeart} />}
+            {isFavorite ? <span style={{ textShadow: '0 0 5px white', color: 'rgb(237, 237, 43)'}}><FontAwesomeIcon icon={faStar} /></span> : <span style={{ textShadow: '0 0 5px white' }}><FontAwesomeIcon icon={faStar} /></span>}
         </label>
     );
 

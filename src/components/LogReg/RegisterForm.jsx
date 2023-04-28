@@ -17,6 +17,8 @@ export default function RegisterForm(){
     const [password, setPassword] = useState("");
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const [passwordMismatch, setPasswordMismatch] = useState(false);
+    const [image, setImage] = useState("");
+
 
     const [message, setMessage] = useState("");
 
@@ -62,7 +64,8 @@ export default function RegisterForm(){
           firstName: name,
           lastName: surname,
           email: email,
-          password: password
+          password: password,
+          image: image
         }
 
         try {
@@ -75,6 +78,16 @@ export default function RegisterForm(){
               setMessage(error.response.data.message)
             }
     };
+
+    function imageChangeHandler (evt) {
+
+      const filereader = new FileReader();
+      const imgFile = filereader.readAsDataURL(evt.target.files[0]);
+      filereader.onloadend = (evt) => {
+          const filedata = filereader.result;
+          setImage(filedata);
+      }
+  }
 
     return(
         <div className="logreg">
@@ -122,6 +135,14 @@ export default function RegisterForm(){
             onChange={handleConfirmPasswordChange} 
           />
 
+          <input
+            type="file"
+            accept="image/*"
+            id="image"
+            onChange={imageChangeHandler} />
+               
+          <img src={image} alt="" />
+
           <fieldset className="btn-group">
             <button 
               className="logreg-button" 
@@ -134,7 +155,7 @@ export default function RegisterForm(){
               className="logreg-button" 
               type="submit"
               disabled={!checkForm()}>
-              Anmelden
+              Registrieren
             </button>
           </fieldset>
 
