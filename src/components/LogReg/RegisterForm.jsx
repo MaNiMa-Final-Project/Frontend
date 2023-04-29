@@ -3,7 +3,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BASE_URL_PUBLIC } from "../../service/config";
-import '../../components/LogReg/logreg.scss'
+import '../../components/LogReg/logreg.scss';
+
+import ImageCrop from "./ImageCrop";
+
 
 export default function RegisterForm(){
     const navigate = useNavigate();
@@ -79,15 +82,6 @@ export default function RegisterForm(){
             }
     };
 
-    function imageChangeHandler (evt) {
-
-      const filereader = new FileReader();
-      const imgFile = filereader.readAsDataURL(evt.target.files[0]);
-      filereader.onloadend = (evt) => {
-          const filedata = filereader.result;
-          setImage(filedata);
-      }
-  }
 
     return(
         <div className="logreg">
@@ -135,13 +129,7 @@ export default function RegisterForm(){
             onChange={handleConfirmPasswordChange} 
           />
 
-          <input
-            type="file"
-            accept="image/*"
-            id="image"
-            onChange={imageChangeHandler} />
-               
-          <img src={image} alt="" />
+          <ImageCrop ownImageWidth={'600'}/>
 
           <fieldset className="btn-group">
             <button 
