@@ -63,61 +63,7 @@
     }
 }
 
-.cropContainer{
-    
-    display: flex;
-    flex-wrap: wrap;
 
-    margin: auto;
-
-    justify-content: center;
-    align-content: center;
-
-}
-
-
-.croppedImageContainer {
-
-
-    border-radius: 50%;
-
-
-    border-radius: 5px;
-    margin: 1rem auto;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-
-
-    .croppedImage {
-
-
-
-        border-radius: 50%;
-
-    }
-
-
-}
-
-
-
-.ReactCrop {
-
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
-
-    
-    margin: 1rem auto ;
-}
-
-.canvas{
-    border-radius: 50%;
-}
 
 
 /* Fuer Smartphones */

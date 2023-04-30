@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { BASE_URL_PUBLIC } from "../../service/config";
 import '../../components/LogReg/logreg.scss';
 
-import ImageCrop from "./ImageCrop";
+import ImageCrop from '../../shared/CropImage/ImageCrop'
 
 
 export default function RegisterForm(){

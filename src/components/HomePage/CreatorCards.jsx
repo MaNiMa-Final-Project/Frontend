@@ -8,6 +8,8 @@ export default function CreatorCards() {
     const [creators, setCreators] = useState([])
 
 
+
+
     useEffect(()=>{
         (async () => {
             try {
@@ -37,7 +39,10 @@ export default function CreatorCards() {
 
     return creators.map(creator => {
 
-        console.log("🚀 ~ file: CreatorCards.jsx:61 ~ creator:", creator)
+        let splittedImage = creator.image.split('upload');
+        let resizedImage = splittedImage[0]+"upload/c_scale,w_250,h_250"+splittedImage[1];
+
+
 
 
         return(
@@ -48,7 +53,7 @@ export default function CreatorCards() {
                 </div>
 
                 <div className='imageContainer'>
-                    <img src={creator.image} alt=""/>
+                    <img src={resizedImage} alt=""/>
 
                     <button onClick={(evt)=>handleMeeting(evt, creator._id)} className='AddToCartBtn'>
                         Erstgespräch buchen
