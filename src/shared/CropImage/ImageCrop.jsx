@@ -7,10 +7,15 @@ import './imagecrop.scss'
 import { BASE_URL_PUBLIC } from "../../service/config.js";
 import axios from "axios";
 
-const ImageCrop = ({ownImageWidth, existingImage}) => {
+const ImageCrop = ({originalImageSize, resizedImageSize, existingImage}) => {
+
+
+
 
 
     const [crop, setCrop] = useState({});
+    const CROP_SIZE = 0.8
+
 
     const [naturalWidth, setNaturalWidth] = useState('');
     const [naturalHeight, setNaturalHeight] = useState('');
@@ -22,11 +27,9 @@ const ImageCrop = ({ownImageWidth, existingImage}) => {
 
     const [selectedFile, setSelectedFile] = useState("")
 
-
     useEffect(()=>{
         if(existingImage) setSelectedFile(existingImage);
         else setSelectedFile(`https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png`)
-    
     }, [])
 
     //!anonymous https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png
@@ -35,46 +38,24 @@ const ImageCrop = ({ownImageWidth, existingImage}) => {
     //https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg
     //
     
-    const handleFileSelect = async (evt) => {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(evt.target.files[0]);
-        fileReader.onloadend = async (evt) => {
-            const fileData = fileReader.result;
 
-            let body = {
-                image: fileData,
-                folder: 'users',
-                id: crypto.randomUUID()
-            }
-
-            try {
-
-                let response = await axios.post(BASE_URL_PUBLIC + 'upload', body)
-                setTrigger(true)      
-                setSelectedFile(response.data.url);
-
-                console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url)
-
-                
-                
-            } catch (error) {
-                console.error(error)
-            }
-        }
-    };
 
     const handleCropChange = (newCrop) => {
         setCrop(newCrop);
     };
 
     const handleCropComplete = (crop, pixelCrop) => {
-
-        console.log(crop, pixelCrop);
+    console.log("🚀 --------------------------------------------------🚀")
+    console.log("🚀 ~ file: ImageCrop.jsx:53 ~ pixelCrop:", pixelCrop)
+    console.log("🚀 --------------------------------------------------🚀")
+    console.log("🚀 ----------------------------------------🚀")
+    console.log("🚀 ~ file: ImageCrop.jsx:53 ~ crop:", crop)
+    console.log("🚀 ----------------------------------------🚀")
 
         const canvas = document.createElement('canvas');
         canvas.className = 'canvas';
-        canvas.width = pixelCrop.width;
-        canvas.height = pixelCrop.height;
+        canvas.width = pixelCrop.width.toFixed();
+        canvas.height = pixelCrop.height.toFixed();
         const ctx = canvas.getContext('2d');
         const img = new Image();
         img.crossOrigin = "anonymous"; // set crossOrigin attribute
@@ -84,49 +65,45 @@ const ImageCrop = ({ownImageWidth, existingImage}) => {
                 pixelCrop.x,
                 pixelCrop.y,
                 pixelCrop.width,
-                pixelCrop.width,
+                pixelCrop.height,
                 0,
                 0,
                 pixelCrop.width,
-                pixelCrop.width
+                pixelCrop.height
             );
             const croppedImageUrl = canvas.toDataURL();
             setNewImage(croppedImageUrl);
         }
 
+
+        let originalCoordinates = calculateImageCoords(crop.x, crop.y)
+        console.log("🚀 ----------------------------------------------------------------------🚀")
+        console.log("🚀 ~ file: ImageCrop.jsx:85 ~ originalCoordinates:", originalCoordinates)
+        console.log("🚀 ----------------------------------------------------------------------🚀")
+
+        let renderRatio =  originalImageSize.width / naturalWidth;
+        console.log("🚀 ------------------------------------------------------🚀")
+        console.log("🚀 ~ file: ImageCrop.jsx:81 ~ renderRatio:", renderRatio)
+        console.log("🚀 ------------------------------------------------------🚀")
+        if(naturalWidth>originalImageSize.width) renderRatio = 1
+        let renderedCropSize = Math.floor(crop.width*renderRatio)
+
+
         let splitedURL = selectedFile.split('upload')
 
-        let originalKoordinates = calculateImageCoords(crop.x, crop.y)
-
-        let renderRatio = naturalWidth / ownImageWidth;
-        if(naturalWidth<ownImageWidth) renderRatio = 1
-
-        let renderedCropSize = (crop.width*renderRatio).toFixed()
-
-        let croppedImage = splitedURL[0]+`upload/c_crop,h_${renderedCropSize},w_${renderedCropSize},x_${originalKoordinates.imgX},y_${originalKoordinates.imgY}/c_scale,w_${crop.height.toFixed()}`+splitedURL[1];
+        let croppedImage = splitedURL[0]+`upload/c_crop,h_${renderedCropSize},w_${renderedCropSize},x_${originalCoordinates.imgX},y_${originalCoordinates.imgY}/c_scale,w_${crop.height}`+splitedURL[1].slice(12);
         setNewImage(croppedImage)
+        console.log("🚀 --------------------------------------------------------🚀")
+        console.log("🚀 ~ file: ImageCrop.jsx:83 ~ croppedImage:", croppedImage)
+        console.log("🚀 --------------------------------------------------------🚀")
     };
 
-    // function adjustCropAspectRatio(width, height, crop) {
-    //     const aspectRatio = width / height;
-    //     const newCrop = { ...crop };
-      
-    //     // Falls die Breite größer als die Höhe ist, passt die Höhe an die Breite an
-    //     if (crop.width > crop.height) {
-    //       newCrop.height = crop.width / aspectRatio;
-    //     }
-    //     // Falls die Höhe größer als die Breite ist, passt die Breite an die Höhe an
-    //     else if (crop.height > crop.width) {
-    //       newCrop.width = crop.height * aspectRatio;
-    //     }
-      
-    //     return newCrop;
-    //   }
 
 
       
 
     function calculateImageCoords(divX, divY) {
+
         let aspectRatio;
         let ownImageHeight;
       
@@ -134,19 +111,19 @@ const ImageCrop = ({ownImageWidth, existingImage}) => {
         if (naturalWidth >= naturalHeight) {
           // Breite ist größer
           aspectRatio = naturalWidth / naturalHeight;
-          ownImageHeight = ownImageWidth / aspectRatio;
+          ownImageHeight = resizedImageSize.width / aspectRatio;
           
         } else {
           // Höhe ist größer oder gleich
           aspectRatio = naturalHeight / naturalWidth;
-          ownImageHeight = ownImageWidth * aspectRatio;
+          ownImageHeight = resizedImageSize.width * aspectRatio;
         }
       
         // Berechne Skalierungsfaktor für Breite
-        const scaleX = ownImageWidth / naturalWidth;
+        const scaleX = resizedImageSize.width / originalImageSize.width ;
       
         // Berechne Skalierungsfaktor für Höhe
-        const scaleY = ownImageHeight / naturalHeight;
+        const scaleY = resizedImageSize.height / originalImageSize.height;
       
         // Berechne x-Koordinate des ausgewählten Punkts im Foto in Originalgröße
         const imgX = Math.ceil(divX / scaleX);
@@ -155,11 +132,11 @@ const ImageCrop = ({ownImageWidth, existingImage}) => {
         const imgY = Math.ceil(divY / scaleY);
       
         // Gib die berechneten Koordinaten aus
-        console.log(`Die Koordinaten (${divX}, ${divY}) im Bild mit Breite ${ownImageWidth}px und Höhe ${ownImageHeight}px entsprechen den Koordinaten (${imgX}, ${imgY}) im Originalbild.`);
+        //console.log(`Die Koordinaten (${divX}, ${divY}) im Bild mit Breite ${imageSize.width}px und Höhe ${imageSize.width}px entsprechen den Koordinaten (${imgX}, ${imgY}) im Originalbild.`);
 
         return {
-            imgX: imgX,
-            imgY: imgY
+            imgX: imgX.toFixed(),
+            imgY: imgY.toFixed()
         }
     }
       
@@ -169,19 +146,45 @@ const ImageCrop = ({ownImageWidth, existingImage}) => {
         setNaturalWidth(width);
         setNaturalHeight(height);
 
-        let aspectRatio;
-        let ownImageHeight;
-        if (width < ownImageWidth) {
-
-            console.log("dADAdA");
+        if(width >= height) {
 
             const imageSize = {
                 width: width,
-                height: width 
+                height: height 
                 };
             
-                const cropWidth = imageSize.width * 0.9; 
-                const cropHeight = imageSize.height * 0.9; 
+                const cropWidth = imageSize.height * CROP_SIZE 
+                const cropHeight = imageSize.height * CROP_SIZE; 
+                const cropPosition = {
+                x: (imageSize.width - cropWidth) / 2,
+                y: (imageSize.height - cropHeight) / 2
+                };
+            
+                const pixelCrop = {
+                x: cropPosition.x,
+                y: cropPosition.y,
+                width: cropWidth,
+                height: cropHeight
+                };
+
+                const percentCrop = {
+                unit: 'px',
+                x: Math.floor(pixelCrop.x),
+                y: Math.floor(pixelCrop.y),
+                width: Math.floor(pixelCrop.height),
+                height: Math.floor(pixelCrop.height),
+                };
+            
+                setCrop(percentCrop);
+        } else {
+            const imageSize = {
+                width: width,
+                height: height 
+                };
+            
+                const cropWidth = imageSize.width * CROP_SIZE; 
+                const cropHeight = imageSize.width  * CROP_SIZE; 
+
                 const cropPosition = {
                 x: (imageSize.width - cropWidth) / 2,
                 y: (imageSize.height - cropHeight) / 2
@@ -196,102 +199,54 @@ const ImageCrop = ({ownImageWidth, existingImage}) => {
             
                 const percentCrop = {
                 unit: 'px',
-                x: pixelCrop.x,
-                y: pixelCrop.y,
-                width: pixelCrop.width,
-                height: pixelCrop.height,
+                x: Math.floor(pixelCrop.x),
+                y: Math.floor(pixelCrop.y),
+                width: Math.floor(pixelCrop.width),
+                height: Math.floor(pixelCrop.width),
                 };
             
                 setCrop(percentCrop);
-
-        } else {
-
-            let cropWidth;
-            let cropHeight;
-
-            if (width > height) {     
-                console.log("fafefa");           
-            // Breite ist größer
-            aspectRatio = width / height;
-            ownImageHeight = ownImageWidth / aspectRatio;
-
-            cropHeight = ownImageHeight * 0.7;
-            cropWidth = ownImageHeight * 0.7;
-
-            } else {
-            // Höhe ist größer oder gleich
-            aspectRatio = height / width;
-            ownImageHeight = ownImageWidth * aspectRatio;
-            console.log("🚀 -------------------------------------------------------------🚀")
-            console.log("🚀 ~ file: ImageCrop.jsx:220 ~ ownImageHeight:", ownImageHeight)
-            console.log("🚀 -------------------------------------------------------------🚀")
-
-
-            cropHeight = ownImageWidth * 0.7;
-            cropWidth = ownImageWidth * 0.7;
-
-            }
-
-
-            const cropPosition = {
-            x: (ownImageWidth - cropWidth) / 2,
-            y: (ownImageHeight - cropHeight) / 2
-            };
-        
-            const pixelCrop = {
-            x: cropPosition.x,
-            y: cropPosition.y,
-            width: cropWidth,
-            height: cropHeight
-            };
-        
-            const percentCrop = {
-            unit: 'px',
-            x: pixelCrop.x,
-            y: pixelCrop.y,
-            width: pixelCrop.width,
-            height: pixelCrop.height,
-            };
-        
-            setCrop(percentCrop);
         }
-      
 
-      }
+    }
+
+    let croppedContainerSize = newImage ? 
+    { width: `${resizedImageSize.width*CROP_SIZE}px`, height: `${resizedImageSize.height*CROP_SIZE}px` } 
+    : 
+    { width: `${0}px`, height: `${0}px` }
       
   return (
     <>
 
-        <input type="file" accept="image/*" onChange={handleFileSelect} />
 
         {trigger ? 
-        
+            <div className='cropContainer'>
+                <div className='cropToolContainer'>
+                    <ReactCrop
+                        crop={crop}
+                        circularCrop={true}
+                        onChange={handleCropChange}
+                        onComplete={handleCropComplete}
+                        ruleOfThirds={true}
+                        className='cropTool'
+                        >
+                        <img
+                            src={selectedFile}
+                            onLoad={onImageLoad}
+                            
+                        />
+                    </ReactCrop>
+                </div>
 
-        <div className='cropContainer' style={{width: `${ownImageWidth}px`}}>
-            <ReactCrop
-                crop={crop}
-                circularCrop={true}
-                onChange={handleCropChange}
-                onComplete={handleCropComplete}
-                ruleOfThirds={true}
-            >
-                <img
-                    src={selectedFile}
-                    onLoad={onImageLoad}
-                />
-            </ReactCrop>
-
-            <div className='croppedImageContainer' style={{width: `${ownImageWidth}px`}}>
-                {newImage && <img className='croppedImage' style={{height: `${crop.height}px`}} src={newImage} alt="Zugeschnittenes Bild" />}
+                <div className='croppedImageContainer' style={croppedContainerSize} >
+                    {newImage && <img src={newImage} alt="Zugeschnittenes Bild" />}
+                </div>
             </div>
-        </div>
-        :
-        <div >
-            <h1 style={{textAlign: 'center', fontSize: '2rem'}}>Profilfoto:</h1>
-            <img style={{borderRadius: '50%', margin: '1rem auto'}} src={selectedFile} alt="" />
-        </div>
-        
-        
+            :
+            <div >
+                <h1 style={{textAlign: 'center', fontSize: '2rem'}}>Profilfoto:</h1>
+                <img style={{borderRadius: '50%', margin: '1rem auto'}} src={selectedFile} alt="" />
+            </div>
         }
 
         

@@ -1,9 +1,11 @@
 
+import { useEffect, useState } from 'react'
 import SideBar from '../../shared/Sidebar/SideBar'
 
 import './dashboard.scss'
 
 export default function CreatorDashboard({user}) {
+
 
     return(
         <div className="creatorDashboardContainer">

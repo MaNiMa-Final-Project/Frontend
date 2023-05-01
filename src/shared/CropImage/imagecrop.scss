@@ -1,55 +1,71 @@
+
+
+
 .cropContainer{
-    
-    display: flex;
-    flex-wrap: wrap;
-
-    margin: auto;
-
-    justify-content: center;
-    align-content: center;
-
-}
-
-
-.croppedImageContainer {
-
-
-    border-radius: 50%;
-
-
     border-radius: 5px;
-    margin: 1rem auto;
+    margin: 1rem;
 
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
 
+    animation-name: changeWidth;
+    animation-duration: 1s;
+    animation-timing-function: ease;
 
+    @keyframes changeWidth {
+        from { transform: scale(0) }
+        to { transform: scale(1) }
+    }
 
+    .cropToolContainer{
 
-    .croppedImage {
+        margin: 1rem;
 
-
-
-        border-radius: 50%;
+        .cropTool {
+    
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+        }
 
     }
 
+    .croppedImageContainer {
 
-}
+        width: 0;
+
+        transition: width 1s ease;
 
 
+        img {
+            border-radius: 50%;
 
-.ReactCrop {
 
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
+            animation-name: scalePic;
+            animation-duration: 1s;
+            animation-timing-function: ease-in;
+        
+            @keyframes scalePic {
+                from { transform: scale(0) }
+                to { transform: scale(1) }
+            }
+        }
+          
+
+          
+
 
     
-    margin: 1rem auto ;
+    }
 }
 
-.canvas{
-    border-radius: 50%;
-}
+
+
+@keyframes changeWidth {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+
