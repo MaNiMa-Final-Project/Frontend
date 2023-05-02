@@ -16,72 +16,151 @@
     .workshopContainer {
         grid-area: a;
 
-        overflow: hidden;
-
-        display: flex;
-        flex-direction: row;
+overflow-x: hidden;
+        display: inline-flex;
         justify-content: space-around;
+        flex-wrap: nowrap;
 
-        .creatorContainer{
-            position: relative;
+        // .creatorContainer{
+        //     position: relative;
 
-            border-radius: 50%;
-
-
-            display: inline-block; /* sorgt dafür, dass die Elemente in einer Reihe bleiben */
-
-            background-color: transparent;
-
-            border-radius: 2px;
-
-            .courseTitle{
-                position: absolute;
-                font-size: 1.5rem;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0;
-                right: 0;
-                text-align: center;
-                cursor: auto;
-            }
-
-            .imageContainer {
+        //     border-radius: 50%;
 
 
+        //     display: inline-block; /* sorgt dafür, dass die Elemente in einer Reihe bleiben */
 
-                img {
+        //     background-color: transparent;
 
-                    border-radius: 50%;
+        //     border-radius: 2px;
 
-                    aspect-ratio: 1/1;
+        //     .courseTitle{
+        //         position: absolute;
+        //         font-size: 1.5rem;
+        //         margin-left: auto;
+        //         margin-right: auto;
+        //         left: 0;
+        //         right: 0;
+        //         text-align: center;
+        //         cursor: auto;
+        //     }
 
-                }
-            }
-            .cardBody{
+        //     .imageContainer {
 
-                display: flex;
-                flex-direction: column;
+
+
+        //         img {
+
+        //             border-radius: 50%;
+
+        //             aspect-ratio: 1/1;
+
+        //         }
+        //     }
+        //     .cardBody{
+
+        //         display: flex;
+        //         flex-direction: column;
     
-                border: solid 1px;
+        //         border: solid 1px;
 
-                margin: 0.5rem;
-                padding: 0.5rem;
-                background-color: rgb(228, 237, 245);
+        //         margin: 0.5rem;
+        //         padding: 0.5rem;
+        //         background-color: rgb(228, 237, 245);
 
 
 
-                .AddToCartBtn{
-                    border: solid;
-                    border-radius: 5px;
+        //         .AddToCartBtn{
+        //             border: solid;
+        //             border-radius: 5px;
 
-                    margin: auto;
+        //             margin: auto;
 
-                    width: calc(100% - 1rem);
-                    text-align: center;
-                }
-            }
+        //             width: calc(100% - 1rem);
+        //             text-align: center;
+        //         }
+        //     }
 
-        }
+        // }
+
+        .card {
+            flex: 1 1 auto;
+            width: calc(100% / 3);
+            transition: transform 0.5s ease-in-out;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            margin: 0.5rem;
+          }
+          
+          .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem;
+            background-color: #4a5568;
+            color: #fff;
+          }
+          
+          .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+          }
+          
+          .card-image-container {
+            flex: 1;
+          }
+          
+          .card-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+
+          }
+          
+          .card-buttons-container {
+            flex: 1;
+          }
+          
+          .card-button {
+            padding: 10px;
+            margin: 0.5rem 0;
+            background-color: #4a5568;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+          }
+          
+          .card-button:hover {
+            background-color: #2d3748;
+          }
+          
+          .card-button--view-courses {
+            background-color: #fff;
+            color: #4a5568;
+            border: 2px solid #4a5568;
+          }
+          
+          .card-button--view-courses:hover {
+            background-color: #4a5568;
+            color: #fff;
+          }
+
+          .card-image-container:hover .card-image {
+
+            transform: scale(1.05);
+          }
+          
+          .card-button:hover {
+            background-color: #008CBA;
+            color: #fff;
+          }
+          
+          
     }
 
     //! section2

@@ -7,17 +7,20 @@ import { useState, useRef, useEffect } from 'react';
 import './sidebar.scss';
 import ImageCrop from '../../shared/CropImage/ImageCrop'
 
+const IMG_SIZE = 0.5
+
 
 export default function SideBar({user}){
   const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
   const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
   const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 })
-
+  const [croppedImage, setCroppedImage] = useState(null);
 
   const [image, setImage] = useState('');
   const [originalImage, setOriginalImage] = useState('')
 
   const [userData, setUserData] = useState("");
+
   const inputRef = useRef(null);
 
   const [changeNickName, setChangeNickName] = useState(false);
@@ -28,6 +31,13 @@ export default function SideBar({user}){
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [userPW, setUserPW] = useState({
+    newPassword: "",
+    confirmPassword: "",
+    oldPassword: ""
+  })
+  const [message, setMessage] = useState('')
 
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
@@ -82,16 +92,8 @@ export default function SideBar({user}){
             let scaledImage = splitImage[0]+`upload/w_${newSize.width},h_${newSize.height}`+splitImage[1];
             setImage(scaledImage);
             setResizedImageSize({ width: newSize.width, height: newSize.height })
-
+            setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight })
           };
-
-          //  console.log(screenSize);
-          //  console.log(`Image size: ${img.naturalWidth} x ${img.naturalHeight}`);
-          //  console.log('image '+image);
-
-
-          setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight })
-
         }
 
   },[user])
@@ -109,18 +111,9 @@ export default function SideBar({user}){
         newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
       }
     }
-  
-    return { width: (newWidth*0.7).toFixed(), height: (newHeight*0.7).toFixed() };
+    return { width: Math.floor(newWidth*IMG_SIZE), height: Math.floor(newHeight*IMG_SIZE) };
   }
   
-  
-  
-  
-  
-
-  
-
-
   const toggleShowPassword = (passwordType) => {
     if (passwordType === 'old') {
       setShowOldPassword(!showOldPassword);
@@ -150,32 +143,42 @@ export default function SideBar({user}){
         ...userData,
         ...updatedData
       });
+
+      setChangeNickName(false);
+
     } catch (error) {
       console.error(error)
     }
   }
 
-  const handlePasswordChange = (event, oldPass, newPass, confirmPass) => {
-
-    if(confirmPass === newPass) {
-      console.log("eingabe gut");
-    }
-
-
-    console.log("🚀 ----------------------------------------------------🚀")
-    console.log("🚀 ~ file: SideBar.jsx:33 ~ confirmPass:", confirmPass)
-    console.log("🚀 ----------------------------------------------------🚀")
-    console.log("🚀 --------------------------------------------🚀")
-    console.log("🚀 ~ file: SideBar.jsx:33 ~ newPass:", newPass)
-    console.log("🚀 --------------------------------------------🚀")
-    console.log("🚀 --------------------------------------------🚀")
-    console.log("🚀 ~ file: SideBar.jsx:33 ~ oldPass:", oldPass)
-    console.log("🚀 --------------------------------------------🚀")
+  const handlePasswordChange = async (event, oldPass, newPass, confirmPass) => {
     event.preventDefault();
+    if(confirmPass === newPass) {
+      try {
+        let response = await axios.put(BASE_URL_PROTECTED+'efoijgvaeipr',{
+          oldPass: oldPass,
+          newPass: newPass
+        }, {
+          withCredentials: true
+        });
 
+        if (response.data.success) {
+          setMessage("Passwort erfolgreich geändert")
+
+          setTimeout(() => {
+            handlePasswordModalClose()
+          }, 500);
+        } else {
+          setMessage("Passwort nicht korrekt")
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    } else {
+      setMessage('Passwörter stimmen nicht überein')
+    }
   };
   
-
   function handlePasswordClick() {
     setChangeEmail(false);                  
     setChangeLastName(false);
@@ -189,6 +192,8 @@ export default function SideBar({user}){
     setOldPassword('')
     setNewPassword('')
     setConfirmPassword('')
+    setMessage('')
+
   }
 
   function handleImageClick() {
@@ -233,11 +238,28 @@ export default function SideBar({user}){
     }
 };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      let response = await axios.put(BASE_URL_PROTECTED+'edituser',{
+        croppedImage: croppedImage
+      }, {
+        withCredentials: true
+      });
+      if (response.status === 200) {
+        setCroppedImage(response.data.croppedImage)
+        handleImageModalClose()
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return(
     user && <div className="profileSideBar" style={{border: 'solid'}}>
 
       <div className='profilePicture'>
-        <img src={user.image} alt="" />
+        {croppedImage ? <img src={croppedImage} alt="" /> : <img src={user.image} alt="" />}
       </div>
       <button type='button' onClick={handleImageClick}><FontAwesomeIcon className='icons' icon={faCamera} /></button>
       <div className='personalSettings'>
@@ -256,7 +278,6 @@ export default function SideBar({user}){
                     <button 
                     type='button' 
                     onClick={()=> {
-                      setChangeNickName(false);
                       handleButtonClick(userData.nickName, "nickName", inputRef.current.value);
                     }}
                     
@@ -293,7 +314,6 @@ export default function SideBar({user}){
                     <button 
                     type='button'
                     onClick={()=> {
-                      setChangeFirstName(false);
                       handleButtonClick(userData.firstName, "firstName", inputRef.current.value);
                     }}
                     >
@@ -330,7 +350,6 @@ export default function SideBar({user}){
                     <button 
                     type='button'
                     onClick={()=> {
-                      setChangeLastName(false);
                       handleButtonClick(userData.lastName,"lastName", inputRef.current.value);
                     }}
                     >
@@ -367,7 +386,6 @@ export default function SideBar({user}){
                     <button 
                     type='button'
                     onClick={()=> {
-                      setChangeEmail(false);
                       handleButtonClick(userData.email,"email",inputRef.current.value);
                     }}
                     >
@@ -403,7 +421,7 @@ export default function SideBar({user}){
                 </button>
             </div>
         </div>
-      </div> :
+      </div> 
 
       {showPasswordModal && (
         <div className='modalOverlay'>
@@ -457,6 +475,11 @@ export default function SideBar({user}){
                 </button>
               </fieldset>
 
+              {message === "Passwort erfolgreich geändert" ? 
+                <p style={{color: 'green'}}>{message}</p>
+                : 
+                <p>{message}</p>}
+
                 </fieldset>
               <div className='modalButtons'>
                 <button 
@@ -483,10 +506,11 @@ export default function SideBar({user}){
               resizedImageSize={resizedImageSize} 
               resizedImage={image}
               originalImage={originalImage}
+              setCroppedImage={setCroppedImage}
             />
 
             <div className='pictureModalButtons'>
-              <form>
+              <form  onClick={handleSubmit}>
               <fieldset className='fileInput'>
                 <label htmlFor="file-input" className="file-input-label">
                   <FontAwesomeIcon icon={faUpload} />              

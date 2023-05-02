@@ -7,23 +7,18 @@ import './imagecrop.scss'
 import { BASE_URL_PUBLIC } from "../../service/config.js";
 import axios from "axios";
 
-const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalImage}) => {
+const CROP_SIZE = 0.8
+const IMG_VIEW_SIZE = 300 
 
-
-
-
-
+const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalImage, setCroppedImage}) => {
     const [crop, setCrop] = useState({});
-    const CROP_SIZE = 0.8
-
 
     const [naturalWidth, setNaturalWidth] = useState('');
     const [naturalHeight, setNaturalHeight] = useState('');
 
     const [trigger, setTrigger] = useState(true)
 
-
-    const [croppedImage, setCroppedImage] = useState('');
+    const [showCroppedImage, setShowCroppedImage] = useState('');
 
     const [selectedFile, setSelectedFile] = useState("")
 
@@ -34,12 +29,6 @@ const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalI
 
     //!anonymous https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png
 
-    //https://res.cloudinary.com/dppp3plo6/image/upload/v1682604705/users/RalfAckerman.jpg
-    //https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg
-    //
-    
-
-
     const handleCropChange = (newCrop) => {
         setCrop(newCrop);
     };
@@ -48,8 +37,8 @@ const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalI
 
         const canvas = document.createElement('canvas');
         canvas.className = 'canvas';
-        canvas.width = pixelCrop.width.toFixed();
-        canvas.height = pixelCrop.height.toFixed();
+        canvas.width = pixelCrop.width;
+        canvas.height = pixelCrop.height;
         const ctx = canvas.getContext('2d');
         const img = new Image();
         img.crossOrigin = "anonymous"; // set crossOrigin attribute
@@ -69,7 +58,6 @@ const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalI
             // croppedImage(croppedImageUrl);
         }
 
-
         let originalCoordinates = calculateImageCoords(crop.x, crop.y)
 
         let renderRatio =  originalImageSize.width / naturalWidth;
@@ -77,17 +65,13 @@ const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalI
         if(naturalWidth>originalImageSize.width) renderRatio = 1
         let renderedCropSize = Math.floor(crop.width*renderRatio)
 
-
         let splitedURL = originalImage.split('upload')
 
-        let croppedImage = splitedURL[0]+`upload/c_crop,h_${renderedCropSize},w_${renderedCropSize},x_${originalCoordinates.imgX},y_${originalCoordinates.imgY}/c_scale,w_${crop.height}`+splitedURL[1];
+        let croppedImage = splitedURL[0]+`upload/c_crop,h_${renderedCropSize},w_${renderedCropSize},x_${originalCoordinates.imgX},y_${originalCoordinates.imgY}/c_scale,w_${IMG_VIEW_SIZE}`+splitedURL[1];
+        
+        setShowCroppedImage(croppedImage)
         setCroppedImage(croppedImage)
-  
     };
-
-
-
-      
 
     function calculateImageCoords(divX, divY) {
 
@@ -197,15 +181,13 @@ const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalI
 
     }
 
-    let croppedContainerSize = croppedImage ? 
-    { width: `${resizedImageSize.width*CROP_SIZE}px`, height: `${resizedImageSize.height*CROP_SIZE}px` } 
+    let croppedContainerSize = showCroppedImage ? 
+    { width: `${IMG_VIEW_SIZE+20}px`, height: `${IMG_VIEW_SIZE+20}px` } 
     : 
     { width: `${0}px`, height: `${0}px` }
       
   return (
     <>
-
-
         {trigger ? 
             <div className='cropContainer'>
                 <div className='cropToolContainer'>
@@ -220,13 +202,12 @@ const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalI
                         <img
                             src={selectedFile}
                             onLoad={onImageLoad}
-                            
                         />
                     </ReactCrop>
                 </div>
 
                 <div className='croppedImageContainer' style={croppedContainerSize} >
-                    {croppedImage && <img src={croppedImage} alt="Zugeschnittenes Bild" />}
+                    {showCroppedImage && <img src={showCroppedImage} alt="Zugeschnittenes Bild" />}
                 </div>
             </div>
             :
@@ -235,10 +216,6 @@ const ImageCrop = ({originalImageSize, resizedImageSize, resizedImage, originalI
                 <img style={{borderRadius: '50%', margin: '1rem auto'}} src={selectedFile} alt="" />
             </div>
         }
-
-        
-
-
     </>
   );
 };

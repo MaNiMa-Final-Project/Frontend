@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL_PUBLIC } from "../../service/config";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
+import '../HomePage/home.scss'
+
 
 export default function CreatorCards() {
 
@@ -39,29 +44,29 @@ export default function CreatorCards() {
 
     return creators.map(creator => {
 
-        let splittedImage = creator.image.split('upload');
-        let resizedImage = splittedImage[0]+"upload/c_scale,w_250,h_250"+splittedImage[1];
-
-
-
+        // let splittedImage = creator.image.split('upload');
+        // let resizedImage = splittedImage[0]+"upload/c_scale,w_250,h_250"+splittedImage[1];
 
         return(
-            <a onClick={(evt)=>handleCreatorDetailView(evt, creator._id)} key={creator._id} className="creatorContainer">
 
-                <div className='courseTitle'>
-                        {creator.nickName}
+            <div key={creator._id} className="card">
+                <div className="card-title">{creator.nickName}</div>
+                <div className="card-body">
+                    <div className="card-buttons-container">
+                        <button onClick={() => handleViewCourses(creator._id)} className="card-button">
+                            Kurse anzeigen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
+                        </button>
+                    </div>
+                    <div className="card-image-container">
+                        <img src={creator.croppedImage} alt={creator.nickName} className="card-image" />
+                    </div>
+                    <div className="card-buttons-container">
+                        <button style={{fontSize: '10pt'}} onClick={(evt) => handleMeeting(evt, creator._id)} className="card-button">
+                            kostenfreies Erstgespräch buchen
+                        </button>
+                    </div>
                 </div>
-
-                <div className='imageContainer'>
-                    <img src={resizedImage} alt=""/>
-
-                    <button onClick={(evt)=>handleMeeting(evt, creator._id)} className='AddToCartBtn'>
-                        Erstgespräch buchen
-                    </button>
-
-                </div>
-
-            </a>
-        )
+            </div>
+        );
     });
 }
