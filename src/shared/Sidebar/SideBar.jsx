@@ -193,6 +193,12 @@ export default function SideBar({user}){
 
   function handleImageClick() {
     setShowImageModal(true);
+    setChangeEmail(false);
+
+    setChangeLastName(false);
+    setChangeFirstName(false);
+    setChangeNickName(false);
+    setConfirmPassword(false);
   }
 
   function handleImageModalClose() {
@@ -233,7 +239,7 @@ export default function SideBar({user}){
       <div className='profilePicture'>
         <img src={user.image} alt="" />
       </div>
-      <button type='button' onClick={() => setShowImageModal(true)}><FontAwesomeIcon className='icons' icon={faCamera} /></button>
+      <button type='button' onClick={handleImageClick}><FontAwesomeIcon className='icons' icon={faCamera} /></button>
       <div className='personalSettings'>
         <div className='settingsInnerContainer'>
             <div className='srcBtn'>
@@ -322,7 +328,7 @@ export default function SideBar({user}){
                 )}
                 {changeLastName ? (
                     <button 
-                    type='button' lastName
+                    type='button'
                     onClick={()=> {
                       setChangeLastName(false);
                       handleButtonClick(userData.lastName,"lastName", inputRef.current.value);
