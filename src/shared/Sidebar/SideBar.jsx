@@ -15,6 +15,7 @@ export default function SideBar({user}){
 
 
   const [image, setImage] = useState('');
+  const [originalImage, setOriginalImage] = useState('')
 
   const [userData, setUserData] = useState("");
   const inputRef = useRef(null);
@@ -35,6 +36,7 @@ export default function SideBar({user}){
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  //screensize
   useEffect(() => {
       function handleResize() {
         setScreenSize({
@@ -66,6 +68,8 @@ export default function SideBar({user}){
           email: user.email,
           image: user.image
         });
+
+        setOriginalImage(user.image)
 
         if(user) {
           let img = new Image();
@@ -210,8 +214,8 @@ export default function SideBar({user}){
         try {
 
             let response = await axios.post(BASE_URL_PUBLIC + 'upload', body)
-            setTrigger(true)      
-            setSelectedFile(response.data.url);
+            // setTrigger(true)      
+            // setSelectedFile(response.data.url);
 
             console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url)
 
@@ -468,7 +472,12 @@ export default function SideBar({user}){
         {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
           <div className='pictureModal' >
 
-            <ImageCrop originalImageSize={originalImageSize} resizedImageSize={resizedImageSize} existingImage={image}/>
+            <ImageCrop 
+              originalImageSize={originalImageSize} 
+              resizedImageSize={resizedImageSize} 
+              resizedImage={image}
+              originalImage={originalImage}
+            />
 
             <div className='pictureModalButtons'>
               <form>
