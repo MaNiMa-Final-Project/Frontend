@@ -5,7 +5,9 @@ import { BASE_URL_PUBLIC } from "../../service/config";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import '../HomePage/home.scss'
+//import '../HomePage/home.scss'
+import { SwiperSlide } from "swiper/react";
+//import '../../assets/global.scss'
 
 
 export default function CreatorCards() {
@@ -49,24 +51,27 @@ export default function CreatorCards() {
 
         return(
 
-            <div key={creator._id} className="card">
-                <div className="card-title">{creator.nickName}</div>
-                <div className="card-body">
-                    <div className="card-buttons-container">
-                        <button onClick={() => handleViewCourses(creator._id)} className="card-button">
-                            Kurse anzeigen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
-                        </button>
-                    </div>
-                    <div className="card-image-container">
-                        <img src={creator.croppedImage} alt={creator.nickName} className="card-image" />
-                    </div>
-                    <div className="card-buttons-container">
-                        <button style={{fontSize: '10pt'}} onClick={(evt) => handleMeeting(evt, creator._id)} className="card-button">
-                            kostenfreies Erstgespräch buchen
-                        </button>
+            // <SwiperSlide key={creator._id}>
+                                <div className="card" key={creator._id}>
+                    <div className="card-title">{creator.nickName}</div>
+                    <div className="card-body">
+                        <div className="card-buttons-container">
+                            <button onClick={() => handleViewCourses(creator._id)} className="card-button">
+                                Kurse anzeigen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
+                            </button>
+                        </div>
+                        <div className="card-image-container">
+                            <img src={creator.croppedImage} alt={creator.nickName} className="card-image" />
+                        </div>
+                        <div className="card-buttons-container">
+                            <button style={{fontSize: '10pt'}} onClick={(evt) => handleMeeting(evt, creator._id)} className="card-button">
+                                kostenfreies Erstgespräch buchen
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            // </SwiperSlide>
+
         );
     });
 }

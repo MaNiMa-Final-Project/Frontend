@@ -24,6 +24,7 @@
     "react-image-crop": "^10.0.9",
     "react-router-dom": "^6.10.0",
     "sass": "^1.62.1",
+    "swiper": "^9.2.4",
     "tld-list": "^1.0.1",
     "uuid": "^9.0.0",
     "zustand": "^4.3.7"

@@ -1,8 +1,11 @@
 
 
-import '../components/HomePage/home.scss'
+// import '../components/HomePage/home.scss'
+
+
 import CourseCards from '../components/HomePage/CourseCards'
 import CreatorCards from '../components/HomePage/CreatorCards'
+import SwiperCarousel from '../shared/Swiper/Swiper'
 
 export default function HomePage(){
 
@@ -19,8 +22,8 @@ export default function HomePage(){
 
             </div>
 
-            <div className='einzelkurseContainer'>
-        
+            <div className='einzelkurseContainer' >
+                <SwiperCarousel />
             </div>
 
         </div>

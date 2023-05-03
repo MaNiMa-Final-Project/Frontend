@@ -53,7 +53,6 @@ export default function CourseCards(){
 
                 <div className='imageContainer'>
                     <img src={course.image} alt=""/>
-
                 </div>
 
                 <div className='cardBody'>
