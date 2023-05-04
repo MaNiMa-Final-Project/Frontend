@@ -22,7 +22,7 @@ export default function HomePage(){
 
             </div>
 
-            <div className='einzelkurseContainer' >
+            <div className='dozentenContainer' >
                 <SwiperCarousel />
             </div>
 

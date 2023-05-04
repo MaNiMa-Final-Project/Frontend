@@ -97,10 +97,10 @@ body{
     padding: 2rem calc(1em + 33.33vw/3);
 }
 
-.einzelkurseContainer {
+.dozentenContainer {
 
 
-  grid-area: c; 
+  grid-area: a; 
 
   width: 500px;
   height: 500px;
@@ -283,7 +283,7 @@ body{
   //width: 300px;
   transition: transform 0.5s ease-in-out;
   background-color: #f5f5f5;
-  border-radius: 8px;
+  border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   margin: 0.5rem;
