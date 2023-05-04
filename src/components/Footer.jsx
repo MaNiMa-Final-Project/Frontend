@@ -2,6 +2,8 @@ import React from "react";
 import { faYoutube, faFacebook, faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import './Footer/footer.scss'
+
 export default function Footer() {
   return (
     <div className="footer">
@@ -40,47 +42,45 @@ export default function Footer() {
         Trusted by <u class="">2,000+</u> users
       </h2>
 
-      <div className="containerlogo">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
-          <div className="c">
+      <div className="containerlogo" >
+          <div className="logo-wrapper">
             <img
-              src="../src/assets/images/sw kunst_und_helden.jpg"
-              className="img-fluid grayscale px-3 md:px-2"
+              src="../src/assets/images/sw_logo_kunst_und_helden.jpg"
+              className="kunst_und_helden"
               alt="Logo Kunst und Helden"
             />
           </div>
 
-          <div className="mb-12 lg:mb-0">
+          <div className="logo-wrapper">
             <img
-              src="../src/assets/images/SW FD.png"
-              className="img-fluid grayscale px-6 md:px-12"
+              src="../src/assets/images/sw_logo_fd.png"
+              className="logo_fd"
               alt="Logo Finc Dynamics"
             />
           </div>
 
-          <div className="mb-12 lg:mb-0">
+          <div className="logo-wrapper">
             <img
-              src="../src/assets/images/swCommerzbank.jpg"
-              className="img-fluid grayscale px-6 md:px-12"
+              src="../src/assets/images/sw_logo_Commerzbank.jpg"
+              className="logo_Commerzbank"
               alt="Logo Commerzbank"
             />
           </div>
 
-          <div className="mb-12 lg:mb-0">
+          <div className="logo-wrapper">
             <img
-              src="../src/assets/images/sw_Staatliche_Museen_zu_Berlin_logo.png"
-              className="img-fluid grayscale px-6 md:px-12"
+              src="../src/assets/images/sw_logo_Staatliche_Museen.png"
+              id="staatliche_Museen"
               alt="Logo Staatliche Museen zu Berlin"
             />
           </div>
-          <div className="mb-12 lg:mb-0">
+          <div className="logo-wrapper">
             <img
-              src="../src/assets/images/swlogo_solidrock.png"
-              className="img-fluid grayscale px-6 md:px-12"
+              src="../src/assets/images/sw_logo_solidrock.png"
+              id="solidrock"
               alt="Logo SolidrockIT"
             />
           </div>
-        </div>
       </div>
     </div>
   );
