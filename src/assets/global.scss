@@ -24,13 +24,13 @@ body{
 
 //!Header
 .nav {
-    background-color: #fdfdfd;
-    color: rgb(128, 125, 125);
+    background-color: #fdfdfd00;
+    color: rgb(251, 247, 247);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-    padding: 0 1rem;
+    gap: 3rem;
+    
 
     ul{
         display: flex;
@@ -48,7 +48,7 @@ body{
 /*             background-color: yellow;
  */        
             text-decoration: none;
-            text-decoration-color: #777;
+            text-decoration-color: #838181;
             text-decoration-thickness: 3px;
         }
     }
@@ -61,9 +61,14 @@ body{
     }
 
     .site-title img {
-        font-size: 2rem;
-        margin: 1rem 3rem ;
+        font-size: 0rem;
+        margin: -1rem 2rem ;
     }
+
+    .img  {
+    background-color: #fdfdfd30;
+    color: rgba(251, 247, 247, 0.099);
+  }
 
     .controls button{
         gap: 1rem;
@@ -103,17 +108,35 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 2rem;
+    margin: 0rem;
+    background-color: #fdfdfd84;
+    position:absolute;
+    bottom: 0;
+    width: 100%;
 
     p{
         margin: 2rem;
         color: #324c85;
+    }
+//LOGO CUSTOMER
+    .grayscale {
+      filter: grayscale(100%);
+    }
+
+    .containerlogo  {
+      padding: 25px 25px;
+      display: flex;
+      img {width:100px;
+        height:20px;
+      }
+    
     }
 
     .social-container {
       display: flex;
       justify-content: center;
       padding: 25px 50px;
+      background-color: #fdfdfd84;
 
     }
 

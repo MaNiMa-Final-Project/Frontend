@@ -1,3 +1,6 @@
+
+
+
 export default function Info ()
 {
 
@@ -17,4 +20,6 @@ Lehre, Workshops, Werkpräsentation Ich bin als Lehrbeauftragte an der Hochschul
     
     </>)
 }
+
+
 
