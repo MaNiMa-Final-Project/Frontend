@@ -1,16 +1,20 @@
 import { useState } from "react";
 
+import { BASE_URL_PROTECTED } from "../service/config";
+import axios from "axios";
 
 export default function CreateCreatorPage() {
-  const [nickName, setNickName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmedPassword, setConfirmedPassword] = useState('');
+  const [nickName, setNickName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
   const [passwordMismatch, setPasswordMismatch] = useState(false);
-  const [message, setMessage] = useState('');
-  const [image, setImage] = useState(null);
+  const [message, setMessage] = useState("");
+  const [image, setImage] = useState(
+    "https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png"
+  );
 
   function checkForm() {
     return (
@@ -26,8 +30,8 @@ export default function CreateCreatorPage() {
   const handleConfirmPasswordChange = (event) => {
     const confirmedValue = event.target.value;
     setConfirmedPassword(confirmedValue);
-    
-    if(password.length > 0 && password !== confirmedValue) {
+
+    if (password.length > 0 && password !== confirmedValue) {
       setPasswordMismatch(true);
     } else {
       setPasswordMismatch(false);
@@ -37,8 +41,8 @@ export default function CreateCreatorPage() {
   const handlePasswordChange = (event) => {
     const passwordValue = event.target.value;
     setPassword(passwordValue);
-    
-    if(confirmedPassword.length > 0 && confirmedPassword !== passwordValue) {
+
+    if (confirmedPassword.length > 0 && confirmedPassword !== passwordValue) {
       setPasswordMismatch(true);
     } else {
       setPasswordMismatch(false);
@@ -49,42 +53,41 @@ export default function CreateCreatorPage() {
     event.preventDefault();
 
     if (!checkForm()) {
-      setMessage('Bitte füllen Sie alle Felder aus.');
+      setMessage("Bitte füllen Sie alle Felder aus.");
       return;
     }
-    
 
     try {
+      let newCreator = {
+        nickName: nickName,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        image: image
+      };
+      console.log("🚀 ------------------------------------------------------------🚀");
+      console.log("🚀 ~ file: CreateCreatorPage.jsx:70 ~ newCreator:", { newCreator });
+      console.log("🚀 ------------------------------------------------------------🚀");
 
-        let newCreator = {
-            nickName: nickName,
-            firstName: firstName,
-            surName: lastName,
-            email: email,
-            password: password,
-            image: image
-        }
-        console.log("🚀 ---------------------------------------------------------------------------🚀")
-        console.log("🚀 ~ file: CreateCreatorPage.jsx:67 ~ handleSubmit ~ newCreator:", newCreator)
-        console.log("🚀 ---------------------------------------------------------------------------🚀")
+      let response = await axios.post(BASE_URL_PROTECTED + "createcreator", newCreator, {
+        withCredentials: true
+      });
 
+      if (response.status === 200) {
+        setMessage("Benutzer wurde erfolgreich erstellt.");
+      }
 
-
-
-
-      setMessage('Benutzer wurde erfolgreich erstellt.');
-
-    //   setUsername('');
-    //   setName('');
-    //   setSurname('');
-    //   setPassword('');
-    //   setConfirmedPassword('');
-    //   setPasswordMismatch(false);
-    //   setImage(null);
-
+      //   setUsername('');
+      //   setName('');
+      //   setSurname('');
+      //   setPassword('');
+      //   setConfirmedPassword('');
+      //   setPasswordMismatch(false);
+      //   setImage(null);
     } catch (error) {
       console.error(error);
-      setMessage('Es gab einen Fehler beim Erstellen des Benutzers. Bitte versuchen Sie es später noch einmal.');
+      setMessage("Es gab einen Fehler beim Erstellen des Benutzers. Bitte versuchen Sie es später noch einmal.");
     }
   }
 
@@ -98,11 +101,8 @@ export default function CreateCreatorPage() {
     filereader.onloadend = (evt) => {
       const filedata = filereader.result;
       setImage(filedata);
-
-
     };
   }
-
 
   return (
     <div className="logreg">
@@ -122,7 +122,7 @@ export default function CreateCreatorPage() {
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
-        
+
         <input
           type="text"
           name="surname"
@@ -139,12 +139,7 @@ export default function CreateCreatorPage() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <input 
-            type="password" 
-            name="password" 
-            placeholder="Passwort" 
-            onChange={handlePasswordChange}  
-        />
+        <input type="password" name="password" placeholder="Passwort" onChange={handlePasswordChange} />
 
         <input
           type="password"
@@ -154,11 +149,7 @@ export default function CreateCreatorPage() {
         />
 
         {/* Hier ein Beispiel für das Hochladen eines Bildes */}
-        <input 
-            type="file" 
-            accept="image/*" 
-            onChange={imageChangeHandler} 
-        />
+        <input type="file" accept="image/*" onChange={imageChangeHandler} />
 
         {image && <img src={image} alt="Vorschau des ausgewählten Bilds" />}
 
@@ -173,10 +164,7 @@ export default function CreateCreatorPage() {
         </fieldset>
 
         <p>{message}</p>
-        {passwordMismatch && <p style={{ color: 'red' }}>Die Passwörter stimmen nicht überein.</p>}
-
-
-
+        {passwordMismatch && <p style={{ color: "red" }}>Die Passwörter stimmen nicht überein.</p>}
       </form>
     </div>
   );

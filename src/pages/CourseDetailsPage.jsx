@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { TEMP_URL_COURSE } from "../service/config";
-import '../components/CourseDetails/courseDetails.scss'
+import "../components/CourseDetails/courseDetails.scss";
 import { useParams } from "react-router-dom";
 import MarkAsFavorite from "../components/HomePage/MarkAsFavorite";
 
@@ -15,11 +15,10 @@ export default function CourseDetailsPage() {
         let response = await axios.get(TEMP_URL_COURSE + `course/${id}`);
         setCourse(response.data);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     })();
   }, []);
-
 
   if (!course) {
     return <p>Loading...</p>;
@@ -39,5 +38,5 @@ export default function CourseDetailsPage() {
         <span>More information coming soon...</span>
       </div>
     </div>
-  )
+  );
 }
