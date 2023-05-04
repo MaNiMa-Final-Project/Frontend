@@ -36,7 +36,7 @@ export default function Footer() {
         <p>© 2023 VG Bildkunst</p>
       </div>
 
-<h2 className="text-3xl font-bold mb-12">
+      <h2 className="text-3xl font-bold mb-12">
         Trusted by <u class="">2,000+</u> users
       </h2>
 

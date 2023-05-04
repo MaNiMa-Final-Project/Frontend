@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import CreatorDashboard from "../components/Dashboard/CreatorDashboard";
 import { BASE_URL_PUBLIC } from "../service/config.js";
 
-
-
 export default function courses() {
   const [courses, setCourses] = useState(null);
   useEffect(() => {
@@ -37,9 +35,3 @@ export default function courses() {
     </>
   );
 }
-
-
-
-
-
-
