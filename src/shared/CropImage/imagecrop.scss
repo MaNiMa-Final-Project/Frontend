@@ -1,74 +1,67 @@
+.cropContainer {
+  border-radius: 5px;
+  margin: 1rem;
 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 
+  animation-name: changeWidth;
+  animation-duration: 1s;
+  animation-timing-function: ease;
 
-.cropContainer{
-    border-radius: 5px;
-    margin: 1rem;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-
-    animation-name: changeWidth;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-
-    @keyframes changeWidth {
-        from { transform: scale(0) }
-        to { transform: scale(1) }
+  @keyframes changeWidth {
+    from {
+      transform: scale(0);
     }
-
-    .cropToolContainer{
-
-        margin: 1rem;
-
-        .cropTool {
-    
-            display: flex;
-            justify-content: center;
-            border-radius: 5px;
-        }
-
+    to {
+      transform: scale(1);
     }
-
-    .croppedImageContainer {
-
-        width: 0;
-
-        display: flex;
-        justify-content: center;
-
-        transition: width 1s ease;
-
-
-        img {
-            border-radius: 50%;
-
-
-            animation-name: scalePic;
-            animation-duration: 1s;
-            animation-timing-function: ease-in;
-        
-            @keyframes scalePic {
-                from { transform: scale(0) }
-                to { transform: scale(1) }
-            }
-        }
-          
-
-          
-
-
-    
-    }
-}
-
-
-
-@keyframes changeWidth {
-    from { width: 0%; }
-    to { width: 100%; }
   }
 
+  .cropToolContainer {
+    margin: 1rem;
 
+    .cropTool {
+      display: flex;
+      justify-content: center;
+      border-radius: 5px;
+    }
+  }
+
+  .croppedImageContainer {
+    width: 0;
+
+    display: flex;
+    justify-content: center;
+
+    transition: width 1s ease;
+
+    img {
+      border-radius: 50%;
+
+      animation-name: scalePic;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+
+      @keyframes scalePic {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes changeWidth {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

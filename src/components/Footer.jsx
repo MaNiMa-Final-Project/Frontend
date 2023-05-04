@@ -2,7 +2,7 @@ import React from "react";
 import { faYoutube, faFacebook, faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import './Footer/footer.scss'
+import "./Footer/footer.scss";
 
 export default function Footer() {
   return (
@@ -42,45 +42,33 @@ export default function Footer() {
         Trusted by <u class="">2,000+</u> users
       </h2>
 
-      <div className="containerlogo" >
-          <div className="logo-wrapper">
-            <img
-              src="../src/assets/images/sw_logo_kunst_und_helden.jpg"
-              className="kunst_und_helden"
-              alt="Logo Kunst und Helden"
-            />
-          </div>
+      <div className="containerlogo">
+        <div className="logo-wrapper">
+          <img
+            src="../src/assets/images/sw_logo_kunst_und_helden.jpg"
+            className="kunst_und_helden"
+            alt="Logo Kunst und Helden"
+          />
+        </div>
 
-          <div className="logo-wrapper">
-            <img
-              src="../src/assets/images/sw_logo_fd.png"
-              className="logo_fd"
-              alt="Logo Finc Dynamics"
-            />
-          </div>
+        <div className="logo-wrapper">
+          <img src="../src/assets/images/sw_logo_fd.png" className="logo_fd" alt="Logo Finc Dynamics" />
+        </div>
 
-          <div className="logo-wrapper">
-            <img
-              src="../src/assets/images/sw_logo_Commerzbank.jpg"
-              className="logo_Commerzbank"
-              alt="Logo Commerzbank"
-            />
-          </div>
+        <div className="logo-wrapper">
+          <img src="../src/assets/images/sw_logo_Commerzbank.jpg" className="logo_Commerzbank" alt="Logo Commerzbank" />
+        </div>
 
-          <div className="logo-wrapper">
-            <img
-              src="../src/assets/images/sw_logo_Staatliche_Museen.png"
-              id="staatliche_Museen"
-              alt="Logo Staatliche Museen zu Berlin"
-            />
-          </div>
-          <div className="logo-wrapper">
-            <img
-              src="../src/assets/images/sw_logo_solidrock.png"
-              id="solidrock"
-              alt="Logo SolidrockIT"
-            />
-          </div>
+        <div className="logo-wrapper">
+          <img
+            src="../src/assets/images/sw_logo_Staatliche_Museen.png"
+            id="staatliche_Museen"
+            alt="Logo Staatliche Museen zu Berlin"
+          />
+        </div>
+        <div className="logo-wrapper">
+          <img src="../src/assets/images/sw_logo_solidrock.png" id="solidrock" alt="Logo SolidrockIT" />
+        </div>
       </div>
     </div>
   );
