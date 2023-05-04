@@ -13,18 +13,18 @@ export default function HomePage(){
     return(
         <div className='homeGridContainer'>
 
-            <div className='workshopContainer'>
-                <CreatorCards />
+            <div className='dozentenContainer' >
+                <SwiperCarousel />
             </div>
+
+
 
             <div className='wochenkursContainer'>
                 <CourseCards />
 
             </div>
 
-            <div className='dozentenContainer' >
-                <SwiperCarousel />
-            </div>
+
 
         </div>
     )
