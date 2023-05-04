@@ -2,8 +2,9 @@ import { useCallback } from "react";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
-import '../components/HomePage/home.scss'
 import CourseCards from '../components/HomePage/CourseCards'
+import CreatorCards from '../components/HomePage/CreatorCards'
+import SwiperCarousel from '../shared/Swiper/Swiper'
 
 export default function HomePage(){
 
@@ -21,7 +22,20 @@ export default function HomePage(){
         
         <div className='homeGridContainer'>
             <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
-            <CourseCards />
+
+            <div className='dozentenContainer' >
+                <SwiperCarousel />
+            </div>
+
+
+
+            <div className='wochenkursContainer'>
+                <CourseCards />
+
+            </div>
+
+
+
         </div>
     )
 }

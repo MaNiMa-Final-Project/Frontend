@@ -19,9 +19,7 @@ export default function CreateCoursePage() {
 
     const [message, setMessage] = useState("");
 
-    useEffect(()=> {
-        console.log(image);
-    },[image])
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 

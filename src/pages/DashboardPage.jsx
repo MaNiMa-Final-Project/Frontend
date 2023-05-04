@@ -55,7 +55,7 @@ export default function DashboardPage(){
                     <UserDashboard user={user}/>
                 }
                 {userData.isAdmin && <AdminDashboard />}
-                {userData.isCreator && <CreatorDashboard />}
+                {userData.isCreator && <CreatorDashboard user={user}/>}
 
         </>
     )

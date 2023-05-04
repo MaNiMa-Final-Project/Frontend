@@ -3,7 +3,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BASE_URL_PUBLIC } from "../../service/config";
-import '../../components/LogReg/logreg.scss'
+import '../../components/LogReg/logreg.scss';
+
+import ImageCrop from '../../shared/CropImage/ImageCrop'
+
 
 export default function RegisterForm(){
     const navigate = useNavigate();
@@ -17,6 +20,8 @@ export default function RegisterForm(){
     const [password, setPassword] = useState("");
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const [passwordMismatch, setPasswordMismatch] = useState(false);
+    const [image, setImage] = useState("");
+
 
     const [message, setMessage] = useState("");
 
@@ -62,7 +67,8 @@ export default function RegisterForm(){
           firstName: name,
           lastName: surname,
           email: email,
-          password: password
+          password: password,
+          image: image
         }
 
         try {
@@ -75,6 +81,7 @@ export default function RegisterForm(){
               setMessage(error.response.data.message)
             }
     };
+
 
     return(
         <div className="logreg">
@@ -122,6 +129,8 @@ export default function RegisterForm(){
             onChange={handleConfirmPasswordChange} 
           />
 
+          <ImageCrop ownImageWidth={'600'}/>
+
           <fieldset className="btn-group">
             <button 
               className="logreg-button" 
@@ -134,7 +143,7 @@ export default function RegisterForm(){
               className="logreg-button" 
               type="submit"
               disabled={!checkForm()}>
-              Anmelden
+              Registrieren
             </button>
           </fieldset>
 
