@@ -85,7 +85,8 @@ export default function SwiperCarousel() {
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
-          spaceBetween={0}
+          spaceBetween={25
+          }
           centeredSlides={true}
           loop={true}
           slidesPerView={"auto"}
