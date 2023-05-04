@@ -47,13 +47,14 @@ export default function Footer() {
         <p>Impressum</p> 
         <p>© 2023 VG Bildkunst</p> 
       </div>
-      <h2 className="text-3xl font-bold mb-12">Trusted by <u class="">2,000,000+</u> users</h2>
+
+<h2 className="text-3xl font-bold mb-12">Trusted by <u class="">2,000+</u> users</h2>
 
 <div className="containerlogo">
 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
   <div className="c">
     <img
-      src="../src/assets/images/sw kunst_und_helden.jpg"
+      src="../src/assets/images/sw_logo_kunst_und_helden.jpg"
       className="img-fluid grayscale px-3 md:px-2"
       alt="Logo Kunst und Helden"
     />
@@ -61,7 +62,7 @@ export default function Footer() {
 
   <div className="mb-12 lg:mb-0">
     <img
-      src="../src/assets/images/SW FD.png"
+      src="../src/assets/images/sw_logo_fd.png"
       className="img-fluid grayscale px-6 md:px-12"
       alt="Logo Finc Dynamics"
     />
@@ -69,7 +70,7 @@ export default function Footer() {
 
   <div className="mb-12 lg:mb-0">
     <img
-      src="../src/assets/images/swCommerzbank.jpg"
+      src="../src/assets/images/sw_logo_Commerzbank.jpg"
       className="img-fluid grayscale px-6 md:px-12"
       alt="Logo Commerzbank"
     />
@@ -77,14 +78,14 @@ export default function Footer() {
 
   <div className="mb-12 lg:mb-0">
     <img
-      src="../src/assets/images/sw_Staatliche_Museen_zu_Berlin_logo.png"
+      src="../src/assets/images/sw_logo_Staatliche_Museen.png"
       className="img-fluid grayscale px-6 md:px-12"
       alt="Logo Staatliche Museen zu Berlin"
     />
   </div>
   <div className="mb-12 lg:mb-0">
     <img
-      src="../src/assets/images/swlogo_solidrock.png"
+      src="../src/assets/images/sw_logo_solidrock.png"
       className="img-fluid grayscale px-6 md:px-12"
       alt="Logo SolidrockIT"
     />

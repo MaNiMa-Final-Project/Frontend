@@ -2,8 +2,16 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import CreatorDashboard from "../components/Dashboard/CreatorDashboard";
 import { BASE_URL_PUBLIC } from "../service/config.js";
+import CourseCards from '../components/HomePage/CourseCards'
+import CreatorCards from '../components/HomePage/CreatorCards'
+import { useCallback } from "react";
+import Particles from "react-particles";
+import { loadFull } from "tsparticles";
 
+<div className='wochenkursContainer'>
+<CourseCards />
 
+</div>
 
 export default function courses() {
     const [courses, setCourses] = useState(null)
@@ -30,11 +38,17 @@ export default function courses() {
                 <p className="courseDescription">Description: {course.description}</p>
         
             </div>
-        }) : <p>momentan keine kurse</p>}
+        }) : <p> kurse</p>}
 
 
     </>)
 
 
 }
+
+
+
+
+
+
 
