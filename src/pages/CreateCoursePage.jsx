@@ -6,30 +6,29 @@ import { useEffect } from "react";
 
 import ImageCrop from "../shared/CropImage/ImageCrop";
 
+import MyEditor from "../shared/Wysiwyg/TextEditor";
+
+
 const IMG_SIZE = 0.5;
 
 import {
-  faCamera,
-  faSquareCheck,
-  faMarker,
-  faLock,
-  faEyeSlash,
-  faEye,
-  faUpload
+    faCamera,
+    faSquareCheck,
+    faMarker,
+    faLock,
+    faEyeSlash,
+    faEye,
+    faUpload
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
 export default function CreateCoursePage() {
-  
     const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
     const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
     const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
     const [croppedImage, setCroppedImage] = useState("");
 
     const [showImageModal, setShowImageModal] = useState(false);
-
 
     const [resizedImage, setResizedImage] = useState("");
     const [originalImage, setOriginalImage] = useState("");
@@ -67,7 +66,6 @@ export default function CreateCoursePage() {
 
     useEffect(() => {
         if (originalImage) {
-
             let img = new Image();
             img.src = originalImage;
 
@@ -84,20 +82,16 @@ export default function CreateCoursePage() {
                 let splitImage = originalImage.split("upload");
                 let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
 
-                console.log("🚀 -------------------------------------------------------------🚀")
-                console.log("🚀 ~ file: CreateCoursePage.jsx:73 ~ scaledImage:", scaledImage)
-                console.log("🚀 -------------------------------------------------------------🚀")
-                
+                console.log("🚀 -------------------------------------------------------------🚀");
+                console.log("🚀 ~ file: CreateCoursePage.jsx:73 ~ scaledImage:", scaledImage);
+                console.log("🚀 -------------------------------------------------------------🚀");
+
                 setResizedImage(scaledImage);
                 setResizedImageSize({ width: newSize.width, height: newSize.height });
                 setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
             };
-
-
-
         }
     }, [originalImage]);
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -151,12 +145,10 @@ export default function CreateCoursePage() {
     }
 
     function handleImageModalClose() {
-      setShowImageModal(false);
-  }
-
+        setShowImageModal(false);
+    }
 
     function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
-
         let newWidth = null;
         let newHeight = null;
 
@@ -169,8 +161,8 @@ export default function CreateCoursePage() {
                 newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
             }
         } else {
-          newWidth = screenWidth;
-          newHeight = screenHeight;
+            newWidth = screenWidth;
+            newHeight = screenHeight;
         }
 
         return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
@@ -188,7 +180,9 @@ export default function CreateCoursePage() {
                 id: crypto.randomUUID()
             };
 
-            setOriginalImage("https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/course/31f5e254-8554-41f2-9e32-1a8cb8e83831.jpg");
+            setOriginalImage(
+                "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/course/31f5e254-8554-41f2-9e32-1a8cb8e83831.jpg"
+            );
 
             setShowImageModal(true);
 
@@ -196,9 +190,6 @@ export default function CreateCoursePage() {
             //     // let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
             //     // setOriginalImage(response.data.url);
             //     // console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
-
-
-
 
             // } catch (error) {
             //     console.error(error);
@@ -267,53 +258,49 @@ export default function CreateCoursePage() {
                 <label htmlFor="image">Place Image</label>
                 <input type="file" accept="image/*" id="image" onChange={handleFileSelect} />
 
-
                 <label>Description</label>
-                <textarea
+                {/* <textarea
                     id="description"
                     value={description}
                     placeholder="Description"
                     onChange={(event) => setDescription(event.target.value)}
-                />
+                /> */}
+
+                <MyEditor />
 
                 <button type="submit">Create Course</button>
             </form>
             {showImageModal && (
-                    <div className="modalOverlay">
-                        {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
-                        <div className="pictureModal">
-                            <ImageCrop
-                                originalImageSize={originalImageSize}
-                                resizedImageSize={resizedImageSize}
-                                resizedImage={resizedImage}
-                                originalImage={originalImage}
-                                setCroppedImage={setCroppedImage}
-                            />
+                <div className="modalOverlay">
+                    {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
+                    <div className="pictureModal">
+                        <ImageCrop
+                            originalImageSize={originalImageSize}
+                            resizedImageSize={resizedImageSize}
+                            resizedImage={resizedImage}
+                            originalImage={originalImage}
+                            setCroppedImage={setCroppedImage}
+                        />
 
-                            <div className="pictureModalButtons">
-                                <form onClick={handleSubmit}>
-                                    <fieldset className="fileInput">
-                                        <label htmlFor="file-input" className="file-input-label">
-                                            <FontAwesomeIcon icon={faUpload} />
-                                        </label>
-                                        <input
-                                            id="file-input"
-                                            type="file"
-                                            accept="image/*"
-                                            onChange={handleFileSelect}
-                                        />
-                                    </fieldset>
-                                    <fieldset>
-                                        <button type="button" onClick={handleImageModalClose}>
-                                            Cancel
-                                        </button>
-                                        <button type="submit">Save</button>
-                                    </fieldset>
-                                </form>
-                            </div>
+                        <div className="pictureModalButtons">
+                            <form onClick={handleSubmit}>
+                                <fieldset className="fileInput">
+                                    <label htmlFor="file-input" className="file-input-label">
+                                        <FontAwesomeIcon icon={faUpload} />
+                                    </label>
+                                    <input id="file-input" type="file" accept="image/*" onChange={handleFileSelect} />
+                                </fieldset>
+                                <fieldset>
+                                    <button type="button" onClick={handleImageModalClose}>
+                                        Cancel
+                                    </button>
+                                    <button type="submit">Save</button>
+                                </fieldset>
+                            </form>
                         </div>
                     </div>
-                )}
+                </div>
+            )}
             {message}
         </div>
     );

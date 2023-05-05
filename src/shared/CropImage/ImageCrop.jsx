@@ -3,23 +3,22 @@ import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import "./imagecrop.scss";
 
-
 const CROP_SIZE = 0.8;
 const IMG_VIEW_SIZE = 300;
 
 const ImageCrop = ({ originalImageSize, resizedImageSize, resizedImage, originalImage, setCroppedImage }) => {
-    console.log("🚀 ----------------------------------------------------------🚀")
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ originalImage:", originalImage)
-    console.log("🚀 ----------------------------------------------------------🚀")
-    console.log("🚀 --------------------------------------------------------🚀")
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ resizedImage:", resizedImage)
-    console.log("🚀 --------------------------------------------------------🚀")
-    console.log("🚀 ----------------------------------------------------------------🚀")
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ resizedImageSize:", resizedImageSize)
-    console.log("🚀 ----------------------------------------------------------------🚀")
-    console.log("🚀 ------------------------------------------------------------------🚀")
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ originalImageSize:", originalImageSize)
-    console.log("🚀 ------------------------------------------------------------------🚀")
+    console.log("🚀 ----------------------------------------------------------🚀");
+    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ originalImage:", originalImage);
+    console.log("🚀 ----------------------------------------------------------🚀");
+    console.log("🚀 --------------------------------------------------------🚀");
+    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ resizedImage:", resizedImage);
+    console.log("🚀 --------------------------------------------------------🚀");
+    console.log("🚀 ----------------------------------------------------------------🚀");
+    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ resizedImageSize:", resizedImageSize);
+    console.log("🚀 ----------------------------------------------------------------🚀");
+    console.log("🚀 ------------------------------------------------------------------🚀");
+    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ originalImageSize:", originalImageSize);
+    console.log("🚀 ------------------------------------------------------------------🚀");
     const [crop, setCrop] = useState({});
 
     const [naturalWidth, setNaturalWidth] = useState("");
@@ -74,7 +73,10 @@ const ImageCrop = ({ originalImageSize, resizedImageSize, resizedImage, original
 
         let splitedURL = originalImage.split("upload");
 
-        let croppedImage = splitedURL[0]+`upload/c_crop,h_${renderedCropSize},w_${renderedCropSize},x_${originalCoordinates.imgX},y_${originalCoordinates.imgY}/c_scale,w_${IMG_VIEW_SIZE}`+splitedURL[1];
+        let croppedImage =
+            splitedURL[0] +
+            `upload/c_crop,h_${renderedCropSize},w_${renderedCropSize},x_${originalCoordinates.imgX},y_${originalCoordinates.imgY}/c_scale,w_${IMG_VIEW_SIZE}` +
+            splitedURL[1];
 
         setShowCroppedImage(croppedImage);
         setCroppedImage(croppedImage);
