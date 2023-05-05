@@ -8,9 +8,6 @@ export default function MyEditor() {
     return (
         <div className="editorContainer">
             <CKEditor
-
-            
-
                 editor={ClassicEditor}
                 config={{
                     toolbar: {
