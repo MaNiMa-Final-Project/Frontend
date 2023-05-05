@@ -1,20 +1,20 @@
 .containerlogo {
-  display: flex;
-  justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 
-  .logo-wrapper {
-    border: solid;
+    .logo-wrapper {
+        border: solid;
 
-    height: fit-content;
+        height: fit-content;
 
-    #staatliche_Museen {
-      width: 150px;
-      height: 100px;
+        #staatliche_Museen {
+            width: 150px;
+            height: 100px;
+        }
+
+        #solidrock {
+            width: 50px;
+            height: 200px;
+        }
     }
-
-    #solidrock {
-      width: 50px;
-      height: 200px;
-    }
-  }
 }

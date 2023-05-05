@@ -1,249 +1,249 @@
 .homeGridContainer {
-  display: grid;
+    display: grid;
 
-  grid-template:
-    "a a a" 1fr
-    "b b b" 1fr
-    "c c c" 1fr / 1fr 1fr 1fr;
+    grid-template:
+        "a a a" 1fr
+        "b b b" 1fr
+        "c c c" 1fr / 1fr 1fr 1fr;
 
-  gap: 1.5rem;
+    gap: 1.5rem;
 
-  //! section1
+    //! section1
 
-  .workshopContainer {
-    grid-area: c;
+    .workshopContainer {
+        grid-area: c;
 
-    overflow-x: hidden;
-    display: inline-flex;
-    justify-content: space-around;
-    flex-wrap: nowrap;
+        overflow-x: hidden;
+        display: inline-flex;
+        justify-content: space-around;
+        flex-wrap: nowrap;
 
-    .card {
-      flex: 1 1 auto;
-      width: calc(100% / 3);
-      transition: transform 0.5s ease-in-out;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      margin: 0.5rem;
-    }
-
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      padding: 1rem;
-      background-color: #4a5568;
-      color: #fff;
-    }
-
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 1rem;
-    }
-
-    .card-image-container {
-      flex: 1;
-    }
-
-    .card-image {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .card-buttons-container {
-      flex: 1;
-    }
-
-    .card-button {
-      padding: 10px;
-      margin: 0.5rem 0;
-      background-color: #4a5568;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .card-button:hover {
-      background-color: #2d3748;
-    }
-
-    .card-button--view-courses {
-      background-color: #fff;
-      color: #4a5568;
-      border: 2px solid #4a5568;
-    }
-
-    .card-button--view-courses:hover {
-      background-color: #4a5568;
-      color: #fff;
-    }
-
-    .card-image-container:hover .card-image {
-      transform: scale(1.05);
-    }
-
-    .card-button:hover {
-      background-color: #008cba;
-      color: #fff;
-    }
-  }
-
-  // .card {
-  //   width: calc(100% / 3);
-  //     transition: transform 0.5s ease-in-out;
-  //     background-color: #f5f5f5;
-  //     border-radius: 8px;
-  //     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  //     margin-bottom: 20px;
-  //     margin: 0.5rem;
-  //   }
-
-  //   .card-title {
-  //     font-size: 1.5rem;
-  //     font-weight: bold;
-  //     padding: 1rem;
-  //     background-color: #4a5568;
-  //     color: #fff;
-  //   }
-
-  //   .card-body {
-  //     display: flex;
-  //     flex-direction: column;
-  //     justify-content: space-between;
-  //     align-items: center;
-  //     padding: 0.5rem 1rem;
-  //   }
-
-  //   .card-image-container {
-  //     flex: 1;
-  //   }
-
-  //   .card-image {
-  //     width: 100%;
-  //     height: auto;
-  //     border-radius: 8px;
-  //     transition: transform 0.3s ease;
-
-  //   }
-
-  //   .card-buttons-container {
-  //     flex: 1;
-  //   }
-
-  //   .card-button {
-  //     padding: 10px;
-  //     margin: 0.5rem 0;
-  //     background-color: #4a5568;
-  //     color: #fff;
-  //     border: none;
-  //     border-radius: 8px;
-  //     cursor: pointer;
-  //   }
-
-  //   .card-button:hover {
-  //     background-color: #2d3748;
-  //   }
-
-  //   .card-button--view-courses {
-  //     background-color: #fff;
-  //     color: #4a5568;
-  //     border: 2px solid #4a5568;
-  //   }
-
-  //   .card-button--view-courses:hover {
-  //     background-color: #4a5568;
-  //     color: #fff;
-  //   }
-
-  //   .card-image-container:hover .card-image {
-
-  //     transform: scale(1.05);
-  //   }
-
-  //   .card-button:hover {
-  //     background-color: #008CBA;
-  //     color: #fff;
-  //   }
-  //! section2
-  .wochenkursContainer {
-    grid-area: a;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-    .cardContainer {
-      position: relative;
-
-      width: 300px;
-
-      box-shadow: 2px 2px 2px 2px rgb(31, 217, 227);
-      background-color: aliceblue;
-
-      border-radius: 2px;
-
-      .imageContainer {
-        width: 100%;
-        background-color: aliceblue;
-
-        img {
-          height: 200px;
-          margin: auto;
+        .card {
+            flex: 1 1 auto;
+            width: calc(100% / 3);
+            transition: transform 0.5s ease-in-out;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            margin: 0.5rem;
         }
-      }
 
-      .courseTitle {
-        position: absolute;
-        font-size: 1.5rem;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        text-align: center;
-        cursor: auto;
-
-        .markFav {
-          float: right;
-          margin: 0.5rem;
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem;
+            background-color: #4a5568;
+            color: #fff;
         }
-      }
 
-      .courseDescription {
-        height: 50px;
-      }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
 
-      .cardBody {
+        .card-image-container {
+            flex: 1;
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-buttons-container {
+            flex: 1;
+        }
+
+        .card-button {
+            padding: 10px;
+            margin: 0.5rem 0;
+            background-color: #4a5568;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .card-button:hover {
+            background-color: #2d3748;
+        }
+
+        .card-button--view-courses {
+            background-color: #fff;
+            color: #4a5568;
+            border: 2px solid #4a5568;
+        }
+
+        .card-button--view-courses:hover {
+            background-color: #4a5568;
+            color: #fff;
+        }
+
+        .card-image-container:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-button:hover {
+            background-color: #008cba;
+            color: #fff;
+        }
+    }
+
+    // .card {
+    //   width: calc(100% / 3);
+    //     transition: transform 0.5s ease-in-out;
+    //     background-color: #f5f5f5;
+    //     border-radius: 8px;
+    //     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    //     margin-bottom: 20px;
+    //     margin: 0.5rem;
+    //   }
+
+    //   .card-title {
+    //     font-size: 1.5rem;
+    //     font-weight: bold;
+    //     padding: 1rem;
+    //     background-color: #4a5568;
+    //     color: #fff;
+    //   }
+
+    //   .card-body {
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     padding: 0.5rem 1rem;
+    //   }
+
+    //   .card-image-container {
+    //     flex: 1;
+    //   }
+
+    //   .card-image {
+    //     width: 100%;
+    //     height: auto;
+    //     border-radius: 8px;
+    //     transition: transform 0.3s ease;
+
+    //   }
+
+    //   .card-buttons-container {
+    //     flex: 1;
+    //   }
+
+    //   .card-button {
+    //     padding: 10px;
+    //     margin: 0.5rem 0;
+    //     background-color: #4a5568;
+    //     color: #fff;
+    //     border: none;
+    //     border-radius: 8px;
+    //     cursor: pointer;
+    //   }
+
+    //   .card-button:hover {
+    //     background-color: #2d3748;
+    //   }
+
+    //   .card-button--view-courses {
+    //     background-color: #fff;
+    //     color: #4a5568;
+    //     border: 2px solid #4a5568;
+    //   }
+
+    //   .card-button--view-courses:hover {
+    //     background-color: #4a5568;
+    //     color: #fff;
+    //   }
+
+    //   .card-image-container:hover .card-image {
+
+    //     transform: scale(1.05);
+    //   }
+
+    //   .card-button:hover {
+    //     background-color: #008CBA;
+    //     color: #fff;
+    //   }
+    //! section2
+    .wochenkursContainer {
+        grid-area: a;
+
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-around;
 
-        border: solid 1px;
+        .cardContainer {
+            position: relative;
 
-        margin: 0.5rem;
-        padding: 0.5rem;
-        background-color: rgb(228, 237, 245);
+            width: 300px;
 
-        .AddToCartBtn {
-          border: solid;
-          border-radius: 5px;
+            box-shadow: 2px 2px 2px 2px rgb(31, 217, 227);
+            background-color: aliceblue;
 
-          margin: auto;
+            border-radius: 2px;
 
-          width: calc(100% - 1rem);
-          text-align: center;
+            .imageContainer {
+                width: 100%;
+                background-color: aliceblue;
+
+                img {
+                    height: 200px;
+                    margin: auto;
+                }
+            }
+
+            .courseTitle {
+                position: absolute;
+                font-size: 1.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+                cursor: auto;
+
+                .markFav {
+                    float: right;
+                    margin: 0.5rem;
+                }
+            }
+
+            .courseDescription {
+                height: 50px;
+            }
+
+            .cardBody {
+                display: flex;
+                flex-direction: column;
+
+                border: solid 1px;
+
+                margin: 0.5rem;
+                padding: 0.5rem;
+                background-color: rgb(228, 237, 245);
+
+                .AddToCartBtn {
+                    border: solid;
+                    border-radius: 5px;
+
+                    margin: auto;
+
+                    width: calc(100% - 1rem);
+                    text-align: center;
+                }
+            }
         }
-      }
     }
-  }
 
-  // .einzelkurseContainer {
-  //     grid-area: c;
+    // .einzelkurseContainer {
+    //     grid-area: c;
 
-  // }
+    // }
 }

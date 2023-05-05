@@ -1,107 +1,107 @@
 .logreg {
-  margin: 10rem auto;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 0.5rem;
-
-  h2 {
-    margin: auto;
-    font-size: 1.5rem;
-  }
-
-  .logreg-form {
+    margin: 10rem auto;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    justify-content: center;
 
-    input {
-      border: solid 1px rgb(23, 175, 198);
-      border-radius: 1px;
-      margin: 1rem;
-      padding: 1rem;
-    }
-    .logreg-button {
-      border: solid;
-      border-radius: 5px;
-      margin: 0 2rem;
-      padding: 0.5rem;
+    padding: 0.5rem;
+
+    h2 {
+        margin: auto;
+        font-size: 1.5rem;
     }
 
-    .passwort-vergessen {
-      width: fit-content;
-      margin: 1rem auto;
-      padding: 0.5rem;
-      font-size: small;
-      color: blue;
-    }
+    .logreg-form {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
 
-    .mailLabel {
-      margin: auto;
-    }
+        input {
+            border: solid 1px rgb(23, 175, 198);
+            border-radius: 1px;
+            margin: 1rem;
+            padding: 1rem;
+        }
+        .logreg-button {
+            border: solid;
+            border-radius: 5px;
+            margin: 0 2rem;
+            padding: 0.5rem;
+        }
 
-    button:disabled {
-      opacity: 0.5; /* reduziert die Deckkraft des Buttons */
-      cursor: not-allowed; /* ändert den Cursor, um anzuzeigen, dass der Button nicht klickbar ist */
-      /* Fügen Sie hier weitere Stile hinzu, um das Aussehen des ausgegrauten Buttons anzupassen */
-    }
+        .passwort-vergessen {
+            width: fit-content;
+            margin: 1rem auto;
+            padding: 0.5rem;
+            font-size: small;
+            color: blue;
+        }
 
-    .btn-group {
-      display: flex;
-      justify-content: space-between;
-      button {
-        margin: 0;
-        width: 35%;
-      }
+        .mailLabel {
+            margin: auto;
+        }
+
+        button:disabled {
+            opacity: 0.5; /* reduziert die Deckkraft des Buttons */
+            cursor: not-allowed; /* ändert den Cursor, um anzuzeigen, dass der Button nicht klickbar ist */
+            /* Fügen Sie hier weitere Stile hinzu, um das Aussehen des ausgegrauten Buttons anzupassen */
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            button {
+                margin: 0;
+                width: 35%;
+            }
+        }
     }
-  }
 }
 
 /* Fuer Smartphones */
 @media (max-width: 550px) {
-  /* Ihre CSS-Regeln hier */
+    /* Ihre CSS-Regeln hier */
 
-  .logreg {
-    width: 100%;
-    margin: 0 auto;
-  }
+    .logreg {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
 /* Fuer mittelgrosse Tablets */
 @media (min-width: 551px) and (max-width: 991px) {
-  /* Ihre SCSS-Regeln hier */
+    /* Ihre SCSS-Regeln hier */
 
-  .logreg {
-    width: 75%;
-    margin: 0 auto;
-  }
+    .logreg {
+        width: 75%;
+        margin: 0 auto;
+    }
 }
 
 /* Fuer grosse Tablets */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .logreg {
-    width: 75%;
-    margin: 0 auto;
-  }
+    .logreg {
+        width: 75%;
+        margin: 0 auto;
+    }
 
-  .logreg-form {
-    padding: 1rem 0 !important;
-  }
+    .logreg-form {
+        padding: 1rem 0 !important;
+    }
 }
 
 /* Fuer mittelgrosse Monitore */
 @media (min-width: 1200px) and (max-width: 1679px) {
-  /* Ihre CSS-Regeln hier */
+    /* Ihre CSS-Regeln hier */
 
-  .logreg {
-    width: 85%;
-    margin: 0 auto;
-  }
+    .logreg {
+        width: 85%;
+        margin: 0 auto;
+    }
 
-  .logreg-form {
-    padding: 3rem 0 !important;
-    font-size: 2rem;
-  }
+    .logreg-form {
+        padding: 3rem 0 !important;
+        font-size: 2rem;
+    }
 }

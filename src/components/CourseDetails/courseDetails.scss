@@ -1,37 +1,37 @@
 .courseDetailContainer {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
 }
 
 .courseTitle {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .courseDescription {
-  line-height: 1.5;
+    line-height: 1.5;
 }
 
 .courseInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #f8f8f8;
-  padding: 1rem;
-  border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 4px;
 }
 
 .courseInfo h3,
 .courseInfo p {
-  margin: 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
 .courseInfo p:first-of-type {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .courseInfo span {
-  font-style: italic;
+    font-style: italic;
 }
