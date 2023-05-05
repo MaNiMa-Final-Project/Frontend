@@ -8,7 +8,6 @@ import ImageCrop from "../shared/CropImage/ImageCrop";
 
 import MyEditor from "../shared/Wysiwyg/TextEditor";
 
-
 const IMG_SIZE = 0.5;
 
 import {
