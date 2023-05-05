@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
 
       <h2 className="text-3xl font-bold mb-12">
-        Trusted by <u class="">2,000+</u> users
+        Trusted by <u className="">2,000+</u> users
       </h2>
 
       <div className="containerlogo">

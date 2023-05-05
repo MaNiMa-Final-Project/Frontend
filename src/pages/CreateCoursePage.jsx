@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BASE_URL_PROTECTED } from "../service/config";
+import { BASE_URL_PUBLIC } from "../service/config";
 import axios from "axios";
 import "../components/CreateCourse/createCourse.scss";
 import { useEffect } from "react";
@@ -7,6 +7,15 @@ import { useEffect } from "react";
 import ImageCrop from "../shared/CropImage/ImageCrop";
 
 export default function CreateCoursePage() {
+
+  const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
+  const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
+  const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
+  const [croppedImage, setCroppedImage] = useState("");
+
+  const [resizedImage, setResizedImage] = useState("...");
+  const [originalImage, setOriginalImage] = useState("https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/course/31f5e254-8554-41f2-9e32-1a8cb8e83831.jpg");
+
   const [title, setTitle] = useState("");
   const [creator, setCreator] = useState("");
   const [price, setPrice] = useState("");
@@ -14,9 +23,47 @@ export default function CreateCoursePage() {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
 
   const [message, setMessage] = useState("");
+
+    //screensize
+    useEffect(() => {
+      function handleResize() {
+        setScreenSize({
+          width: window.innerWidth,
+          height: window.innerHeight
+        });
+      }
+  
+      // Add a resize event listener to update the screen size when the window is resized.
+      window.addEventListener("resize", handleResize);
+  
+      // Call the handler once on mount to capture the initial screen size.
+      handleResize();
+  
+      // Remove the resize event listener when the component unmounts.
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
+  
+    useEffect(() => {
+  
+      if (originalImage) {
+        let img = new Image();
+        img.src = originalImage;
+        //img.src = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg'
+  
+        img.onload = function () {
+          let newSize = calculateImageSize(screenSize.width, screenSize.height, img.naturalWidth, img.naturalHeight);
+          let splitImage = user.image.split("upload");
+          let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
+          setResizedImage(scaledImage);
+          setResizedImageSize({ width: newSize.width, height: newSize.height });
+          setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
+        };
+      }
+    }, [originalImage]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -68,18 +115,61 @@ export default function CreateCoursePage() {
     return `${hours} h and ${minutes} m`;
   }
 
-  function imageChangeHandler(evt) {
-    const filereader = new FileReader();
-    const imgFile = filereader.readAsDataURL(evt.target.files[0]);
-    filereader.onloadend = (evt) => {
-      const filedata = filereader.result;
-      setImage(filedata);
-    };
+  function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
+    let newWidth = null;
+    let newHeight = null;
+
+    if (imageWidth >= screenWidth || imageHeight >= screenHeight) {
+      if (imageWidth / screenWidth > imageHeight / screenHeight) {
+        newWidth = screenWidth;
+        newHeight = Math.floor(imageHeight * (screenWidth / imageWidth));
+      } else {
+        newHeight = screenHeight;
+        newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
+      }
+    }
+    return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
   }
+
+  // function imageChangeHandler(evt) {
+  //   const filereader = new FileReader();
+  //   const imgFile = filereader.readAsDataURL(evt.target.files[0]);
+  //   filereader.onloadend = (evt) => {
+  //     const filedata = filereader.result;
+  //     setImage(filedata);
+  //   };
+  // }
+
+  const handleFileSelect = async (evt) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(evt.target.files[0]);
+    fileReader.onloadend = async (evt) => {
+      const fileData = fileReader.result;
+
+      let body = {
+        image: fileData,
+        folder: "course",
+        id: crypto.randomUUID()
+      };
+
+      try {
+        let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
+        // setTrigger(true)
+        setOriginalImage(response.data.url);
+
+        console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  };
 
   return (
     <div className="CreateCourse">
       <h2>Kurs Erstellen</h2>
+
+      {croppedImage && <img src={croppedImage} alt="" />}
+
       <form className="CourseForm" onSubmit={handleSubmit}>
         <label>Title</label>
         <input
@@ -129,12 +219,18 @@ export default function CreateCoursePage() {
         <label>End</label>
         <input type="time" id="end" value={end} placeholder="End" onChange={(event) => setEnd(event.target.value)} />
 
-        <ImageCrop />
 
         <label htmlFor="image">Place Image</label>
-        <input type="file" accept="image/*" id="image" onChange={imageChangeHandler} />
+        <input type="file" accept="image/*" id="image" onChange={handleFileSelect} />
 
-        <img src={image} alt="" />
+        <ImageCrop 
+          originalImageSize={originalImageSize}
+          resizedImageSize={resizedImageSize}
+          resizedImage={resizedImage}
+          originalImage={originalImage}
+          setCroppedImage={setCroppedImage}
+        />
+
 
         <label>Description</label>
         <textarea

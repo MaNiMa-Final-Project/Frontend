@@ -23,7 +23,7 @@ export default function SideBar({ user }) {
   const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
   const [croppedImage, setCroppedImage] = useState(null);
 
-  const [image, setImage] = useState("");
+  const [resizedImage, setResizedImage] = useState("");
   const [originalImage, setOriginalImage] = useState("");
 
   const [userData, setUserData] = useState("");
@@ -39,11 +39,6 @@ export default function SideBar({ user }) {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [userPW, setUserPW] = useState({
-    newPassword: "",
-    confirmPassword: "",
-    oldPassword: ""
-  });
   const [message, setMessage] = useState("");
 
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -95,7 +90,7 @@ export default function SideBar({ user }) {
         let newSize = calculateImageSize(screenSize.width, screenSize.height, img.naturalWidth, img.naturalHeight);
         let splitImage = user.image.split("upload");
         let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
-        setImage(scaledImage);
+        setResizedImage(scaledImage);
         setResizedImageSize({ width: newSize.width, height: newSize.height });
         setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
       };
@@ -230,7 +225,7 @@ export default function SideBar({ user }) {
       try {
         let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
         // setTrigger(true)
-        // setSelectedFile(response.data.url);
+        setOriginalImage(response.data.url);
 
         console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
       } catch (error) {
@@ -486,7 +481,7 @@ export default function SideBar({ user }) {
               <ImageCrop
                 originalImageSize={originalImageSize}
                 resizedImageSize={resizedImageSize}
-                resizedImage={image}
+                resizedImage={resizedImage}
                 originalImage={originalImage}
                 setCroppedImage={setCroppedImage}
               />

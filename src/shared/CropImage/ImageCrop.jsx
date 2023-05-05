@@ -3,8 +3,6 @@ import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import "./imagecrop.scss";
 
-import { BASE_URL_PUBLIC } from "../../service/config.js";
-import axios from "axios";
 
 const CROP_SIZE = 0.8;
 const IMG_VIEW_SIZE = 300;
