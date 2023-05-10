@@ -40,18 +40,27 @@ export default function CourseCards(){
     
 
     return courses.map(course => {
+
         return(
             <a onClick={(evt)=>handleCourseDetailView(evt, course._id)} key={course._id} className="cardContainer">
-                <div onClick={handleMarkAsFavoriteClick}>
-                    <MarkAsFavorite courseId={course._id}/>
-                </div>
-                <div className='cardBody'>
-                    <h5 className='courseTitle'>
+
+                <div className='courseTitle' onClick={handleMarkAsFavoriteClick}>
                         {course.title}
-                    </h5>
+                        <div className='markFav'>
+                            <MarkAsFavorite courseId={course._id}/>
+                        </div>
+                </div>
+
+                <div className='imageContainer'>
+                    <img src={course.image} alt=""/>
+                </div>
+
+                <div className='cardBody'>
+
                     <p className='courseDescription'>
-                        {course.description}
+                        {course.shortDescription}
                     </p>
+                    
                     <button onClick={(evt)=>handleAddToCart(evt, course._id)} className='AddToCartBtn'>
                         Add to Card
                     </button>

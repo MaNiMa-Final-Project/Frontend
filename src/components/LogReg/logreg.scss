@@ -1,7 +1,7 @@
 .logreg {
 
     margin: 10rem auto;
-    width: 30%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,10 +13,13 @@
         font-size: 1.5rem;
     }
 
+
+
     .logreg-form {
         display: flex;
         flex-direction: column;
         padding: 2rem;
+
         input{
             border: solid 1px rgb(23, 175, 198);
             border-radius: 1px;
@@ -59,6 +62,8 @@
           
     }
 }
+
+
 
 
 /* Fuer Smartphones */
