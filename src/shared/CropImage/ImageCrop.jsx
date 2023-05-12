@@ -3,22 +3,22 @@ import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import "./imagecrop.scss";
 
+import screenSize from "../ScreenSize/screenSize";
+
 const CROP_SIZE = 0.8;
 const IMG_VIEW_SIZE = 300;
 
-const ImageCrop = ({ originalImageSize, resizedImageSize, resizedImage, originalImage, setCroppedImage }) => {
-    console.log("🚀 ----------------------------------------------------------🚀");
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ originalImage:", originalImage);
-    console.log("🚀 ----------------------------------------------------------🚀");
-    console.log("🚀 --------------------------------------------------------🚀");
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ resizedImage:", resizedImage);
-    console.log("🚀 --------------------------------------------------------🚀");
-    console.log("🚀 ----------------------------------------------------------------🚀");
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ resizedImageSize:", resizedImageSize);
-    console.log("🚀 ----------------------------------------------------------------🚀");
-    console.log("🚀 ------------------------------------------------------------------🚀");
-    console.log("🚀 ~ file: ImageCrop.jsx:10 ~ originalImageSize:", originalImageSize);
-    console.log("🚀 ------------------------------------------------------------------🚀");
+const IMG_SIZE = 0.5;
+
+const ImageCrop = ({ originalImage, setCroppedImage }) => {
+    const [resizedImage, setResizedImage] = useState("");
+    const [originalSize, setOriginalSize] = useState("");
+
+    const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
+    const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
+
+    // const [croppedImage, setCroppedImage] = useState("");
+
     const [crop, setCrop] = useState({});
 
     const [naturalWidth, setNaturalWidth] = useState("");
@@ -33,6 +33,72 @@ const ImageCrop = ({ originalImageSize, resizedImageSize, resizedImage, original
     useEffect(() => {
         if (resizedImage) setSelectedFile(resizedImage);
     }, [resizedImage]);
+
+    // //screensize
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setScreenSize({
+    //             width: window.innerWidth,
+    //             height: window.innerHeight
+    //         });
+    //     }
+
+    //     // Add a resize event listener to update the screen size when the window is resized.
+    //     window.addEventListener("resize", handleResize);
+
+    //     // Call the handler once on mount to capture the initial screen size.
+    //     handleResize();
+
+    //     // Remove the resize event listener when the component unmounts.
+    //     return () => {
+    //         window.removeEventListener("resize", handleResize);
+    //     };
+    // }, []);
+
+    useEffect(() => {
+        if (originalImage) {
+            let img = new Image();
+            img.src = originalImage;
+
+            //img.src = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg'
+
+            img.onload = function () {
+                let newSize = calculateImageSize(
+                    screenSize().width,
+                    screenSize().height,
+                    img.naturalWidth,
+                    img.naturalHeight
+                );
+
+                let splitImage = originalImage.split("upload");
+                let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
+
+                setResizedImage(scaledImage);
+                setResizedImageSize({ width: newSize.width, height: newSize.height });
+                setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
+            };
+        }
+    }, [originalImage]);
+
+    function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
+        let newWidth = null;
+        let newHeight = null;
+
+        if (imageWidth >= screenWidth || imageHeight >= screenHeight) {
+            if (imageWidth / screenWidth > imageHeight / screenHeight) {
+                newWidth = screenWidth;
+                newHeight = Math.floor(imageHeight * (screenWidth / imageWidth));
+            } else {
+                newHeight = screenHeight;
+                newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
+            }
+        } else {
+            newWidth = screenWidth;
+            newHeight = screenHeight;
+        }
+
+        return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
+    }
 
     //!anonymous https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png
 
@@ -203,7 +269,7 @@ const ImageCrop = ({ originalImageSize, resizedImageSize, resizedImage, original
                             ruleOfThirds={true}
                             className="cropTool"
                         >
-                            <img src={selectedFile} onLoad={onImageLoad} />
+                            <img src={resizedImage} onLoad={onImageLoad} />
                         </ReactCrop>
                     </div>
 
