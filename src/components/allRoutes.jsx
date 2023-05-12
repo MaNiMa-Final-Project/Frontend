@@ -1,19 +1,19 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-import Kurse from '../pages/Kurse';
-import Dozenten from '../pages/Dozenten';
-import Info from '../pages/Info';
-import HomePage from '../pages/HomePage'
-import RegisterPage from '../pages/RegisterPage';
-import RegisterForm from '../components/LogReg/RegisterForm';
-import LoginPage from '../pages/LoginPage';
-import DashboardPage from '../pages/DashboardPage';
-import ShoppingCartPage from '../pages/ShoppingCartPage';
-import CreateCoursePage from '../pages/CreateCoursePage';
-import CreateCreatorPage from '../pages/CreateCreatorPage';
-import CourseDetailsPage from '../pages/CourseDetailsPage';
-import { useLegitUser } from '../hooks/useLegitUser';
+import Kurse from "../pages/Kurse";
+import Dozenten from "../pages/Dozenten";
+import Info from "../pages/Info";
+import HomePage from "../pages/HomePage";
+import RegisterPage from "../pages/RegisterPage";
+import RegisterForm from "../components/LogReg/RegisterForm";
+import LoginPage from "../pages/LoginPage";
+import DashboardPage from "../pages/DashboardPage";
+import ShoppingCartPage from "../pages/ShoppingCartPage";
+import CreateCoursePage from "../pages/CreateCoursePage";
+import CreateCreatorPage from "../pages/CreateCreatorPage";
+import CourseDetailsPage from "../pages/CourseDetailsPage";
+import { useLegitUser } from "../hooks/useLegitUser";
 
 export const paths = {
     homePath: "/",
@@ -40,64 +40,64 @@ export const routingData = () => {
     // console.log("einfache negation (benutzen wir) "+(!(userData.isCreator || userData.isAdmin)));
     // console.log("--------------------------------------------------------");
 
-    useEffect(()=>{
+    useEffect(() => {
         userData.fetchUser();
-    },[location.pathname]);
+    }, [location.pathname]);
 
     return [
         {
             path: paths.homePath,
             element: <HomePage />,
             isProtected: false,
-            redirectPath: null,
+            redirectPath: null
         },
         {
             path: paths.registerPath,
             element: <RegisterPage />,
             isProtected: false,
-            redirectPath: paths.homePath,
+            redirectPath: paths.homePath
         },
         {
             path: paths.registerForm,
             element: <RegisterForm />,
             isProtected: false,
-            redirectPath: paths.homePath,
+            redirectPath: paths.homePath
         },
         {
             path: paths.loginPath,
             element: <LoginPage />,
             isProtected: false,
-            redirectPath: paths.homePath,
+            redirectPath: paths.homePath
         },
         {
             path: paths.shoppingCartPath,
             element: <ShoppingCartPage />,
             isProtected: false,
-            redirectPath: null,
+            redirectPath: null
         },
         {
             path: paths.coursePath,
             element: <CourseDetailsPage />,
             isProtected: false,
-            redirectPath: null,
+            redirectPath: null
         },
         {
             path: paths.dozentenPath,
             element: <Dozenten />,
             isProtected: false,
-            redirectPath: null,
+            redirectPath: null
         },
         {
             path: paths.infoPath,
             element: <Info />,
             isProtected: false,
-            redirectPath: null,
+            redirectPath: null
         },
         {
             path: paths.kursePath,
             element: <Kurse />,
             isProtected: false,
-            redirectPath: null,
+            redirectPath: null
         },
 
         //!protected
@@ -105,23 +105,22 @@ export const routingData = () => {
         {
             path: paths.createCoursePath,
             element: <CreateCoursePage />,
-            isProtected: (!(userData.isCreator || userData.isAdmin)),
-            redirectPath: paths.homePath,
+            isProtected: !(userData.isCreator || userData.isAdmin),
+            redirectPath: paths.homePath
         },
         //?admin
         {
             path: paths.createCreatorPath,
             element: <CreateCreatorPage />,
             isProtected: !userData.isAdmin,
-            redirectPath: paths.homePath,
+            redirectPath: paths.homePath
         },
         //? every user
         {
             path: paths.dashboardPath,
             element: <DashboardPage />,
             isProtected: !userData.success,
-            redirectPath: paths.homePath,
-        },
+            redirectPath: paths.homePath
+        }
     ];
-}
-  
+};

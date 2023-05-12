@@ -1,68 +1,20 @@
-.footer {
+.containerlogo {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background-color: #333;
-    
-    .shortcuts {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      text-align: center;
-  
-      p {
-        margin: 0.5rem;
-        font-size: 0.8rem;
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 0.1rem;
-      }
-    }
-  
-    .social-container {
-      display: flex;
-      justify-content: center;
-  
-      .social {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 0.5rem;
-  
-        svg {
-          color: white;
-          transition: all 0.3s ease-in-out;
-        }
-  
-        &:hover {
-          svg {
-            transform: scale(1.2);
-          }
-        }
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .shortcuts {
-        flex-direction: column;
-        align-items: center;
-        p {
-          margin: 0.5rem 0;
-        }
-      }
+    justify-content: space-evenly;
 
-      .footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem;
-      }
-    }
-  }
+    .logo-wrapper {
+        border: solid;
 
- 
-  
+        height: fit-content;
+
+        #staatliche_Museen {
+            width: 150px;
+            height: 100px;
+        }
+
+        #solidrock {
+            width: 50px;
+            height: 200px;
+        }
+    }
+}

@@ -6,13 +6,10 @@ import UserDashboard from "../components/Dashboard/UserDashboard";
 import AdminDashboard from "../components/Dashboard/AdminDashboard";
 import CreatorDashboard from "../components/Dashboard/CreatorDashboard";
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { useLegitUser } from "../hooks/useLegitUser";
 
-
-
-export default function DashboardPage(){
-
+export default function DashboardPage() {
     const userData = useLegitUser();
     const [user, setUser] = useState("");
 
@@ -21,13 +18,13 @@ export default function DashboardPage(){
     useEffect(() => {
         (async () => {
             try {
-                let response = await axios.get(BASE_URL_PROTECTED+'user', {
+                let response = await axios.get(BASE_URL_PROTECTED + "user", {
                     withCredentials: true
                 });
 
-                setUser(response.data)
+                setUser(response.data);
             } catch (error) {
-                console.error(error)
+                console.error(error);
             }
         })();
     }, []);
@@ -36,7 +33,7 @@ export default function DashboardPage(){
     const handleProfileEdit = async (newData) => {
         try {
             const response = await axios.put(`${BASE_URL_PROTECTED}profile`, newData, {
-                withCredentials: true,
+                withCredentials: true
             });
 
             setUser(response.data);
@@ -47,17 +44,13 @@ export default function DashboardPage(){
         }
     };
 
-    return(
+    return (
         <>
             <p>{`Willkommen, ${user.nickName}!`}</p>
 
-                {(!userData.isCreator && !userData.isAdmin) && 
-                    <UserDashboard user={user}/>
-                }
-                {userData.isAdmin && <AdminDashboard />}
-                {userData.isCreator && <CreatorDashboard user={user}/>}
-
+            {!userData.isCreator && !userData.isAdmin && <UserDashboard user={user} />}
+            {userData.isAdmin && <AdminDashboard />}
+            {userData.isCreator && <CreatorDashboard user={user} />}
         </>
-    )
+    );
 }
-

@@ -1,4 +1,4 @@
-.profileSideBar{
+.profileSideBar {
     grid-area: d;
 
     background-color: aqua;
@@ -8,19 +8,17 @@
 
     align-items: center;
 
-    .profilePicture{
+    .profilePicture {
         border-radius: 50%;
-        margin: 1rem 0 0.5rem 0 ;
+        margin: 1rem 0 0.5rem 0;
         border: solid;
         height: 30%;
-        img{
+        img {
             height: 100%;
             border-radius: 50%;
-
         }
-
     }
-    .icons{
+    .icons {
         font-size: 1.5rem;
         margin: 0.5rem;
     }
@@ -36,7 +34,6 @@
         background-color: bisque;
 
         .settingsInnerContainer {
-            
             display: flex;
             flex-direction: column;
 
@@ -45,37 +42,26 @@
                 justify-content: space-between;
                 border-bottom: solid 1px;
 
-                input{
+                input {
                     font-size: 1rem !important;
                     border: none;
                     border-radius: 5px;
                     padding-left: 0.5rem;
-    
+
                     width: 90%;
                     background-color: bisque;
-    
-    
                 }
-                p{
+                p {
                     margin: auto 0;
                     padding-left: 0.5rem;
-                    
-                    
                 }
-                span{
+                span {
                     display: flex;
                     align-items: center;
                 }
-
-
             }
-
-
-
         }
-
     }
-
 }
 
 .modalOverlay {
@@ -93,16 +79,15 @@
     .modalContent {
         background-color: white;
         width: 500px;
-        
+
         padding: 20px;
         border-radius: 5px;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        h2{
+        h2 {
             text-align: center;
             margin: 1rem;
         }
         form {
-
             .outerFieldset {
                 border: solid 1px;
                 border-radius: 5px;
@@ -117,13 +102,12 @@
                     button {
                         padding: 0 0.5rem;
                     }
-                    input{
+                    input {
                         width: 100%;
                         border: none;
                         padding: 0.2rem;
                     }
                 }
-
             }
 
             p {
@@ -131,19 +115,18 @@
                 text-align: center;
                 color: red;
             }
-
         }
 
         .modalContent h2 {
             margin-top: 0;
         }
-        
+
         .modalButtons {
             display: flex;
             justify-content: flex-end;
             margin-top: 20px;
         }
-        
+
         .modalButtons button {
             background-color: #cac2c2;
             color: black;
@@ -155,27 +138,20 @@
         }
     }
 
-    .pictureModal{
-
+    .pictureModal {
         background-color: white;
 
-
-
-        
-
-        
         padding: 20px;
         border-radius: 5px;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 
-        .pictureModalButtons form{
+        .pictureModalButtons form {
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
             margin-top: 20px;
 
-            .fileInput{
-
+            .fileInput {
                 background-color: #cac2c2;
                 color: black;
                 border: none;
@@ -187,19 +163,18 @@
             .file-input-label {
                 display: inline-block;
                 padding: 10px 20px;
-                background-image: url('path/to/your/icon.png'); /* Pfad zum Icon */
+                background-image: url("path/to/your/icon.png"); /* Pfad zum Icon */
                 background-size: 16px 16px; /* Größe des Icons */
                 background-repeat: no-repeat;
                 background-position: left center;
                 cursor: pointer;
-              }
-              
-              .file-input-label i {
+            }
+
+            .file-input-label i {
                 display: none;
-              }
-              
+            }
         }
-        
+
         .pictureModalButtons button {
             background-color: #cac2c2;
             color: black;
@@ -211,10 +186,3 @@
         }
     }
 }
-
-
-
-
-  
-
-  

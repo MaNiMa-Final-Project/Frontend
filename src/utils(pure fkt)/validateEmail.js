@@ -1,20 +1,19 @@
-import tld from 'tld-list';
+import tld from "tld-list";
 
 export default function validateEmail(email) {
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
         return false;
     }
 
-    const [local, domain] = email.split('@');
+    const [local, domain] = email.split("@");
 
     if (local.length < 2 || local.length > 64) {
         return false;
     }
 
-    const domainParts = domain.split('.');
+    const domainParts = domain.split(".");
     if (domainParts.length < 2 || domainParts.length > 4) {
         return false;
     }
@@ -25,7 +24,7 @@ export default function validateEmail(email) {
         }
     }
 
-    const topLevelDomain = domainParts[domainParts.length-1];
+    const topLevelDomain = domainParts[domainParts.length - 1];
     if (!tld.includes(topLevelDomain)) {
         return false;
     }

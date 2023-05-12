@@ -1,7 +1,4 @@
-
-
-
-.cropContainer{
+.cropContainer {
     border-radius: 5px;
     margin: 1rem;
 
@@ -15,25 +12,25 @@
     animation-timing-function: ease;
 
     @keyframes changeWidth {
-        from { transform: scale(0) }
-        to { transform: scale(1) }
+        from {
+            transform: scale(0);
+        }
+        to {
+            transform: scale(1);
+        }
     }
 
-    .cropToolContainer{
-
+    .cropToolContainer {
         margin: 1rem;
 
         .cropTool {
-    
             display: flex;
             justify-content: center;
             border-radius: 5px;
         }
-
     }
 
     .croppedImageContainer {
-
         width: 0;
 
         display: flex;
@@ -41,34 +38,30 @@
 
         transition: width 1s ease;
 
-
         img {
             border-radius: 50%;
-
 
             animation-name: scalePic;
             animation-duration: 1s;
             animation-timing-function: ease-in;
-        
+
             @keyframes scalePic {
-                from { transform: scale(0) }
-                to { transform: scale(1) }
+                from {
+                    transform: scale(0);
+                }
+                to {
+                    transform: scale(1);
+                }
             }
         }
-          
-
-          
-
-
-    
     }
 }
 
-
-
 @keyframes changeWidth {
-    from { width: 0%; }
-    to { width: 100%; }
-  }
-
-
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
