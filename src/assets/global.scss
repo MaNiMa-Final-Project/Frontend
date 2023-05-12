@@ -111,7 +111,6 @@ body {
 
     width: 100% !important;
 
-    border: solid #eb3223;
 }
 
 .heading {
@@ -212,7 +211,12 @@ body {
 .courseSwiperSlide {
     width: 300px;
 
-    border: solid blue;
+    background-color: #385ea0;
+
+    border-radius: 5px;
+
+    padding: 1rem;
+
 }
 
 .swiper-pagination .swiper-pagination-bullet {

@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/virtual";
 import "../../components/HomePage/home.scss";
 
-import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper";
 
 import SlideNextButton from "./SlideNextButton.jsx";
 import SlidePrevButton from "./SlidePrevButton.jsx";
@@ -76,11 +76,13 @@ export default function CourseSwiper() {
                 <div>Loading...</div>
             ) : (
                 <Swiper
-                    modules={[Virtual, EffectCoverflow, Pagination, Navigation]}
+                    modules={[Virtual, Autoplay, EffectCoverflow, Pagination, Navigation]}
                     effect={"coverflow"}
                     grabCursor={true}
-                    spaceBetween={0}
+                    spaceBetween={10}
+                    slidesPerView={courses.length}
                     coverflowEffect={{
+                        
                         rotate: 0,
                         stretch: 0,
                         depth: 100,
@@ -95,6 +97,10 @@ export default function CourseSwiper() {
                     //     clickable: true
                     // }}
                     virtual
+                    autoplay={
+                        {delay: 5000}
+
+                    }
                     className="swiper_container"
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;
