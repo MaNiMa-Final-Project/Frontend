@@ -8,7 +8,6 @@ import "swiper/css/navigation";
 import "swiper/css/virtual";
 import "../../components/HomePage/home.scss";
 
-
 import { EffectCoverflow, Pagination, Navigation } from "swiper";
 
 import SlideNextButton from "./SlideNextButton.jsx";
@@ -16,7 +15,6 @@ import SlidePrevButton from "./SlidePrevButton.jsx";
 
 import axios from "axios";
 import { BASE_URL_PUBLIC } from "../../service/config.js";
-
 
 import { useEffect, useState } from "react";
 
@@ -55,7 +53,6 @@ export default function CourseSwiper() {
         console.log("🚀 ~ file: CreatorCards.jsx:36 ~:", "Kalender soll sich öffnen");
         // cartData.addToCart(id);
     };
-
 
     const cartData = useCartData();
 
@@ -105,34 +102,34 @@ export default function CourseSwiper() {
                 >
                     {courses.map((course, index) => {
                         return (
-                            <SwiperSlide  key={course._id} virtualIndex={index}>
+                            <SwiperSlide key={course._id} virtualIndex={index}>
                                 <div className="courseSwiperSlide">
-                                <a
-                                    onClick={(evt) => handleCourseDetailView(evt, course._id)}
-                                    className="cardContainer"
-                                >
-                                    <div className="courseTitle" onClick={handleMarkAsFavoriteClick}>
-                                        {course.title}
-                                        <div className="markFav">
-                                            <MarkAsFavorite courseId={course._id} />
+                                    <a
+                                        onClick={(evt) => handleCourseDetailView(evt, course._id)}
+                                        className="cardContainer"
+                                    >
+                                        <div className="courseTitle" onClick={handleMarkAsFavoriteClick}>
+                                            {course.title}
+                                            <div className="markFav">
+                                                <MarkAsFavorite courseId={course._id} />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="imageContainer">
-                                        <img src={course.image} alt="" />
-                                    </div>
+                                        <div className="imageContainer">
+                                            <img src={course.image} alt="" />
+                                        </div>
 
-                                    <div className="cardBody">
-                                        <p className="courseDescription">{course.shortDescription}</p>
+                                        <div className="cardBody">
+                                            <p className="courseDescription">{course.shortDescription}</p>
 
-                                        <button
-                                            onClick={(evt) => handleAddToCart(evt, course._id)}
-                                            className="AddToCartBtn"
-                                        >
-                                            Add to Card
-                                        </button>
-                                    </div>
-                                </a>
+                                            <button
+                                                onClick={(evt) => handleAddToCart(evt, course._id)}
+                                                className="AddToCartBtn"
+                                            >
+                                                Add to Card
+                                            </button>
+                                        </div>
+                                    </a>
                                 </div>
                             </SwiperSlide>
                         );

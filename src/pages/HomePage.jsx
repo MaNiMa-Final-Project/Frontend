@@ -22,17 +22,15 @@ export default function HomePage() {
     return (
         <div className="homeGridContainer">
             <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
-            
+
             <div className="wochenkursContainer">
                 {/* <CourseCards /> */}
-                <CourseSwiper/>
+                <CourseSwiper />
             </div>
 
             <div className="dozentenContainer">
                 <SwiperCarousel />
             </div>
-
-
         </div>
     );
 }

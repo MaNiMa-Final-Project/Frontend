@@ -2,17 +2,14 @@ import React from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-
 import "./editor.scss";
 
 export default function MyEditor() {
     return (
         <div className="editorContainer">
-        
             <CKEditor
                 editor={ClassicEditor}
                 config={{
-
                     toolbar: {
                         items: [
                             "undo",
@@ -45,7 +42,7 @@ export default function MyEditor() {
                             "indent"
                         ],
                         shouldNotGroupWhenFull: false
-                    },
+                    }
                 }}
                 data="<p>Enter your Course Description</p>"
                 onReady={(editor) => {

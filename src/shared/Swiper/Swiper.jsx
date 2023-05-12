@@ -25,11 +25,9 @@ export default function SwiperCarousel() {
     const [isLoading, setIsLoading] = useState(true);
 
     const swiper = useSwiper();
-    console.log("🚀 -----------------------------------------🚀")
-    console.log("🚀 ~ file: Swiper.jsx:28 ~ swiper:", swiper)
-    console.log("🚀 -----------------------------------------🚀")
-
-
+    console.log("🚀 -----------------------------------------🚀");
+    console.log("🚀 ~ file: Swiper.jsx:28 ~ swiper:", swiper);
+    console.log("🚀 -----------------------------------------🚀");
 
     useEffect(() => {
         (async () => {
@@ -95,7 +93,7 @@ export default function SwiperCarousel() {
                     loop={true}
                     spaceBetween={1}
                     centeredSlides={true}
-                    slidesPerView={'auto'}
+                    slidesPerView={"auto"}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 0,
@@ -124,7 +122,6 @@ export default function SwiperCarousel() {
                     <SwiperSlide>{creatorCard(4)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
-                    
                 </Swiper>
             )}
         </div>

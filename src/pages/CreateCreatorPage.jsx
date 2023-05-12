@@ -13,8 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
 import ImageCrop from "../shared/CropImage/ImageCrop";
 
 export default function CreateCreatorPage() {
@@ -34,9 +32,10 @@ export default function CreateCreatorPage() {
 
     const [showImageModal, setShowImageModal] = useState(false);
 
-
     const [resizedImage, setResizedImage] = useState("");
-    const [originalImage, setOriginalImage] = useState("https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png");
+    const [originalImage, setOriginalImage] = useState(
+        "https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png"
+    );
     const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
     const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
 
@@ -164,9 +163,6 @@ export default function CreateCreatorPage() {
         // Zurück-Button-Logik hier implementieren
     }
 
-
-
-
     const handleFileSelect = async (evt) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(evt.target.files[0]);
@@ -178,11 +174,9 @@ export default function CreateCreatorPage() {
                 folder: "course",
                 id: crypto.randomUUID()
             };
-            console.log("🚀 ------------------------------------------------🚀")
-            console.log("🚀 ~ file: CreateCoursePage.jsx:178 ~ body:", body)
-            console.log("🚀 ------------------------------------------------🚀")
-
-
+            console.log("🚀 ------------------------------------------------🚀");
+            console.log("🚀 ~ file: CreateCoursePage.jsx:178 ~ body:", body);
+            console.log("🚀 ------------------------------------------------🚀");
 
             // try {
             //     // let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
@@ -247,17 +241,17 @@ export default function CreateCreatorPage() {
 
                 {/* Hier ein Beispiel für das Hochladen eines Bildes */}
                 <input type="file" accept="image/*" onChange={handleFileSelect} />
- 
+
                 {/* <ImageCrop                             
                     originalImage={originalImage}
                     setCroppedImage={setCroppedImage}
                 />  */}
 
-                {croppedImage ? 
-                <img src={croppedImage} style={{marginBottom: '1rem'}} alt="Vorschau des ausgewählten Bilds" /> 
-                :
-                <img src={originalImage} style={{marginBottom: '1rem'}} alt="Vorschau des ausgewählten Bilds" />
-                }
+                {croppedImage ? (
+                    <img src={croppedImage} style={{ marginBottom: "1rem" }} alt="Vorschau des ausgewählten Bilds" />
+                ) : (
+                    <img src={originalImage} style={{ marginBottom: "1rem" }} alt="Vorschau des ausgewählten Bilds" />
+                )}
 
                 {/* {originalImage && <img src={originalImage} style={{marginBottom: '1rem'}} alt="Vorschau des ausgewählten Bilds" />} */}
 
@@ -278,10 +272,7 @@ export default function CreateCreatorPage() {
                 <div className="modalOverlay">
                     {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
                     <div className="pictureModal">
-                        <ImageCrop
-                            originalImage={originalImage}
-                            setCroppedImage={setCroppedImage}
-                        />
+                        <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />
 
                         <div className="pictureModalButtons">
                             <form onClick={handleSubmit}>

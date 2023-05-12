@@ -6,13 +6,11 @@ export default function SlidePrevButton() {
     const swiper = useSwiper();
     function handleFirstCard(evt) {
         if (swiper.isBeginning) {
-            swiper.slideTo(swiper.virtual.slides.length-1);
+            swiper.slideTo(swiper.virtual.slides.length - 1);
         } else {
             swiper.slidePrev();
         }
     }
-
-
 
     return (
         <div className="swiper-button-prev slider-arrow" onClick={handleFirstCard}>

@@ -111,17 +111,13 @@ body {
 
     width: 100% !important;
 
-    border: solid #eb3223 ;
+    border: solid #eb3223;
 }
-
-
 
 .heading {
     padding: 1rem 0;
     font-size: 3.5rem;
     text-align: center;
-
-
 }
 
 .swiper_container {
@@ -131,11 +127,6 @@ body {
     overflow: hidden;
 
     // border: solid blue ;
-
-
-
-    
-
 }
 
 .swiper-slide {
@@ -144,7 +135,6 @@ body {
     width: fit-content;
 
     // border: solid green ;
-
 }
 
 @media (max-width: 500px) {
@@ -173,9 +163,8 @@ body {
     display: none;
 }
 
-.swiper-wrapper{
+.swiper-wrapper {
     width: auto;
-
 }
 
 .slider-controler {
@@ -188,22 +177,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 .slider-controler .swiper-button-next {
     left: 90% !important;
     transform: translateX(-90%) !important;
-
 }
 
 .slider-controler .swiper-button-prev {
     left: 10% !important;
     transform: translateX(-10%) !important;
 }
-
-
 
 .arrow-icon {
     font-size: 2rem;
@@ -245,9 +229,9 @@ body {
     background-color: #f5f5f5;
     border-radius: 15px;
 
-    -webkit-box-shadow: -14px 14px 20px -7px rgba(128,128,128,0.79);
-    -moz-box-shadow: -14px 14px 20px -7px rgba(128,128,128,0.79);
-    box-shadow: -14px 14px 20px -7px rgba(128,128,128,0.79);
+    -webkit-box-shadow: -14px 14px 20px -7px rgba(128, 128, 128, 0.79);
+    -moz-box-shadow: -14px 14px 20px -7px rgba(128, 128, 128, 0.79);
+    box-shadow: -14px 14px 20px -7px rgba(128, 128, 128, 0.79);
 
     margin-bottom: 20px;
     margin: 0.5rem;

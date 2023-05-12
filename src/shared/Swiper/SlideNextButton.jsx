@@ -5,7 +5,7 @@ import { faArrowRight, faArrowLeft, faAngleRight } from "@fortawesome/free-solid
 export default function SlideNextButton() {
     const swiper = useSwiper();
     function handleLastCard(evt) {
-        if(swiper.isEnd) {
+        if (swiper.isEnd) {
             swiper.slideTo(0);
         } else {
             swiper.slideNext();
@@ -18,4 +18,3 @@ export default function SlideNextButton() {
         </div>
     );
 }
-

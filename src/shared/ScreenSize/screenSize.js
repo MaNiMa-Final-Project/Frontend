@@ -1,8 +1,6 @@
-
 export default function screenSize() {
-
     // const [screenSize, setScreenSize] = useState();
-        
+
     // function handleResize() {
     //         setScreenSize({
     //             width: window.innerWidth,
@@ -22,8 +20,7 @@ export default function screenSize() {
     //     };
 
     return {
-                width: window.innerWidth,
-                height: window.innerHeight
-            };
-
+        width: window.innerWidth,
+        height: window.innerHeight
+    };
 }

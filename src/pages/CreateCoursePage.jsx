@@ -109,11 +109,9 @@ export default function CreateCoursePage() {
                 folder: "course",
                 id: crypto.randomUUID()
             };
-            console.log("🚀 ------------------------------------------------🚀")
-            console.log("🚀 ~ file: CreateCoursePage.jsx:178 ~ body:", body)
-            console.log("🚀 ------------------------------------------------🚀")
-
-
+            console.log("🚀 ------------------------------------------------🚀");
+            console.log("🚀 ~ file: CreateCoursePage.jsx:178 ~ body:", body);
+            console.log("🚀 ------------------------------------------------🚀");
 
             // try {
             //     // let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
@@ -209,10 +207,7 @@ export default function CreateCoursePage() {
                 <div className="modalOverlay">
                     {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
                     <div className="pictureModal">
-                        <ImageCrop
-                            originalImage={originalImage}
-                            setCroppedImage={setCroppedImage}
-                        />
+                        <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />
 
                         <div className="pictureModalButtons">
                             <form onClick={handleSubmit}>

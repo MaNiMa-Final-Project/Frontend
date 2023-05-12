@@ -5,25 +5,19 @@ import "./imagecrop.scss";
 
 import screenSize from "../ScreenSize/screenSize";
 
-
 const CROP_SIZE = 0.8;
 const IMG_VIEW_SIZE = 300;
 
 const IMG_SIZE = 0.5;
 
+const ImageCrop = ({ originalImage, setCroppedImage }) => {
+    const [resizedImage, setResizedImage] = useState("");
+    const [originalSize, setOriginalSize] = useState("");
 
+    const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
+    const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
 
-const ImageCrop = ({originalImage, setCroppedImage }) => {
-
-
-  const [resizedImage, setResizedImage] = useState("");
-  const [originalSize, setOriginalSize] = useState("");
-
-  const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
-  const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
-
-  // const [croppedImage, setCroppedImage] = useState("");
-
+    // const [croppedImage, setCroppedImage] = useState("");
 
     const [crop, setCrop] = useState({});
 
@@ -39,7 +33,6 @@ const ImageCrop = ({originalImage, setCroppedImage }) => {
     useEffect(() => {
         if (resizedImage) setSelectedFile(resizedImage);
     }, [resizedImage]);
-
 
     // //screensize
     // useEffect(() => {
@@ -63,7 +56,6 @@ const ImageCrop = ({originalImage, setCroppedImage }) => {
     // }, []);
 
     useEffect(() => {
-
         if (originalImage) {
             let img = new Image();
             img.src = originalImage;
@@ -81,38 +73,32 @@ const ImageCrop = ({originalImage, setCroppedImage }) => {
                 let splitImage = originalImage.split("upload");
                 let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
 
-
                 setResizedImage(scaledImage);
                 setResizedImageSize({ width: newSize.width, height: newSize.height });
                 setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
-
-
             };
-
         }
-
     }, [originalImage]);
 
-
     function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
-      let newWidth = null;
-      let newHeight = null;
+        let newWidth = null;
+        let newHeight = null;
 
-      if (imageWidth >= screenWidth || imageHeight >= screenHeight) {
-          if (imageWidth / screenWidth > imageHeight / screenHeight) {
-              newWidth = screenWidth;
-              newHeight = Math.floor(imageHeight * (screenWidth / imageWidth));
-          } else {
-              newHeight = screenHeight;
-              newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
-          }
-      } else {
-          newWidth = screenWidth;
-          newHeight = screenHeight;
-      }
+        if (imageWidth >= screenWidth || imageHeight >= screenHeight) {
+            if (imageWidth / screenWidth > imageHeight / screenHeight) {
+                newWidth = screenWidth;
+                newHeight = Math.floor(imageHeight * (screenWidth / imageWidth));
+            } else {
+                newHeight = screenHeight;
+                newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
+            }
+        } else {
+            newWidth = screenWidth;
+            newHeight = screenHeight;
+        }
 
-      return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
-  }
+        return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
+    }
 
     //!anonymous https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png
 
@@ -266,8 +252,6 @@ const ImageCrop = ({originalImage, setCroppedImage }) => {
         }
     }
 
-    
-
     let croppedContainerSize = showCroppedImage
         ? { width: `${IMG_VIEW_SIZE + 20}px`, height: `${IMG_VIEW_SIZE + 20}px` }
         : { width: `${0}px`, height: `${0}px` };
@@ -286,7 +270,6 @@ const ImageCrop = ({originalImage, setCroppedImage }) => {
                             className="cropTool"
                         >
                             <img src={resizedImage} onLoad={onImageLoad} />
-
                         </ReactCrop>
                     </div>
 
