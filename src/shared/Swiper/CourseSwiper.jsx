@@ -82,7 +82,6 @@ export default function CourseSwiper() {
                     spaceBetween={10}
                     slidesPerView={courses.length}
                     coverflowEffect={{
-                        
                         rotate: 0,
                         stretch: 0,
                         depth: 100,
@@ -97,10 +96,7 @@ export default function CourseSwiper() {
                     //     clickable: true
                     // }}
                     virtual
-                    autoplay={
-                        {delay: 5000}
-
-                    }
+                    autoplay={{ delay: 5000 }}
                     className="swiper_container"
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;
