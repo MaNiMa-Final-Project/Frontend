@@ -1,21 +1,86 @@
 .cartContainer {
-    border: solid;
-    border-collapse: collapse;
-    padding: 2rem;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
-    td,
-    th {
-        border: 1px solid black;
-        padding: 10px;
+
+
+    table{
+        width: 100%;
+        text-align: center;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+
+
+        
+        tr {
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        border-collapse: collapse;
+
+            td{
+                padding: 10px;
+            }
+
+            th{
+                text-align: center;
+
+                background-color: rgb(240, 240, 240);
+                padding: 10px;
+                
+            }
+        }
+
+
     }
 
-    // .tableRow {
-    //     padding: 1rem;
-    //     margin: 1rem;
-    // }
+    .cartSummary{
+        margin-top: 2rem;
+        border: solid 1px;
+        width: 40%;
 
-    // .tableDataCell {
-    //     padding: 1rem;
-    //     margin: 1rem;
-    // }
+        align-self: flex-end;
+        
+
+        .cartTotal{
+            .cartSummaryHeader{
+                background-color: rgb(240, 240, 240);
+                padding: 1rem;
+                border-bottom: solid 1px;
+            }
+
+            .cartSummaryBody{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem;
+                margin: 1rem;
+                border-top: solid 1px;
+                border-bottom: solid 1px;
+
+
+                h2{
+                    padding: 0.5rem;
+                }
+
+            }
+
+            .cartSummaryFooter{
+                display: flex;
+                flex-direction: column;
+
+
+                button{
+                    background-color: blue;
+                    border-radius: 5px;
+                    padding: 1rem;
+                    margin: 1rem;
+                    color: aliceblue;
+                    font-size: large;
+                }
+            }
+        }
+    }
+
 }
