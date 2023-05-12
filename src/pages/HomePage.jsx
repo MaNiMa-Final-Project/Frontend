@@ -6,6 +6,8 @@ import CourseCards from "../components/HomePage/CourseCards";
 import CreatorCards from "../components/HomePage/CreatorCards";
 import SwiperCarousel from "../shared/Swiper/Swiper";
 
+import CourseSwiper from "../shared/Swiper/CourseSwiper";
+
 export default function HomePage() {
     const particlesInit = useCallback(async (engine) => {
         console.log(engine);
@@ -20,14 +22,17 @@ export default function HomePage() {
     return (
         <div className="homeGridContainer">
             <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
+            
+            <div className="wochenkursContainer">
+                {/* <CourseCards /> */}
+                <CourseSwiper/>
+            </div>
 
             <div className="dozentenContainer">
                 <SwiperCarousel />
             </div>
 
-            <div className="wochenkursContainer">
-                <CourseCards />
-            </div>
+
         </div>
     );
 }

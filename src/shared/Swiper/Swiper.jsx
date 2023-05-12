@@ -1,5 +1,5 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 // import '../../assets/global.scss'
 
 // Import Swiper styles
@@ -8,7 +8,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { EffectCoverflow, EffectFade, Autoplay } from "swiper";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -23,6 +23,13 @@ import { useEffect, useState } from "react";
 export default function SwiperCarousel() {
     const [creators, setCreators] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const swiper = useSwiper();
+    console.log("🚀 -----------------------------------------🚀")
+    console.log("🚀 ~ file: Swiper.jsx:28 ~ swiper:", swiper)
+    console.log("🚀 -----------------------------------------🚀")
+
+
 
     useEffect(() => {
         (async () => {
@@ -83,25 +90,24 @@ export default function SwiperCarousel() {
                 <div>Loading...</div>
             ) : (
                 <Swiper
-                    effect={"coverflow"}
+                    effect="coverflow"
                     grabCursor={true}
-                    spaceBetween={0}
-                    centeredSlides={true}
                     loop={true}
-                    slidesPerView={"auto"}
+                    spaceBetween={1}
+                    centeredSlides={true}
+                    slidesPerView={'auto'}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 0,
                         depth: 100,
                         modifier: 2.5
                     }}
-                    pagination={{ el: ".swiper-pagination", clickable: true }}
-                    navigation={{
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                        clickable: true
+                    modules={[EffectCoverflow, Autoplay]}
+                    autoplay={{
+                        delay: 3000, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
+                        disableOnInteraction: true, // Autoplay stoppt nicht, wenn der Benutzer mit dem Swiper interagiert
+                        pauseOnMouseEnter: true
                     }}
-                    modules={[EffectCoverflow, Pagination, Navigation]}
                     className="swiper_container"
                 >
                     <SwiperSlide>{creatorCard(0)}</SwiperSlide>
@@ -109,17 +115,16 @@ export default function SwiperCarousel() {
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(4)}</SwiperSlide>
-
-                    <div className="slider-controler">
-                        <div className="swiper-button-prev slider-arrow">
-                            <FontAwesomeIcon className="arrow-icon" icon={faArrowLeft} />
-                        </div>
-                        <div className="swiper-pagination"></div>
-
-                        <div className="swiper-button-next slider-arrow">
-                            <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
-                        </div>
-                    </div>
+                    <SwiperSlide>{creatorCard(2)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(3)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(0)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(1)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(2)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(3)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(4)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(2)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(3)}</SwiperSlide>
+                    
                 </Swiper>
             )}
         </div>

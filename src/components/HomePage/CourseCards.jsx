@@ -1,6 +1,8 @@
 import { useCartData } from "../../hooks/useCartData";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 
 import MarkAsFavorite from "./MarkAsFavorite";
 
@@ -39,26 +41,31 @@ export default function CourseCards() {
 
     return courses.map((course) => {
         return (
-            <a onClick={(evt) => handleCourseDetailView(evt, course._id)} key={course._id} className="cardContainer">
-                <div className="courseTitle" onClick={handleMarkAsFavoriteClick}>
-                    {course.title}
-                    <div className="markFav">
-                        <MarkAsFavorite courseId={course._id} />
-                    </div>
-                </div>
+            <SwiperSlide key={course._id}>
 
-                <div className="imageContainer">
-                    <img src={course.image} alt="" />
-                </div>
+                <a onClick={(evt) => handleCourseDetailView(evt, course._id)} key={course._id} className="cardContainer">
+                                <div className="courseTitle" onClick={handleMarkAsFavoriteClick}>
+                                    {course.title}
+                                    <div className="markFav">
+                                        <MarkAsFavorite courseId={course._id} />
+                                    </div>
+                                </div>
 
-                <div className="cardBody">
-                    <p className="courseDescription">{course.shortDescription}</p>
+                                <div className="imageContainer">
+                                    <img src={course.image} alt="" />
+                                </div>
 
-                    <button onClick={(evt) => handleAddToCart(evt, course._id)} className="AddToCartBtn">
-                        Add to Card
-                    </button>
-                </div>
-            </a>
+                                <div className="cardBody">
+                                    <p className="courseDescription">{course.shortDescription}</p>
+
+                                    <button onClick={(evt) => handleAddToCart(evt, course._id)} className="AddToCartBtn">
+                                        Add to Card
+                                    </button>
+                                </div>
+                            </a>
+
+            </SwiperSlide>
+
         );
     });
 }
