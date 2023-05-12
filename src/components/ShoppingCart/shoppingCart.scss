@@ -4,53 +4,45 @@
     flex-direction: column;
     justify-content: flex-end;
 
-
-
-    table{
+    table {
         width: 100%;
         text-align: center;
         border-left: 1px solid black;
         border-right: 1px solid black;
 
-
-        
         tr {
-        border-bottom: 1px solid black;
-        border-top: 1px solid black;
-        border-collapse: collapse;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            border-collapse: collapse;
 
-            td{
+            td {
                 padding: 10px;
             }
 
-            th{
+            th {
                 text-align: center;
 
                 background-color: rgb(240, 240, 240);
                 padding: 10px;
-                
             }
         }
-
-
     }
 
-    .cartSummary{
+    .cartSummary {
         margin-top: 2rem;
         border: solid 1px;
         width: 40%;
 
         align-self: flex-end;
-        
 
-        .cartTotal{
-            .cartSummaryHeader{
+        .cartTotal {
+            .cartSummaryHeader {
                 background-color: rgb(240, 240, 240);
                 padding: 1rem;
                 border-bottom: solid 1px;
             }
 
-            .cartSummaryBody{
+            .cartSummaryBody {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -59,19 +51,16 @@
                 border-top: solid 1px;
                 border-bottom: solid 1px;
 
-
-                h2{
+                h2 {
                     padding: 0.5rem;
                 }
-
             }
 
-            .cartSummaryFooter{
+            .cartSummaryFooter {
                 display: flex;
                 flex-direction: column;
 
-
-                button{
+                button {
                     background-color: blue;
                     border-radius: 5px;
                     padding: 1rem;
@@ -82,5 +71,4 @@
             }
         }
     }
-
 }

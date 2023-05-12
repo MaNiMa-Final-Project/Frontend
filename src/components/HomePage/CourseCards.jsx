@@ -31,8 +31,6 @@ export default function CourseCards() {
         cartData.addToCart(id);
     };
 
-   
-
     const handleCourseDetailView = (evt, id) => {
         evt.preventDefault();
         navigate(`course/${id}`, {});
