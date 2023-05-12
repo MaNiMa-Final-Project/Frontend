@@ -18,7 +18,7 @@ export default function courses() {
             {courses ? (
                 courses.map((course) => {
                     return (
-                        <div className="Kurse">
+                        <div key={course.id} className="Kurse">
                             <h1>{course.title}</h1>
                             <p>Creator: {course.creator}</p>
                             <p>Start: {course.start}</p>

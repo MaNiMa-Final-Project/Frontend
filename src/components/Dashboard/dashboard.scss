@@ -38,6 +38,7 @@
     .coursePreview {
         border: 1px solid black;
         padding: 20px;
+
         .innerCourseContainer {
             border: 1px solid black;
             padding: 1rem;
@@ -134,6 +135,7 @@
         h1 {
             font-weight: 800;
         }
+
         .resultList {
             margin: 1rem;
 
@@ -182,5 +184,171 @@
 
     .section2 {
         grid-area: b;
+    }
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .coursePreviewContainer {
+        display: block;
+
+        .section1 {
+            order: 1;
+        }
+
+        .section2 {
+            order: 2;
+        }
+
+        .sidebar {
+            order: 3;
+        }
+    }
+
+    .adminViewContainer {
+        grid-template:
+            " a " auto
+            " b " auto
+            " c " 1fr
+            " c " 1fr / 1fr;
+
+        .userSection {
+            order: 1;
+        }
+
+        .courseSection {
+            order: 2;
+        }
+
+        .resultSection {
+            order: 3;
+        }
+    }
+
+    .creatorDashboardContainer {
+        grid-template:
+            "a d" 1fr
+            "b d" 1fr
+            "c d" 1fr / 1fr 0.5fr;
+
+        .section1 {
+            order: 1;
+        }
+
+        .section2 {
+            order: 2;
+        }
+
+        .sidebar {
+            order: 3;
+        }
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 920px) {
+    .coursePreviewContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 1fr;
+
+        .sidebar {
+            .profileForm {
+                button {
+                    margin: 0.5rem;
+                }
+            }
+        }
+
+        .coursePreview {
+            .innerCourseContainer {
+                li {
+                    padding-left: 0;
+                    justify-content: space-around;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+    .adminViewContainer {
+        grid-template:
+            " a b " 60px
+            " c c " 1fr
+            " c c " 1fr / 1fr 1fr;
+
+        .userSection,
+        .courseSection {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        form {
+            padding: 0.5rem 1rem;
+        }
+
+        .resultSection {
+            .resultList {
+                li {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 0.5rem 1rem;
+                    font-size: medium;
+
+                    p {
+                        margin: 0.5rem 0;
+                    }
+
+                    .selectForm {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .creatorDashboardContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 0.5fr;
+
+        .section1 {
+            border: none;
+        }
+    }
+}
+
+
+@media (min-width: 921px) and (max-width: 1200px) {
+    .coursePreviewContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 1fr;
+    }
+
+    .adminViewContainer {
+        grid-template:
+            " a b " 80px
+            " c c " 1fr
+            " c c " 1fr / 1fr 1fr;
+
+        .resultSection {
+            .resultList {
+                li {
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+
+    .creatorDashboardContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 0.5fr;
     }
 }
