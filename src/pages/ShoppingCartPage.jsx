@@ -15,7 +15,6 @@ export default function ShoppingCartPage() {
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
-
         (async () => {
             try {
                 let response = await axios.post(TEMP_URL_COURSE + "/course", { ids: cartData.cart });
@@ -41,12 +40,10 @@ export default function ShoppingCartPage() {
 
     let subTotal = 0;
     let cartItem = courses.map((course) => {
-
         let splitImage = course.image.split("upload");
         let scaledImage = splitImage[0] + `upload/w_${50},h_${50}` + splitImage[1];
 
-        let formattedDuration = getHoursAndMinutes(course.duration)
-        
+        let formattedDuration = getHoursAndMinutes(course.duration);
 
         let temp = new Date(course.beginning).toLocaleString("de-DE").split(",");
         let date = temp[0] + ` - ${course.start} Uhr`;
@@ -60,18 +57,18 @@ export default function ShoppingCartPage() {
                 </td>
 
                 <td className="imgTableDataCell">
-                    <img src={scaledImage}/>
+                    <img src={scaledImage} />
                     <strong>{course.title}</strong>
-
                 </td>
-
 
                 <td className="tableDataCell">{date}</td>
                 <td className="tableDataCell">~ {formattedDuration}</td>
                 <td className="tableDataCell">{course.price} €</td>
                 <td className="tableDataCell">{}</td>
 
-                <td className="tableDataCell"><strong>{(subTotal += course.price)} €</strong></td>
+                <td className="tableDataCell">
+                    <strong>{(subTotal += course.price)} €</strong>
+                </td>
 
                 {/* <td className="tableDataCell">{date}</td>
                 <td className="tableDataCell">{course.duration}</td>

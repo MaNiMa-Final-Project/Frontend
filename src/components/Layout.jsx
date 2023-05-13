@@ -18,8 +18,8 @@ const Layout = ({ children }) => {
     return (
         <>
             <Header />
-                <div className="layout">{children}</div>
-                <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
+            <div className="layout">{children}</div>
+            <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
 
             <Footer />
         </>

@@ -56,8 +56,7 @@ function Navbar() {
                     <Link to="/" className="site-title">
                         <img src={"src/assets/images/artshuttle_logo.png"} width="100" height="100" />
                     </Link>
-                    <p>{'Bringing the Beauty of Art to Your Doorstep'}</p>
-
+                    <p>{"Bringing the Beauty of Art to Your Doorstep"}</p>
                 </li>
                 {dashboard}
                 {createEvent}

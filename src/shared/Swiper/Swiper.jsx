@@ -26,8 +26,6 @@ export default function SwiperCarousel() {
     const [creators, setCreators] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-
     useEffect(() => {
         (async () => {
             try {
@@ -84,7 +82,7 @@ export default function SwiperCarousel() {
     return (
         <div className="container">
             {isLoading ? ( // Conditional rendering of Swiper based on the loading status
-                <BeatSpinner isLoading={isLoading}/>
+                <BeatSpinner isLoading={isLoading} />
             ) : (
                 <Swiper
                     effect="coverflow"
