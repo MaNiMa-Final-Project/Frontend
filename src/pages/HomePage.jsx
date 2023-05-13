@@ -9,19 +9,19 @@ import SwiperCarousel from "../shared/Swiper/Swiper";
 import CourseSwiper from "../shared/Swiper/CourseSwiper";
 
 export default function HomePage() {
-    const particlesInit = useCallback(async (engine) => {
-        console.log(engine);
+    // const particlesInit = useCallback(async (engine) => {
+    //     // console.log(engine);
 
-        await loadFull(engine);
-    }, []);
+    //     await loadFull(engine);
+    // }, []);
 
-    const particlesLoaded = useCallback(async (container) => {
-        await console.log(container);
-    }, []);
+    // const particlesLoaded = useCallback(async (container) => {
+    //     // await console.log(container);
+    // }, []);
 
     return (
         <div className="homeGridContainer">
-            <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
+            {/* <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} /> */}
 
             <div className="wochenkursContainer">
                 {/* <CourseCards /> */}

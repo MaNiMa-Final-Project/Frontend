@@ -56,15 +56,17 @@ function Navbar() {
                     <Link to="/" className="site-title">
                         <img src={"src/assets/images/artshuttle_logo.png"} width="100" height="100" />
                     </Link>
+                    <p>{'Bringing the Beauty of Art to Your Doorstep'}</p>
+
                 </li>
                 {dashboard}
                 {createEvent}
                 {createCreator}
             </ul>
 
-            <form>
+            {/* <form>
                 <input type="text" placeholder="Suche" />
-            </form>
+            </form> */}
 
             <ul className="controls">
                 <li className="kurse">

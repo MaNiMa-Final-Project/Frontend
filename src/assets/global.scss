@@ -20,17 +20,24 @@ body {
 
 //!Header
 .nav {
+    position: sticky;
+    top: 0;
     background-color: #fdfdfd00;
     color: rgb(251, 247, 247);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 3rem;
+    z-index: 9999;
+
+    margin: 0 3rem;
 
     ul {
         display: flex;
         align-items: center;
         gap: 1rem;
+        
+
 
         li.active {
             background-color: red;
@@ -53,6 +60,8 @@ body {
         text-decoration: none;
         height: 100%;
         padding: 0.25rem;
+        font-size: 1.1rem;
+
     }
 
     .site-title img {

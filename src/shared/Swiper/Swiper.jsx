@@ -20,14 +20,13 @@ import "../../components/HomePage/home.scss";
 
 import { useEffect, useState } from "react";
 
+import BeatSpinner from "../Spinners/BeatLoader.jsx";
+
 export default function SwiperCarousel() {
     const [creators, setCreators] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const swiper = useSwiper();
-    console.log("🚀 -----------------------------------------🚀");
-    console.log("🚀 ~ file: Swiper.jsx:28 ~ swiper:", swiper);
-    console.log("🚀 -----------------------------------------🚀");
+
 
     useEffect(() => {
         (async () => {
@@ -85,7 +84,7 @@ export default function SwiperCarousel() {
     return (
         <div className="container">
             {isLoading ? ( // Conditional rendering of Swiper based on the loading status
-                <div>Loading...</div>
+                <BeatSpinner isLoading={isLoading}/>
             ) : (
                 <Swiper
                     effect="coverflow"

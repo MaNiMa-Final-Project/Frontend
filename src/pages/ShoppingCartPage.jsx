@@ -11,12 +11,15 @@ import { TEMP_URL_COURSE } from "../service/config";
 export default function ShoppingCartPage() {
     const cartData = useCartData();
     const [courses, setCourses] = useState([]);
+
     const [total, setTotal] = useState(0);
 
     useEffect(() => {
+
         (async () => {
             try {
-                let response = await axios.post(TEMP_URL_COURSE + "course", { ids: cartData.cart });
+                let response = await axios.post(TEMP_URL_COURSE + "/course", { ids: cartData.cart });
+
                 setCourses(response.data);
             } catch (error) {
                 console.error(error);
@@ -28,8 +31,23 @@ export default function ShoppingCartPage() {
         cartData.removeFromCart(courseId);
     };
 
+    function getHoursAndMinutes(milliseconds) {
+        let hours = Math.floor(milliseconds / (60 * 60 * 1000));
+        let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
+        if (hours === 0) return `${minutes} m`;
+        if (minutes === 0) return `${hours} h`;
+        return `${hours} h and ${minutes} m`;
+    }
+
     let subTotal = 0;
     let cartItem = courses.map((course) => {
+
+        let splitImage = course.image.split("upload");
+        let scaledImage = splitImage[0] + `upload/w_${50},h_${50}` + splitImage[1];
+
+        let formattedDuration = getHoursAndMinutes(course.duration)
+        
+
         let temp = new Date(course.beginning).toLocaleString("de-DE").split(",");
         let date = temp[0] + ` - ${course.start} Uhr`;
 
@@ -40,20 +58,24 @@ export default function ShoppingCartPage() {
                         <FontAwesomeIcon icon={faSquareXmark} />
                     </button>
                 </td>
-                <td className="tableDataCell">
+
+                <td className="imgTableDataCell">
+                    <img src={scaledImage}/>
                     <strong>{course.title}</strong>
+
                 </td>
 
+
                 <td className="tableDataCell">{date}</td>
-                <td className="tableDataCell">{course.duration}</td>
+                <td className="tableDataCell">~ {formattedDuration}</td>
                 <td className="tableDataCell">{course.price} €</td>
                 <td className="tableDataCell">{}</td>
 
-                <td className="tableDataCell">{(subTotal += course.price)} €</td>
+                <td className="tableDataCell"><strong>{(subTotal += course.price)} €</strong></td>
 
-                <td className="tableDataCell">{date}</td>
+                {/* <td className="tableDataCell">{date}</td>
                 <td className="tableDataCell">{course.duration}</td>
-                <td className="tableDataCell">{course.start}</td>
+                <td className="tableDataCell">{course.start}</td> */}
             </tr>
         );
     });
@@ -65,6 +87,7 @@ export default function ShoppingCartPage() {
                     <tr>
                         <th></th>
                         <th>Course</th>
+
                         <th>Date</th>
 
                         <th>Duration</th>
