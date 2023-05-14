@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLegitUser } from "../hooks/useLegitUser.jsx";
 import { useCartData } from "../hooks/useCartData.jsx";
 
-
 function Navbar() {
     const userData = useLegitUser();
     const cartData = useCartData();
@@ -55,7 +54,11 @@ function Navbar() {
             <ul>
                 <li>
                     <Link to="/" className="site-title">
-                        <img src={'../../src/assets/images/artshuttle_logo_noBackground.png'} width="100" height="100" />
+                        <img
+                            src={"../../src/assets/images/artshuttle_logo_noBackground.png"}
+                            width="100"
+                            height="100"
+                        />
                     </Link>
                     <p>{"Bringing the Beauty of Art to Your Doorstep"}</p>
                 </li>

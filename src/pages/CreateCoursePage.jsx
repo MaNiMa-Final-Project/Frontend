@@ -43,7 +43,18 @@ export default function CreateCoursePage() {
 
     const [message, setMessage] = useState("");
 
+    const handleSaveCroppedImage = (evt) => {
+        evt.preventDefault();
+        setShowImageModal(false)
+    }
+
+    const handleEditorDataChange = (newData) => {
+        setDescription(newData);
+    };
+
+
     const handleSubmit = async (event) => {
+
         event.preventDefault();
 
         let formatStart = new Date(`1995-12-17T${start}:00`).getTime();
@@ -51,7 +62,6 @@ export default function CreateCoursePage() {
 
         let milliseconds = formatEnd - formatStart;
 
-        console.log(getHoursAndMinutes(milliseconds));
 
         let newCourse = {
             title: title,
@@ -109,22 +119,20 @@ export default function CreateCoursePage() {
                 folder: "course",
                 id: crypto.randomUUID()
             };
-            console.log("🚀 ------------------------------------------------🚀");
-            console.log("🚀 ~ file: CreateCoursePage.jsx:178 ~ body:", body);
-            console.log("🚀 ------------------------------------------------🚀");
 
-            // try {
-            //     // let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
-            //     // setOriginalImage(response.data.url);
-            //     // console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
+            try {
+                let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
 
-            // } catch (error) {
-            //     console.error(error);
-            // }
+                let url = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/'+response.data.url
+                setOriginalImage(url);
 
-            setOriginalImage(
-                "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/course/31f5e254-8554-41f2-9e32-1a8cb8e83831.jpg"
-            );
+            } catch (error) {
+                console.error(error);
+            }
+
+            // setOriginalImage(
+            //     "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/course/31f5e254-8554-41f2-9e32-1a8cb8e83831.jpg"
+            // );
 
             setShowImageModal(true);
         };
@@ -191,6 +199,8 @@ export default function CreateCoursePage() {
                 <label htmlFor="image">Place Image</label>
                 <input type="file" accept="image/*" id="image" onChange={handleFileSelect} />
 
+                {(croppedImage && !showImageModal) && <img src={croppedImage} />}
+
                 <label>Description</label>
                 {/* <textarea
                     id="description"
@@ -199,7 +209,7 @@ export default function CreateCoursePage() {
                     onChange={(event) => setDescription(event.target.value)}
                 /> */}
 
-                <MyEditor />
+                <MyEditor onDataChange={handleEditorDataChange} />
 
                 <button type="submit">Create Course</button>
             </form>
@@ -210,7 +220,7 @@ export default function CreateCoursePage() {
                         <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />
 
                         <div className="pictureModalButtons">
-                            <form onClick={handleSubmit}>
+                            <form onClick={handleSaveCroppedImage}>
                                 <fieldset className="fileInput">
                                     <label htmlFor="file-input" className="file-input-label">
                                         <FontAwesomeIcon icon={faUpload} />

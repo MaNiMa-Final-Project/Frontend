@@ -48,7 +48,7 @@ export default function MarkAsFavorite({ evt, courseId }) {
         cursor: "pointer",
         width: "1.5em",
         height: "1.5em",
-        lineHeight: "2em",
+        lineHeight: "1.8rem",
         margin: "0 5px",
         color: "gray"
     };

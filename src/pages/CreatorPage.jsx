@@ -11,7 +11,6 @@ export default function CreatorPage() {
     const { id } = useParams();
     const [data, setData] = useState(null);
 
-
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -29,7 +28,7 @@ export default function CreatorPage() {
     }, []);
 
     return (
-        <div className="CreatorPage" style={{ border: "solid red" }}>
+        <div className="CreatorPage" >
             {isLoading ? (
                 <BeatSpinner isLoading={isLoading} />
             ) : (
@@ -40,15 +39,18 @@ export default function CreatorPage() {
                         </div>
 
                         <p className="textContainer">
-                            <div dangerouslySetInnerHTML={{ __html: data.creatorData.profileText }}></div>
+                            <div className="test" dangerouslySetInnerHTML={{ __html: data.creatorData.profileText }}></div>
                         </p>
                     </div>
                     <div className="outerCourseContainer">
                         {data.courses.map((course) => {
                             return (
-                                <div key={course._id} className="courseDetailContainer">
-                                    <h1 className="courseTitle">{course.title}</h1>
-                                    <MarkAsFavorite />
+                                <div key={course._id} className="creatorCourseContainer">
+                                    <div className="titleFavorite">
+                                        <h1 className="courseTitle">{course.title}</h1>
+                                        <MarkAsFavorite />
+                                    </div>
+                                    <button type="button" className="meetingBookBtn" >Erstgespräch buchen</button>
                                     <div className="courseInfo">
                                         <p>Creator: {course.creator}</p>
                                         <p>Start: {course.start}</p>

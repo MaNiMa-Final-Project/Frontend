@@ -45,12 +45,12 @@ export default function SwiperCarousel() {
 
     const handleCreatorDetailView = (evt, id) => {
         evt.preventDefault();
-        navigate(`/creator/${id}`, {state: {show: false}})
+        navigate(`/creator/${id}`, { state: { show: false } });
     };
 
     const handleMeeting = (evt, id) => {
         evt.stopPropagation();
-        navigate(`/creator/${id}`, {state: {show: true}})
+        navigate(`/creator/${id}`, { state: { show: true } });
         // cartData.addToCart(id);
     };
 
@@ -60,7 +60,10 @@ export default function SwiperCarousel() {
                 <div className="card-title">{creators[x].nickName}</div>
                 <div className="card-body">
                     <div className="card-buttons-container">
-                        <button onClick={(evt) => handleCreatorDetailView(evt, creators[x]._id)} className="card-button">
+                        <button
+                            onClick={(evt) => handleCreatorDetailView(evt, creators[x]._id)}
+                            className="card-button"
+                        >
                             Kurse anzeigen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
                         </button>
                     </div>

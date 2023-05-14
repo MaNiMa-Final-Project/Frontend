@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 import "./editor.scss";
 
-export default function MyEditor() {
+export default function MyEditor({ onDataChange }) {
+
+    const handleDataChange = (event, editor) => {
+        const newData = editor.getData();
+        onDataChange(newData); // Aufruf der Funktion aus der Elternkomponente
+        console.log({ event, editor, newData });
+    };
     return (
         <div className="editorContainer">
             <CKEditor
@@ -48,10 +54,8 @@ export default function MyEditor() {
                 onReady={(editor) => {
                     console.log("Editor is ready to use!", editor);
                 }}
-                onChange={(event, editor) => {
-                    const data = editor.getData();
-                    console.log({ event, editor, data });
-                }}
+                onChange={handleDataChange}
+
                 onBlur={(event, editor) => {
                     console.log("Blur.", editor);
                 }}

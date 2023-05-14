@@ -3,6 +3,8 @@ import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import "./imagecrop.scss";
 
+import BeatSpinner from "../Spinners/BeatLoader";
+
 import screenSize from "../ScreenSize/screenSize";
 
 const CROP_SIZE = 0.8;
@@ -11,6 +13,8 @@ const IMG_VIEW_SIZE = 300;
 const IMG_SIZE = 0.5;
 
 const ImageCrop = ({ originalImage, setCroppedImage }) => {
+
+    const [isLoading, setIsLoading] = useState(true);
     const [resizedImage, setResizedImage] = useState("");
     const [originalSize, setOriginalSize] = useState("");
 
@@ -76,6 +80,7 @@ const ImageCrop = ({ originalImage, setCroppedImage }) => {
                 setResizedImage(scaledImage);
                 setResizedImageSize({ width: newSize.width, height: newSize.height });
                 setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
+                setIsLoading(false)
             };
         }
     }, [originalImage]);
@@ -269,7 +274,7 @@ const ImageCrop = ({ originalImage, setCroppedImage }) => {
                             ruleOfThirds={true}
                             className="cropTool"
                         >
-                            <img src={resizedImage} onLoad={onImageLoad} />
+                            {isLoading ? <BeatSpinner isLoading={isLoading} /> : <img src={resizedImage} onLoad={onImageLoad} />}
                         </ReactCrop>
                     </div>
 

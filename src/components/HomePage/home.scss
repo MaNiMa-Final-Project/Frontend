@@ -6,7 +6,7 @@
     //     "b b b" 1fr
     //     "c c c" 1fr / 1fr 1fr 1fr;
 
-        grid-template:
+    grid-template:
         "a a a" 0.8fr
         "b b b" 1fr / 1fr 1fr;
 
@@ -103,11 +103,7 @@
             flex-direction: column;
             justify-items: center;
 
-
-
             margin: auto;
-
-
 
             box-shadow: 2px 2px 2px 2px rgb(31, 217, 227);
             background-color: aliceblue;
@@ -119,7 +115,6 @@
                 background-color: aliceblue;
 
                 margin: auto;
-
 
                 img {
                     height: 200px;

@@ -19,44 +19,57 @@ body {
 }
 
 .CreatorPage {
-
-
-
     .innerContainer {
 
+        .imageContainer {
+            float: left;
+            margin: 1.5rem 1.5rem 0.5rem 1.5rem;
+        
+            img {
+                border-radius: 5px;
+            }
+        }
+        
+        .textContainer {
+            text-align: justify;
+            padding: 5rem;
+        
+            line-height: 2rem;
+            font-weight: 500;
 
-
-      }
-      
+            .test {
+                font-size: 3rem !important;
+            }
+        }
+    }
 
     .outerCourseContainer {
         display: flex;
 
-        .courseDetailContainer{
-            border: solid;
+        .creatorCourseContainer {
+
+            background-color: #184bba;
+            padding: 2rem;
+            margin: 2rem;
+
+            .titleFavorite{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .meetingBookBtn {
+                border: solid 1px;
+                border-radius: 5px;
+                background-color:#008cba;
+                padding: 1rem;
+                margin: 1rem;
+            }
+
         }
-
-    }
-      
-}
-
-.imageContainer {
-    float: left;
-    margin: 1.5rem 1.5rem 0.5rem 1.5rem;
-    
-    img{
-        border-radius: 5px;
     }
 }
 
-.textContainer {
-    text-align: justify;
-    padding: 5rem;
 
-    line-height: 2rem;
-    font-weight: 500;
-
-}
 
 //!Header
 .nav {
@@ -256,7 +269,6 @@ body {
 
 .courseSwiperSlide {
     width: 350px;
-
 
     background-color: #385ea0;
 
