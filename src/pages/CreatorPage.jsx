@@ -28,7 +28,7 @@ export default function CreatorPage() {
     }, []);
 
     return (
-        <div className="CreatorPage" >
+        <div className="CreatorPage">
             {isLoading ? (
                 <BeatSpinner isLoading={isLoading} />
             ) : (
@@ -39,7 +39,10 @@ export default function CreatorPage() {
                         </div>
 
                         <p className="textContainer">
-                            <div className="test" dangerouslySetInnerHTML={{ __html: data.creatorData.profileText }}></div>
+                            <div
+                                className="test"
+                                dangerouslySetInnerHTML={{ __html: data.creatorData.profileText }}
+                            ></div>
                         </p>
                     </div>
                     <div className="outerCourseContainer">
@@ -50,7 +53,9 @@ export default function CreatorPage() {
                                         <h1 className="courseTitle">{course.title}</h1>
                                         <MarkAsFavorite />
                                     </div>
-                                    <button type="button" className="meetingBookBtn" >Erstgespräch buchen</button>
+                                    <button type="button" className="meetingBookBtn">
+                                        Erstgespräch buchen
+                                    </button>
                                     <div className="courseInfo">
                                         <p>Creator: {course.creator}</p>
                                         <p>Start: {course.start}</p>

@@ -20,20 +20,19 @@ body {
 
 .CreatorPage {
     .innerContainer {
-
         .imageContainer {
             float: left;
             margin: 1.5rem 1.5rem 0.5rem 1.5rem;
-        
+
             img {
                 border-radius: 5px;
             }
         }
-        
+
         .textContainer {
             text-align: justify;
             padding: 5rem;
-        
+
             line-height: 2rem;
             font-weight: 500;
 
@@ -47,12 +46,11 @@ body {
         display: flex;
 
         .creatorCourseContainer {
-
             background-color: #184bba;
             padding: 2rem;
             margin: 2rem;
 
-            .titleFavorite{
+            .titleFavorite {
                 display: flex;
                 justify-content: space-between;
             }
@@ -60,16 +58,13 @@ body {
             .meetingBookBtn {
                 border: solid 1px;
                 border-radius: 5px;
-                background-color:#008cba;
+                background-color: #008cba;
                 padding: 1rem;
                 margin: 1rem;
             }
-
         }
     }
 }
-
-
 
 //!Header
 .nav {

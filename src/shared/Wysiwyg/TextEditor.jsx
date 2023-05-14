@@ -5,7 +5,6 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "./editor.scss";
 
 export default function MyEditor({ onDataChange }) {
-
     const handleDataChange = (event, editor) => {
         const newData = editor.getData();
         onDataChange(newData); // Aufruf der Funktion aus der Elternkomponente
@@ -55,7 +54,6 @@ export default function MyEditor({ onDataChange }) {
                     console.log("Editor is ready to use!", editor);
                 }}
                 onChange={handleDataChange}
-
                 onBlur={(event, editor) => {
                     console.log("Blur.", editor);
                 }}

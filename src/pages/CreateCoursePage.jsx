@@ -45,23 +45,20 @@ export default function CreateCoursePage() {
 
     const handleSaveCroppedImage = (evt) => {
         evt.preventDefault();
-        setShowImageModal(false)
-    }
+        setShowImageModal(false);
+    };
 
     const handleEditorDataChange = (newData) => {
         setDescription(newData);
     };
 
-
     const handleSubmit = async (event) => {
-
         event.preventDefault();
 
         let formatStart = new Date(`1995-12-17T${start}:00`).getTime();
         let formatEnd = new Date(`1995-12-17T${end}:00`).getTime();
 
         let milliseconds = formatEnd - formatStart;
-
 
         let newCourse = {
             title: title,
@@ -123,9 +120,8 @@ export default function CreateCoursePage() {
             try {
                 let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
 
-                let url = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/'+response.data.url
+                let url = "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/" + response.data.url;
                 setOriginalImage(url);
-
             } catch (error) {
                 console.error(error);
             }
@@ -199,7 +195,7 @@ export default function CreateCoursePage() {
                 <label htmlFor="image">Place Image</label>
                 <input type="file" accept="image/*" id="image" onChange={handleFileSelect} />
 
-                {(croppedImage && !showImageModal) && <img src={croppedImage} />}
+                {croppedImage && !showImageModal && <img src={croppedImage} />}
 
                 <label>Description</label>
                 {/* <textarea
