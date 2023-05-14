@@ -18,6 +18,46 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+.CreatorPage {
+
+
+
+    .innerContainer {
+
+
+
+      }
+      
+
+    .outerCourseContainer {
+        display: flex;
+
+        .courseDetailContainer{
+            border: solid;
+        }
+
+    }
+      
+}
+
+.imageContainer {
+    float: left;
+    margin: 1.5rem 1.5rem 0.5rem 1.5rem;
+    
+    img{
+        border-radius: 5px;
+    }
+}
+
+.textContainer {
+    text-align: justify;
+    padding: 5rem;
+
+    line-height: 2rem;
+    font-weight: 500;
+
+}
+
 //!Header
 .nav {
     position: sticky;
@@ -101,7 +141,7 @@ body {
 //!Layout
 .layout {
     padding: 2rem calc(1em + 33.33vw / 3);
-    height: fit-content;
+    height: max-content;
 }
 
 .dozentenContainer {
@@ -215,7 +255,8 @@ body {
 }
 
 .courseSwiperSlide {
-    width: 300px;
+    width: 350px;
+
 
     background-color: #385ea0;
 

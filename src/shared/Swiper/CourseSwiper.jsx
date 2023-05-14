@@ -137,11 +137,11 @@ export default function CourseSwiper() {
                         );
                     })}
 
-                    <div className="slider-controler">
+                    {/* <div className="slider-controler">
                         <SlidePrevButton />
                         <div className="swiper-pagination"></div>
                         <SlideNextButton />
-                    </div>
+                    </div> */}
                 </Swiper>
             )}
         </div>

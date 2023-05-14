@@ -21,10 +21,13 @@ import "../../components/HomePage/home.scss";
 import { useEffect, useState } from "react";
 
 import BeatSpinner from "../Spinners/BeatLoader.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function SwiperCarousel() {
     const [creators, setCreators] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -42,13 +45,12 @@ export default function SwiperCarousel() {
 
     const handleCreatorDetailView = (evt, id) => {
         evt.preventDefault();
-        console.log("🚀 ~ file: CreatorCards.jsx:30 ~ 'muss noch verbunden werden':", "muss noch verbunden werden");
-        //navigate(`course/${id}`, {});
+        navigate(`/creator/${id}`, {state: {show: false}})
     };
 
     const handleMeeting = (evt, id) => {
         evt.stopPropagation();
-        console.log("🚀 ~ file: CreatorCards.jsx:36 ~:", "Kalender soll sich öffnen");
+        navigate(`/creator/${id}`, {state: {show: true}})
         // cartData.addToCart(id);
     };
 
@@ -58,7 +60,7 @@ export default function SwiperCarousel() {
                 <div className="card-title">{creators[x].nickName}</div>
                 <div className="card-body">
                     <div className="card-buttons-container">
-                        <button onClick={() => handleViewCourses(creators[x]._id)} className="card-button">
+                        <button onClick={(evt) => handleCreatorDetailView(evt, creators[x]._id)} className="card-button">
                             Kurse anzeigen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
                         </button>
                     </div>

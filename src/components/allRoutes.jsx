@@ -13,6 +13,7 @@ import ShoppingCartPage from "../pages/ShoppingCartPage";
 import CreateCoursePage from "../pages/CreateCoursePage";
 import CreateCreatorPage from "../pages/CreateCreatorPage";
 import CourseDetailsPage from "../pages/CourseDetailsPage";
+import CreatorPage from "../pages/CreatorPage";
 import { useLegitUser } from "../hooks/useLegitUser";
 
 export const paths = {
@@ -25,6 +26,7 @@ export const paths = {
     createCoursePath: "/newcourse",
     createCreatorPath: "/newcreator",
     coursePath: "/course/:id",
+    creatorPath: "/creator/:id",
     dozentenPath: "/dozenten",
     infoPath: "/info",
     kursePath: "/kurse"
@@ -68,6 +70,12 @@ export const routingData = () => {
             element: <LoginPage />,
             isProtected: false,
             redirectPath: paths.homePath
+        },
+        {
+            path: paths.creatorPath,
+            element: <CreatorPage />,
+            isProtected: false,
+            redirectPath: null
         },
         {
             path: paths.shoppingCartPath,

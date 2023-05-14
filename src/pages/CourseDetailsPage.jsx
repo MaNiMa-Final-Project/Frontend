@@ -12,7 +12,7 @@ export default function CourseDetailsPage() {
     useEffect(() => {
         (async () => {
             try {
-                let response = await axios.get(TEMP_URL_COURSE + `course/${id}`);
+                let response = await axios.get(TEMP_URL_COURSE + `/course/${id}`);
                 setCourse(response.data);
             } catch (error) {
                 console.error(error);
@@ -33,7 +33,7 @@ export default function CourseDetailsPage() {
                 <p>Start: {course.start}</p>
                 <p>End: {course.end}</p>
                 <label htmlFor="image">Course Image:</label>
-                <img src={image} alt="" />
+                <img src={course.image} alt="" />
                 <p className="courseDescription">Description: {course.description}</p>
                 <span>More information coming soon...</span>
             </div>
