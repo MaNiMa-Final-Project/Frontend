@@ -47,7 +47,6 @@ export default function SideBar({ user }) {
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-
     useEffect(() => {
         setUserData({
             nickName: user.nickName,
@@ -59,10 +58,7 @@ export default function SideBar({ user }) {
         });
 
         setOriginalImage(user.image);
-
-
     }, [user]);
-
 
     const toggleShowPassword = (passwordType) => {
         if (passwordType === "old") {
@@ -170,9 +166,7 @@ export default function SideBar({ user }) {
     }
 
     const handleFileSelect = async (evt) => {
-
-        setIsLoading(true)
-
+        setIsLoading(true);
 
         const fileReader = new FileReader();
         fileReader.readAsDataURL(evt.target.files[0]);
@@ -188,16 +182,13 @@ export default function SideBar({ user }) {
             try {
                 let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
 
-                let newPic = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/'+response.data.url+'.png'
+                let newPic =
+                    "https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/" + response.data.url + ".png";
 
-                if(response.status === 200) {
-                    setIsLoading(false)
+                if (response.status === 200) {
+                    setIsLoading(false);
                     setOriginalImage(newPic);
-
-
                 }
-
-
             } catch (error) {
                 console.error(error);
             }
@@ -217,9 +208,9 @@ export default function SideBar({ user }) {
                     withCredentials: true
                 }
             );
-            console.log("🚀 -----------------------------------------------🚀")
-            console.log("🚀 ~ file: SideBar.jsx:220 ~ response:", response)
-            console.log("🚀 -----------------------------------------------🚀")
+            console.log("🚀 -----------------------------------------------🚀");
+            console.log("🚀 ~ file: SideBar.jsx:220 ~ response:", response);
+            console.log("🚀 -----------------------------------------------🚀");
             if (response.status === 200) {
                 setCroppedImage(response.data.croppedImage);
                 handleImageModalClose();
@@ -469,7 +460,11 @@ export default function SideBar({ user }) {
                     <div className="settingModalOverlay">
                         {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
                         <div className="pictureModal">
-                            {isLoading ? <BeatLoader isLoading={isLoading} /> : <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />}
+                            {isLoading ? (
+                                <BeatLoader isLoading={isLoading} />
+                            ) : (
+                                <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />
+                            )}
 
                             <div className="pictureModalButtons">
                                 <form onSubmit={handleSubmit}>
