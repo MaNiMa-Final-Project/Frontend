@@ -7,7 +7,6 @@ import formatCurrencyDE from "../../service/formatCurrencyDE.js";
 import SideBar from "../../shared/Sidebar/SideBar";
 
 export default function AdminDashboard({ user }) {
-
     const [userResult, setUserResult] = useState([]);
     const [courseResult, setCourseResult] = useState([]);
 
@@ -57,7 +56,7 @@ export default function AdminDashboard({ user }) {
         try {
             const response = await axios.get(TEMP_URL_COURSE + `/course?q=${courseQuery}`, {
                 withCredentials: true
-});
+            });
             setUserResult([]);
             setCourseResult(response.data);
         } catch (error) {
@@ -85,7 +84,6 @@ export default function AdminDashboard({ user }) {
             </li>
         );
     });
-
 
     let users = userResult.map((user, index) => {
         const roleObj = user.role;
@@ -143,17 +141,14 @@ export default function AdminDashboard({ user }) {
                     {userResult.length > 0 && " für User"}
                 </h1>
                 <ul className="resultList">
-
-                {(userResult.length === 0 && courseResult.length === 0) ? <li style={{display: 'flex', justifyContent: 'center'}} >Keine Treffer</li> :
-                    <>
-
-                    {userResult && users }
-                    {courseResult && courses }
-
-
-                    </>
-                }
-
+                    {userResult.length === 0 && courseResult.length === 0 ? (
+                        <li style={{ display: "flex", justifyContent: "center" }}>Keine Treffer</li>
+                    ) : (
+                        <>
+                            {userResult && users}
+                            {courseResult && courses}
+                        </>
+                    )}
                 </ul>
             </div>
             <SideBar user={user} />

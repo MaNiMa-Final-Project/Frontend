@@ -145,7 +145,7 @@ export default function CreateCreatorPage() {
             if (response.status === 200) {
                 setMessage("Benutzer wurde erfolgreich erstellt.");
             } else {
-                setMessage(response.data)
+                setMessage(response.data);
             }
 
             //   setUsername('');
