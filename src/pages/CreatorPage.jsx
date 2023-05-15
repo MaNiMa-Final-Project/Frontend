@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import axios from "axios";
 import { BASE_URL_PUBLIC } from "../service/config";
-
 import BeatSpinner from "../shared/Spinners/BeatLoader";
 import MarkAsFavorite from "../components/HomePage/MarkAsFavorite";
+import Calendar from "react-calendar";
 
 export default function CreatorPage() {
     const { id } = useParams();
     const [data, setData] = useState(null);
-
     const [isLoading, setIsLoading] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
 
     useEffect(() => {
         (async () => {
@@ -37,7 +40,6 @@ export default function CreatorPage() {
                         <div className="imageContainer">
                             <img src={data.creatorData.croppedImage} alt="" />
                         </div>
-
                         <p className="textContainer">
                             <div
                                 className="test"
@@ -53,7 +55,7 @@ export default function CreatorPage() {
                                         <h1 className="courseTitle">{course.title}</h1>
                                         <MarkAsFavorite />
                                     </div>
-                                    <button type="button" className="meetingBookBtn">
+                                    <button type="button" className="meetingBookBtn" onClick={openModal}>
                                         Erstgespräch buchen
                                     </button>
                                     <div className="courseInfo">
@@ -69,6 +71,20 @@ export default function CreatorPage() {
                             );
                         })}
                     </div>
+                    {isModalOpen && (
+                        <div className="modal">
+                            <div className="modalContent">
+                                <h2>Termin buchen</h2>
+                                <Calendar />
+                                <div className="modalButtons">
+                                    <button type="button">Buchen</button>
+                                    <button type="button" onClick={() => setIsModalOpen(false)}>
+                                        Abbrechen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </>
             )}
         </div>

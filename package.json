@@ -26,6 +26,7 @@
         "lodash": "^4.17.21",
         "prettier": "^2.8.8",
         "react": "^18.2.0",
+        "react-calendar": "^4.2.1",
         "react-dom": "^18.2.0",
         "react-file-picker": "^0.0.6",
         "react-image-crop": "^10.0.9",
