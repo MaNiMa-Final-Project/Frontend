@@ -148,8 +148,8 @@ export default function SideBar({ user }) {
             setChangeLastName(false);
             setChangeEmail(false);
             setConfirmPassword(false);
-            return
-        };
+            return;
+        }
 
         let body = {};
         body[ref] = value;
