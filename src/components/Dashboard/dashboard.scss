@@ -72,6 +72,7 @@
 //! Admin
 
 .adminViewContainer {
+    min-height: 700px;
     display: grid;
 
     grid-template:
@@ -270,41 +271,7 @@
         }
     }
 
-    .adminViewContainer {
-        grid-template:
-            " a b " 60px
-            " c c " 1fr
-            " c c " 1fr / 1fr 1fr;
 
-        .userSection,
-        .courseSection {
-            flex-direction: row;
-            justify-content: space-around;
-        }
-
-        form {
-            padding: 0.5rem 1rem;
-        }
-
-        .resultSection {
-            .resultList {
-                li {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    padding: 0.5rem 1rem;
-                    font-size: medium;
-
-                    p {
-                        margin: 0.5rem 0;
-                    }
-
-                    .selectForm {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
 
     .creatorDashboardContainer {
         grid-template:
