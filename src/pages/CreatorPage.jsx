@@ -100,7 +100,9 @@ export default function CreatorPage() {
                                     <div className="courseInfo">
                                         <p>Nächster Kursbeginn: {date}</p>
                                         <p>Dauer : {dauer}</p>
-                                        <strong><p>Price: {course.price}€</p></strong>
+                                        <strong>
+                                            <p>Price: {course.price}€</p>
+                                        </strong>
                                         <img src={course.image} alt="" />
                                         <p className="courseDescription">Description: {course.description}</p>
                                     </div>
@@ -112,9 +114,14 @@ export default function CreatorPage() {
                         <div className="modal">
                             {message ? (
                                 <div className="modalContent">
-                                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                    <div style={{ display: "flex", justifyContent: "space-between" }}>
                                         <div>{message}</div>
-                                        <button style={{border: 'solid 1px', padding: '1rem'}} onClick={() => setIsModalOpen(false)}>Close</button>
+                                        <button
+                                            style={{ border: "solid 1px", padding: "1rem" }}
+                                            onClick={() => setIsModalOpen(false)}
+                                        >
+                                            Close
+                                        </button>
                                     </div>
                                 </div>
                             ) : (

@@ -24,7 +24,6 @@ export default function CourseDetailsPage() {
         return <p>Loading...</p>;
     }
 
-
     function getHoursAndMinutes(milliseconds) {
         let hours = Math.floor(milliseconds / (60 * 60 * 1000));
         let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
@@ -38,13 +37,15 @@ export default function CourseDetailsPage() {
     let dauer = getHoursAndMinutes(course.duration);
 
     return (
-        <div className="courseDetailContainer" >
+        <div className="courseDetailContainer">
             <h1 className="courseTitle">{course.title}</h1>
             <MarkAsFavorite />
             <div className="courseInfo">
                 <p>Nächster Kursbeginn: {date}</p>
                 <p>Dauer : {dauer}</p>
-                <strong><p>Price: {course.price}€</p></strong>
+                <strong>
+                    <p>Price: {course.price}€</p>
+                </strong>
                 <img src={course.image} alt="" />
                 <p className="courseDescription">Description: {course.description}</p>
             </div>
