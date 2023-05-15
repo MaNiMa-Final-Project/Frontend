@@ -13,6 +13,7 @@ const IMG_VIEW_SIZE = 300;
 const IMG_SIZE = 0.5;
 
 const ImageCrop = ({ originalImage, setCroppedImage }) => {
+
     const [isLoading, setIsLoading] = useState(true);
     const [resizedImage, setResizedImage] = useState("");
     const [originalSize, setOriginalSize] = useState("");
@@ -54,6 +55,10 @@ const ImageCrop = ({ originalImage, setCroppedImage }) => {
 
                 let splitImage = originalImage.split("upload");
                 let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
+
+                console.log("🚀 ------------------------------------------------------🚀")
+                console.log("🚀 ~ file: ImageCrop.jsx:64 ~ scaledImage:", scaledImage)
+                console.log("🚀 ------------------------------------------------------🚀")
 
                 setResizedImage(scaledImage);
                 setResizedImageSize({ width: newSize.width, height: newSize.height });

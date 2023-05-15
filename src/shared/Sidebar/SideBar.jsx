@@ -18,15 +18,9 @@ import ImageCrop from "../../shared/CropImage/ImageCrop";
 const IMG_SIZE = 0.5;
 
 export default function SideBar({ user }) {
-    console.log("🚀 --------------------------------------🚀");
-    console.log("🚀 ~ file: SideBar.jsx:21 ~ user:", user);
-    console.log("🚀 --------------------------------------🚀");
-    const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
-    const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
-    const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
+
     const [croppedImage, setCroppedImage] = useState(null);
 
-    const [resizedImage, setResizedImage] = useState("");
     const [originalImage, setOriginalImage] = useState("");
 
     const [userData, setUserData] = useState("");
@@ -51,26 +45,26 @@ export default function SideBar({ user }) {
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    //screensize
-    useEffect(() => {
-        function handleResize() {
-            setScreenSize({
-                width: window.innerWidth,
-                height: window.innerHeight
-            });
-        }
+    // //screensize
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setScreenSize({
+    //             width: window.innerWidth,
+    //             height: window.innerHeight
+    //         });
+    //     }
 
-        // Add a resize event listener to update the screen size when the window is resized.
-        window.addEventListener("resize", handleResize);
+    //     // Add a resize event listener to update the screen size when the window is resized.
+    //     window.addEventListener("resize", handleResize);
 
-        // Call the handler once on mount to capture the initial screen size.
-        handleResize();
+    //     // Call the handler once on mount to capture the initial screen size.
+    //     handleResize();
 
-        // Remove the resize event listener when the component unmounts.
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    //     // Remove the resize event listener when the component unmounts.
+    //     return () => {
+    //         window.removeEventListener("resize", handleResize);
+    //     };
+    // }, []);
 
     useEffect(() => {
         setUserData({
@@ -108,24 +102,24 @@ export default function SideBar({ user }) {
         //user
     }, [user]);
 
-    function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
-        let newWidth = null;
-        let newHeight = null;
+    // function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
+    //     let newWidth = null;
+    //     let newHeight = null;
 
-        if (imageWidth >= screenWidth || imageHeight >= screenHeight) {
-            if (imageWidth / screenWidth > imageHeight / screenHeight) {
-                newWidth = screenWidth;
-                newHeight = Math.floor(imageHeight * (screenWidth / imageWidth));
-            } else {
-                newHeight = screenHeight;
-                newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
-            }
-        } else {
-            newWidth = screenWidth;
-            newHeight = screenHeight;
-        }
-        return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
-    }
+    //     if (imageWidth >= screenWidth || imageHeight >= screenHeight) {
+    //         if (imageWidth / screenWidth > imageHeight / screenHeight) {
+    //             newWidth = screenWidth;
+    //             newHeight = Math.floor(imageHeight * (screenWidth / imageWidth));
+    //         } else {
+    //             newHeight = screenHeight;
+    //             newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
+    //         }
+    //     } else {
+    //         newWidth = screenWidth;
+    //         newHeight = screenHeight;
+    //     }
+    //     return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
+    // }
 
     const toggleShowPassword = (passwordType) => {
         if (passwordType === "old") {
@@ -518,9 +512,6 @@ export default function SideBar({ user }) {
                         {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
                         <div className="pictureModal">
                             <ImageCrop
-                                originalImageSize={originalImageSize}
-                                resizedImageSize={resizedImageSize}
-                                resizedImage={resizedImage}
                                 originalImage={originalImage}
                                 setCroppedImage={setCroppedImage}
                             />
