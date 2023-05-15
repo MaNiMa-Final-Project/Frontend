@@ -7,9 +7,7 @@ import formatCurrencyDE from "../../service/formatCurrencyDE.js";
 import SideBar from "../../shared/Sidebar/SideBar";
 
 export default function AdminDashboard({ user }) {
-    console.log("🚀 ---------------------------------------------🚀");
-    console.log("🚀 ~ file: AdminDashboard.jsx:10 ~ user:", user);
-    console.log("🚀 ---------------------------------------------🚀");
+
     const [userResult, setUserResult] = useState([]);
     const [courseResult, setCourseResult] = useState([]);
 
@@ -55,10 +53,11 @@ export default function AdminDashboard({ user }) {
     // Die handleCourseSearch-Funktion
     const handleCourseSearch = async (event) => {
         event.preventDefault();
+
         try {
-            const response = await axios.get(TEMP_URL_COURSE + `course?q=${courseQuery}`, {
+            const response = await axios.get(TEMP_URL_COURSE + `/course?q=${courseQuery}`, {
                 withCredentials: true
-            });
+});
             setUserResult([]);
             setCourseResult(response.data);
         } catch (error) {
@@ -86,6 +85,7 @@ export default function AdminDashboard({ user }) {
             </li>
         );
     });
+
 
     let users = userResult.map((user, index) => {
         const roleObj = user.role;
@@ -143,8 +143,17 @@ export default function AdminDashboard({ user }) {
                     {userResult.length > 0 && " für User"}
                 </h1>
                 <ul className="resultList">
-                    {courseResult && courses}
-                    {userResult && users}
+
+                {(userResult.length === 0 && courseResult.length === 0) ? <li style={{display: 'flex', justifyContent: 'center'}} >Keine Treffer</li> :
+                    <>
+
+                    {userResult && users }
+                    {courseResult && courses }
+
+
+                    </>
+                }
+
                 </ul>
             </div>
             <SideBar user={user} />

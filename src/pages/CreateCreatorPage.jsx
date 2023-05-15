@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BASE_URL_PUBLIC } from "../service/config.js";
+import { BASE_URL_PROTECTED } from "../service/config.js";
 import axios from "axios";
 
 import {
@@ -144,6 +144,8 @@ export default function CreateCreatorPage() {
 
             if (response.status === 200) {
                 setMessage("Benutzer wurde erfolgreich erstellt.");
+            } else {
+                setMessage(response.data)
             }
 
             //   setUsername('');
