@@ -23,11 +23,9 @@ export default function DashboardPage() {
                 });
 
                 setUser(response.data);
-
             } catch (error) {
                 console.error(error);
             }
-
         })();
     }, []);
 
@@ -51,7 +49,7 @@ export default function DashboardPage() {
             <p>{`Willkommen, ${user.nickName}!`}</p>
 
             {!userData.isCreator && !userData.isAdmin && <UserDashboard user={user} />}
-            {userData.isAdmin && <AdminDashboard user={user}/>}
+            {userData.isAdmin && <AdminDashboard user={user} />}
             {userData.isCreator && <CreatorDashboard user={user} />}
         </>
     );

@@ -18,9 +18,9 @@ import ImageCrop from "../../shared/CropImage/ImageCrop";
 const IMG_SIZE = 0.5;
 
 export default function SideBar({ user }) {
-    console.log("🚀 --------------------------------------🚀")
-    console.log("🚀 ~ file: SideBar.jsx:21 ~ user:", user)
-    console.log("🚀 --------------------------------------🚀")
+    console.log("🚀 --------------------------------------🚀");
+    console.log("🚀 ~ file: SideBar.jsx:21 ~ user:", user);
+    console.log("🚀 --------------------------------------🚀");
     const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
     const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
     const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
