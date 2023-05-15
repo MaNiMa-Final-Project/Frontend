@@ -24,18 +24,29 @@ export default function CourseDetailsPage() {
         return <p>Loading...</p>;
     }
 
+
+    function getHoursAndMinutes(milliseconds) {
+        let hours = Math.floor(milliseconds / (60 * 60 * 1000));
+        let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
+        if (hours === 0) return `${minutes} m`;
+        if (minutes === 0) return `${hours} h`;
+        return `${hours} h and ${minutes} m`;
+    }
+
+    let temp = new Date(course.beginning).toLocaleString("de-DE").split(",");
+    let date = temp[0] + ` - ${course.start} Uhr`;
+    let dauer = getHoursAndMinutes(course.duration);
+
     return (
-        <div className="courseDetailContainer">
+        <div className="courseDetailContainer" >
             <h1 className="courseTitle">{course.title}</h1>
             <MarkAsFavorite />
             <div className="courseInfo">
-                <p>Creator: {course.creator}</p>
-                <p>Start: {course.start}</p>
-                <p>End: {course.end}</p>
-                <label htmlFor="image">Course Image:</label>
+                <p>Nächster Kursbeginn: {date}</p>
+                <p>Dauer : {dauer}</p>
+                <strong><p>Price: {course.price}€</p></strong>
                 <img src={course.image} alt="" />
                 <p className="courseDescription">Description: {course.description}</p>
-                <span>More information coming soon...</span>
             </div>
         </div>
     );

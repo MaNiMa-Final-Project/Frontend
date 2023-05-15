@@ -39,9 +39,6 @@ export default function CreatorPage() {
 
     const handleSaveBookedMeeting = () => {
         setMessage("Bitte prüfe deine Mails");
-        setTimeout(() => {
-            setIsModalOpen(false);
-        }, 1000);
     };
 
     useEffect(() => {
@@ -103,9 +100,9 @@ export default function CreatorPage() {
                                     <div className="courseInfo">
                                         <p>Nächster Kursbeginn: {date}</p>
                                         <p>Dauer : {dauer}</p>
+                                        <strong><p>Price: {course.price}€</p></strong>
                                         <img src={course.image} alt="" />
                                         <p className="courseDescription">Description: {course.description}</p>
-                                        <span>More information coming soon...</span>
                                     </div>
                                 </div>
                             );
@@ -114,7 +111,12 @@ export default function CreatorPage() {
                     {isModalOpen && (
                         <div className="modal">
                             {message ? (
-                                <div className="modalContent">{message}</div>
+                                <div className="modalContent">
+                                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                        <div>{message}</div>
+                                        <button style={{border: 'solid 1px', padding: '1rem'}} onClick={() => setIsModalOpen(false)}>Close</button>
+                                    </div>
+                                </div>
                             ) : (
                                 <div className="modalContent">
                                     <h2>Termin buchen</h2>
