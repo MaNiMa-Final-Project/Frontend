@@ -11,9 +11,9 @@ export default function CreatorPage() {
 
     const location = useLocation();
 
-    console.log("🚀 --------------------------------------------------🚀");
-    console.log("🚀 ~ file: CreatorPage.jsx:13 ~ location:", location.state);
-    console.log("🚀 --------------------------------------------------🚀");
+
+
+
 
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -25,13 +25,36 @@ export default function CreatorPage() {
         setIsModalOpen(true);
 
         setChosenCourse(title);
+
+
     };
+
+    useEffect(() => {
+
+
+
+        console.log("🚀 --------------------------------------------------🚀");
+        console.log("🚀 ~ file: CreatorPage.jsx:13 ~ location:", location.state);
+        console.log("🚀 --------------------------------------------------🚀");
+
+        if (location.state.show) {
+            setIsModalOpen(true);
+
+        }
+
+    }, [])
 
     const openModal = () => {
         setIsModalOpen(true);
     };
 
-    const handleSaveBookedMeeting = () => {};
+    const handleSaveBookedMeeting = () => {
+        setMessage("Bitte prüfe deine Mails")
+        setTimeout(() => {
+            setIsModalOpen(false);
+
+        }, 1000);
+    };
 
     useEffect(() => {
         (async () => {
@@ -103,7 +126,13 @@ export default function CreatorPage() {
                     {isModalOpen && (
                         <div className="modal">
                             {message ? (
-                                message
+                                
+
+                                <div className="modalContent">
+                                {message}
+                                
+
+                                </div>
                             ) : (
                                 <div className="modalContent">
                                     <h2>Termin buchen</h2>

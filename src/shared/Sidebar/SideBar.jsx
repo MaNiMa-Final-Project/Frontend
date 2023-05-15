@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL_PROTECTED } from "../../service/config";
+import { BASE_URL_PROTECTED, BASE_URL_PUBLIC } from "../../service/config";
 
 import {
     faCamera,
@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useRef, useEffect } from "react";
 import "./sidebar.scss";
 import ImageCrop from "../../shared/CropImage/ImageCrop";
+import { BeatLoader } from "react-spinners";
 
 const IMG_SIZE = 0.5;
 
@@ -21,6 +22,8 @@ export default function SideBar({ user }) {
     const [croppedImage, setCroppedImage] = useState(null);
 
     const [originalImage, setOriginalImage] = useState("");
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const [userData, setUserData] = useState("");
 
@@ -44,26 +47,6 @@ export default function SideBar({ user }) {
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    // //screensize
-    // useEffect(() => {
-    //     function handleResize() {
-    //         setScreenSize({
-    //             width: window.innerWidth,
-    //             height: window.innerHeight
-    //         });
-    //     }
-
-    //     // Add a resize event listener to update the screen size when the window is resized.
-    //     window.addEventListener("resize", handleResize);
-
-    //     // Call the handler once on mount to capture the initial screen size.
-    //     handleResize();
-
-    //     // Remove the resize event listener when the component unmounts.
-    //     return () => {
-    //         window.removeEventListener("resize", handleResize);
-    //     };
-    // }, []);
 
     useEffect(() => {
         setUserData({
@@ -77,48 +60,9 @@ export default function SideBar({ user }) {
 
         setOriginalImage(user.image);
 
-        // if (user) {
-        //     let img = new Image();
-        //     img.src = originalImage;
 
-        //     //img.src = user.image;
-        //     //img.src = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg'
-
-        //     img.onload = function () {
-        //         let newSize = calculateImageSize(
-        //             screenSize.width,
-        //             screenSize.height,
-        //             img.naturalWidth,
-        //             img.naturalHeight
-        //         );
-        //         let splitImage = user.image.split("upload");
-        //         let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
-        //         setResizedImage(scaledImage);
-        //         setResizedImageSize({ width: newSize.width, height: newSize.height });
-        //         setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
-        //     };
-        // }
-        //user
     }, [user]);
 
-    // function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
-    //     let newWidth = null;
-    //     let newHeight = null;
-
-    //     if (imageWidth >= screenWidth || imageHeight >= screenHeight) {
-    //         if (imageWidth / screenWidth > imageHeight / screenHeight) {
-    //             newWidth = screenWidth;
-    //             newHeight = Math.floor(imageHeight * (screenWidth / imageWidth));
-    //         } else {
-    //             newHeight = screenHeight;
-    //             newWidth = Math.floor(imageWidth * (screenHeight / imageHeight));
-    //         }
-    //     } else {
-    //         newWidth = screenWidth;
-    //         newHeight = screenHeight;
-    //     }
-    //     return { width: Math.floor(newWidth * IMG_SIZE), height: Math.floor(newHeight * IMG_SIZE) };
-    // }
 
     const toggleShowPassword = (passwordType) => {
         if (passwordType === "old") {
@@ -226,6 +170,10 @@ export default function SideBar({ user }) {
     }
 
     const handleFileSelect = async (evt) => {
+
+        setIsLoading(true)
+
+
         const fileReader = new FileReader();
         fileReader.readAsDataURL(evt.target.files[0]);
         fileReader.onloadend = async (evt) => {
@@ -239,10 +187,17 @@ export default function SideBar({ user }) {
 
             try {
                 let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
-                // setTrigger(true)
-                setOriginalImage(response.data.url);
 
-                console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
+                let newPic = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/'+response.data.url+'.png'
+
+                if(response.status === 200) {
+                    setIsLoading(false)
+                    setOriginalImage(newPic);
+
+
+                }
+
+
             } catch (error) {
                 console.error(error);
             }
@@ -250,6 +205,7 @@ export default function SideBar({ user }) {
     };
 
     const handleSubmit = async (event) => {
+        console.log("fasfsa");
         event.preventDefault();
         try {
             let response = await axios.put(
@@ -261,6 +217,9 @@ export default function SideBar({ user }) {
                     withCredentials: true
                 }
             );
+            console.log("🚀 -----------------------------------------------🚀")
+            console.log("🚀 ~ file: SideBar.jsx:220 ~ response:", response)
+            console.log("🚀 -----------------------------------------------🚀")
             if (response.status === 200) {
                 setCroppedImage(response.data.croppedImage);
                 handleImageModalClose();
@@ -274,7 +233,7 @@ export default function SideBar({ user }) {
         user && (
             <div className="profileSideBar">
                 <div className="profilePicture">
-                    {croppedImage ? <img src={croppedImage} alt="" /> : <img src={user.image} alt="" />}
+                    {croppedImage ? <img src={user.croppedImage} alt="" /> : <img src={user.image} alt="" />}
                 </div>
                 <button type="button" onClick={handleImageClick}>
                     <FontAwesomeIcon className="icons" icon={faCamera} />
@@ -510,10 +469,10 @@ export default function SideBar({ user }) {
                     <div className="settingModalOverlay">
                         {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
                         <div className="pictureModal">
-                            <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />
+                            {isLoading ? <BeatLoader isLoading={isLoading} /> : <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />}
 
                             <div className="pictureModalButtons">
-                                <form onClick={handleSubmit}>
+                                <form onSubmit={handleSubmit}>
                                     <fieldset className="fileInput">
                                         <label htmlFor="file-input" className="file-input-label">
                                             <FontAwesomeIcon icon={faUpload} />
