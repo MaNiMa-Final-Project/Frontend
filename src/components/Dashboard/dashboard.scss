@@ -76,9 +76,9 @@
     display: grid;
 
     grid-template:
-        " a b " 80px
-        " c c " 1fr
-        " c c " 1fr / 1fr 1fr;
+        " a b d" 80px
+        " c c d" 1fr
+        " c c d" 1fr / 1fr 1fr 1fr;
 
     gap: 1.5rem;
 
@@ -270,8 +270,6 @@
             }
         }
     }
-
-
 
     .creatorDashboardContainer {
         grid-template:

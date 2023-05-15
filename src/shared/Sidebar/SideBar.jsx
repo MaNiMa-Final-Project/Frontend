@@ -18,6 +18,9 @@ import ImageCrop from "../../shared/CropImage/ImageCrop";
 const IMG_SIZE = 0.5;
 
 export default function SideBar({ user }) {
+    console.log("🚀 --------------------------------------🚀")
+    console.log("🚀 ~ file: SideBar.jsx:21 ~ user:", user)
+    console.log("🚀 --------------------------------------🚀")
     const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
     const [resizedImageSize, setResizedImageSize] = useState({ width: 0, height: 0 });
     const [originalImageSize, setOriginalImageSize] = useState({ width: 0, height: 0 });
@@ -81,29 +84,29 @@ export default function SideBar({ user }) {
 
         setOriginalImage(user.image);
 
-        if (user) {
-            let img = new Image();
-            img.src = originalImage;
+        // if (user) {
+        //     let img = new Image();
+        //     img.src = originalImage;
 
-            //img.src = user.image;
-            //img.src = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg'
+        //     //img.src = user.image;
+        //     //img.src = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg'
 
-            img.onload = function () {
-                let newSize = calculateImageSize(
-                    screenSize.width,
-                    screenSize.height,
-                    img.naturalWidth,
-                    img.naturalHeight
-                );
-                let splitImage = user.image.split("upload");
-                let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
-                setResizedImage(scaledImage);
-                setResizedImageSize({ width: newSize.width, height: newSize.height });
-                setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
-            };
-        }
+        //     img.onload = function () {
+        //         let newSize = calculateImageSize(
+        //             screenSize.width,
+        //             screenSize.height,
+        //             img.naturalWidth,
+        //             img.naturalHeight
+        //         );
+        //         let splitImage = user.image.split("upload");
+        //         let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
+        //         setResizedImage(scaledImage);
+        //         setResizedImageSize({ width: newSize.width, height: newSize.height });
+        //         setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
+        //     };
+        // }
         //user
-    }, [originalImage]);
+    }, [user]);
 
     function calculateImageSize(screenWidth, screenHeight, imageWidth, imageHeight) {
         let newWidth = null;
@@ -267,7 +270,7 @@ export default function SideBar({ user }) {
 
     return (
         user && (
-            <div className="profileSideBar" style={{ border: "solid" }}>
+            <div className="profileSideBar">
                 <div className="profilePicture">
                     {croppedImage ? <img src={croppedImage} alt="" /> : <img src={user.image} alt="" />}
                 </div>

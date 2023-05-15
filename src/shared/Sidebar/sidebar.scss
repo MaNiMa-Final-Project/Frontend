@@ -1,7 +1,9 @@
 .profileSideBar {
     grid-area: d;
 
-    background-color: aqua;
+    background-color: rgb(43, 43, 187, 0.4);
+    
+
 
     display: flex;
     flex-direction: column;
@@ -31,7 +33,8 @@
         box-shadow: none;
         display: flex;
         flex-direction: column;
-        background-color: bisque;
+        background-color: rgba(27, 27, 89, 0.4);
+
 
         .settingsInnerContainer {
             display: flex;

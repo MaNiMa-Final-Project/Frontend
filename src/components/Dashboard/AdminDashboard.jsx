@@ -4,7 +4,12 @@ import "./dashboard.scss";
 import { TEMP_URL_COURSE, BASE_URL_PROTECTED } from "../../service/config";
 import formatCurrencyDE from "../../service/formatCurrencyDE.js";
 
-export default function AdminDashboard() {
+import SideBar from'../../shared/Sidebar/SideBar'
+
+export default function AdminDashboard({user}) {
+    console.log("🚀 ---------------------------------------------🚀")
+    console.log("🚀 ~ file: AdminDashboard.jsx:10 ~ user:", user)
+    console.log("🚀 ---------------------------------------------🚀")
     const [userResult, setUserResult] = useState([]);
     const [courseResult, setCourseResult] = useState([]);
 
@@ -142,6 +147,7 @@ export default function AdminDashboard() {
                     {userResult && users}
                 </ul>
             </div>
+            <SideBar user={user}/>
         </div>
     );
 }
