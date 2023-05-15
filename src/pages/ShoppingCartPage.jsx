@@ -7,10 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import axios from "axios";
 import { TEMP_URL_COURSE } from "../service/config";
+import { useNavigate } from "react-router-dom";
 
 export default function ShoppingCartPage() {
     const cartData = useCartData();
     const [courses, setCourses] = useState([]);
+
+    const navigate = useNavigate();
 
     const [total, setTotal] = useState(0);
 
@@ -36,6 +39,10 @@ export default function ShoppingCartPage() {
         if (hours === 0) return `${minutes} m`;
         if (minutes === 0) return `${hours} h`;
         return `${hours} h and ${minutes} m`;
+    }
+
+    const handleBackToShop = () => {
+        navigate('/')
     }
 
     let subTotal = 0;
@@ -113,7 +120,7 @@ export default function ShoppingCartPage() {
 
                     <div className="cartSummaryFooter">
                         <button>Proceed to checkout</button>
-                        <button>Back to Shop</button>
+                        <button onClick={handleBackToShop} >Back to Shop</button>
                     </div>
                 </div>
             </div>
