@@ -5,6 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
+
+
 const Layout = ({ children }) => {
     const particlesInit = useCallback(async (engine) => {
         console.log(engine);
@@ -30,7 +32,7 @@ const Layout = ({ children }) => {
             <div className="layout">{children}</div>
 
             {!isLoading && (
-                <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
+                <Particles id="tsparticles" url='../../particles.json' init={particlesInit} loaded={particlesLoaded} />
             )}
 
             <Footer />

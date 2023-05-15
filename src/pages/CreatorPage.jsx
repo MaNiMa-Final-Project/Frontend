@@ -31,7 +31,9 @@ export default function CreatorPage() {
         setIsModalOpen(true);
     };
 
-    const handleSaveBookedMeeting = () => {};
+    const handleSaveBookedMeeting = () => {
+        
+    };
 
     useEffect(() => {
         (async () => {
