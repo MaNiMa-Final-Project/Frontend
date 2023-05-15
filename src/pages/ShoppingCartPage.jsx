@@ -42,8 +42,8 @@ export default function ShoppingCartPage() {
     }
 
     const handleBackToShop = () => {
-        navigate('/')
-    }
+        navigate("/");
+    };
 
     let subTotal = 0;
     let cartItem = courses.map((course) => {
@@ -120,7 +120,7 @@ export default function ShoppingCartPage() {
 
                     <div className="cartSummaryFooter">
                         <button>Proceed to checkout</button>
-                        <button onClick={handleBackToShop} >Back to Shop</button>
+                        <button onClick={handleBackToShop}>Back to Shop</button>
                     </div>
                 </div>
             </div>

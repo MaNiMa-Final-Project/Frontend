@@ -16,25 +16,22 @@ const Layout = ({ children }) => {
         await console.log(container);
     }, []);
 
-
     const [isLoading, setIsLoading] = useState(true);
 
-
-    useEffect(()=> {
-
+    useEffect(() => {
         setTimeout(() => {
-            setIsLoading(false)
+            setIsLoading(false);
         }, 1000);
-
-    },[])
-
+    }, []);
 
     return (
         <>
             <Header />
             <div className="layout">{children}</div>
 
-            {!isLoading &&  <Particles id="tsparticles" url="particles.json"  init={particlesInit} loaded={particlesLoaded} />}
+            {!isLoading && (
+                <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} />
+            )}
 
             <Footer />
         </>

@@ -10,17 +10,16 @@ export default function CreatorPage() {
     const { id } = useParams();
 
     const location = useLocation();
-    
-    console.log("🚀 --------------------------------------------------🚀")
-    console.log("🚀 ~ file: CreatorPage.jsx:13 ~ location:", location.state)
-    console.log("🚀 --------------------------------------------------🚀")
 
+    console.log("🚀 --------------------------------------------------🚀");
+    console.log("🚀 ~ file: CreatorPage.jsx:13 ~ location:", location.state);
+    console.log("🚀 --------------------------------------------------🚀");
 
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [chosenCourse, setChosenCourse] = useState(null);
-    const [message, setMessage] = useState("")
+    const [message, setMessage] = useState("");
 
     const handleBookMeeting = (title) => {
         setIsModalOpen(true);
@@ -32,9 +31,7 @@ export default function CreatorPage() {
         setIsModalOpen(true);
     };
 
-    const handleSaveBookedMeeting = () => {
-
-    }
+    const handleSaveBookedMeeting = () => {};
 
     useEffect(() => {
         (async () => {
@@ -105,33 +102,39 @@ export default function CreatorPage() {
                     </div>
                     {isModalOpen && (
                         <div className="modal">
-                            {message ? message : 
-                            
-                            <div className="modalContent">
-                                <h2>Termin buchen</h2>
-                                <Calendar />
-                                <div className="modalButtons">
-                                    <div>
-                                        {!chosenCourse && (
-                                            <select>
-                                                <option value={chosenCourse}>Bitte wählen Sie einen Kurs aus</option>
-                                                {data.courses.map((course) => (
-                                                    <option key={course._id} value={course._id}>
-                                                        {course.title}
+                            {message ? (
+                                message
+                            ) : (
+                                <div className="modalContent">
+                                    <h2>Termin buchen</h2>
+                                    <Calendar />
+                                    <div className="modalButtons">
+                                        <div>
+                                            {!chosenCourse && (
+                                                <select>
+                                                    <option value={chosenCourse}>
+                                                        Bitte wählen Sie einen Kurs aus
                                                     </option>
-                                                ))}
-                                            </select>
-                                        )}
-                                    </div>
+                                                    {data.courses.map((course) => (
+                                                        <option key={course._id} value={course._id}>
+                                                            {course.title}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            )}
+                                        </div>
 
-                                    <div>
-                                        <button type="button" onClick={() => handleSaveBookedMeeting()} >Buchen</button>
-                                        <button type="button" onClick={() => setIsModalOpen(false)}>
-                                            Abbrechen
-                                        </button>
+                                        <div>
+                                            <button type="button" onClick={() => handleSaveBookedMeeting()}>
+                                                Buchen
+                                            </button>
+                                            <button type="button" onClick={() => setIsModalOpen(false)}>
+                                                Abbrechen
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>}
+                            )}
                         </div>
                     )}
                 </>
