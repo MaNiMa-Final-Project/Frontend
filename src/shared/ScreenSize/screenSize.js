@@ -22,18 +22,15 @@ export default function screenSize() {
     let width = window.innerWidth;
     let height = window.innerHeight;
 
-
-    if(width >= height){
+    if (width >= height) {
         return {
             width: height,
             height: height
-        }
+        };
     } else {
         return {
             width: width,
             height: width
-        }
+        };
     }
-
-
 }

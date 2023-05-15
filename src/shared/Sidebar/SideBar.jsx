@@ -18,7 +18,6 @@ import ImageCrop from "../../shared/CropImage/ImageCrop";
 const IMG_SIZE = 0.5;
 
 export default function SideBar({ user }) {
-
     const [croppedImage, setCroppedImage] = useState(null);
 
     const [originalImage, setOriginalImage] = useState("");
@@ -511,10 +510,7 @@ export default function SideBar({ user }) {
                     <div className="settingModalOverlay">
                         {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
                         <div className="pictureModal">
-                            <ImageCrop
-                                originalImage={originalImage}
-                                setCroppedImage={setCroppedImage}
-                            />
+                            <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />
 
                             <div className="pictureModalButtons">
                                 <form onClick={handleSubmit}>
