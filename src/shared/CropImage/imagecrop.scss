@@ -1,6 +1,141 @@
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; // Stellen Sie sicher, dass die Z-Achse höher ist als Ihre Sidebar
+
+    .modalContent {
+        background-color: white;
+        width: 500px;
+
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        h2 {
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .pwForm {
+            height:fit-content;
+
+            display: flex;
+            flex-direction: column;
+
+
+            .outerFieldset {
+                border: solid 1px;
+                border-radius: 5px;
+                padding: 1rem 1rem 2rem 1rem;
+
+                .innerFieldset {
+                    padding: 0.5rem;
+                    display: flex;
+                    border: solid red;
+                    border: solid 1px;
+                    border-radius: 5px;
+                    button {
+                        padding: 0 0.5rem;
+                    }
+                    input {
+                        width: 100%;
+                        border: none;
+                        padding: 0.2rem;
+                    }
+                }
+            }
+
+            p {
+                margin-top: 1rem;
+                text-align: center;
+                color: red;
+            }
+        }
+
+        .modalContent h2 {
+            margin-top: 0;
+        }
+
+        .modalButtons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .modalButtons button {
+            background-color: #cac2c2;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    }
+
+    .pictureModal {
+        background-color: white;
+
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+        .pictureModalButtons form {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 20px;
+
+            .fileInput {
+                background-color: #cac2c2;
+                color: black;
+                border: none;
+                border-radius: 5px;
+                padding: 5px 10px;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+            .file-input-label {
+                display: inline-block;
+                padding: 10px 20px;
+                background-image: url("path/to/your/icon.png"); /* Pfad zum Icon */
+                background-size: 16px 16px; /* Größe des Icons */
+                background-repeat: no-repeat;
+                background-position: left center;
+                cursor: pointer;
+            }
+
+            .file-input-label i {
+                display: none;
+            }
+        }
+
+        .pictureModalButtons button {
+            background-color: #cac2c2;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+
 .cropContainer {
     border-radius: 5px;
     margin: 1rem;
+
+    border: solid 1px;
 
     display: flex;
     flex-direction: row;
@@ -40,6 +175,10 @@
 
         img {
             border-radius: 50%;
+            border: solid 1px;
+
+            width: 100%;
+            margin: 0.5rem;
 
             animation-name: scalePic;
             animation-duration: 1s;

@@ -140,7 +140,16 @@ export default function SideBar({ user }) {
     async function handleButtonClick(prevValue, ref, value) {
         inputRef.current.focus();
 
-        if (prevValue === value) return;
+        if (prevValue === value) {
+            console.log("same");
+            setChangeFirstName(false);
+
+            setChangeNickName(false);
+            setChangeLastName(false);
+            setChangeEmail(false);
+            setConfirmPassword(false);
+            return
+        };
 
         let body = {};
         body[ref] = value;
@@ -303,7 +312,7 @@ export default function SideBar({ user }) {
                                         setChangeLastName(false);
                                         setChangeEmail(false);
                                         setConfirmPassword(false);
-                                        setTimeout(handleButtonClick, 0);
+                                        // setTimeout(handleButtonClick, 0);
                                     }}
                                 >
                                     <FontAwesomeIcon className="icons" icon={faMarker} />
@@ -335,7 +344,7 @@ export default function SideBar({ user }) {
                                         setChangeLastName(false);
                                         setChangeEmail(false);
                                         setConfirmPassword(false);
-                                        setTimeout(handleButtonClick, 0);
+                                        // setTimeout(handleButtonClick, 0);
                                     }}
                                 >
                                     <FontAwesomeIcon className="icons" icon={faMarker} />
@@ -367,7 +376,7 @@ export default function SideBar({ user }) {
                                         setChangeNickName(false);
                                         setChangeEmail(false);
                                         setConfirmPassword(false);
-                                        setTimeout(handleButtonClick, 0);
+                                        // setTimeout(handleButtonClick, 0);
                                     }}
                                 >
                                     <FontAwesomeIcon className="icons" icon={faMarker} />
@@ -399,7 +408,7 @@ export default function SideBar({ user }) {
                                         setChangeFirstName(false);
                                         setChangeNickName(false);
                                         setConfirmPassword(false);
-                                        setTimeout(handleButtonClick, 0);
+                                        // setTimeout(handleButtonClick, 0);
                                     }}
                                 >
                                     <FontAwesomeIcon className="icons" icon={faMarker} />
@@ -419,10 +428,11 @@ export default function SideBar({ user }) {
                 </div>
 
                 {showPasswordModal && (
-                    <div className="modalOverlay">
-                        <div className="modalContent">
+                    <div className="settingModalOverlay">
+                        <div className="pwModalContent">
                             <h2>Change Password</h2>
                             <form
+                                className="pwForm"
                                 onSubmit={(event) =>
                                     handlePasswordChange(event, oldPassword, newPassword, confirmPassword)
                                 }
@@ -492,7 +502,7 @@ export default function SideBar({ user }) {
                                         <p>{message}</p>
                                     )}
                                 </fieldset>
-                                <div className="modalButtons">
+                                <div className="pwModalButtons">
                                     <button type="button" onClick={handlePasswordModalClose}>
                                         Cancel
                                     </button>
@@ -504,7 +514,7 @@ export default function SideBar({ user }) {
                 )}
 
                 {showImageModal && (
-                    <div className="modalOverlay">
+                    <div className="settingModalOverlay">
                         {/* style={{width: `${screenSize.width*0.9}px`, height: `${screenSize.height*0.9}px`}} */}
                         <div className="pictureModal">
                             <ImageCrop
