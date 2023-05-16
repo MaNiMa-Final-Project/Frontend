@@ -172,65 +172,74 @@
 }
 
 @media (min-width: 400px) and (max-width: 767px) {
-    .homeGridContainer {
-      grid-template:
-        "a" 1fr
-        "b" 1fr
-        "c" auto / 1fr;
-    }
-  
-    .wochenkursContainer {
-      display: block;
-      margin: 0;
-    }
-  
-    .dozentenContainer {
-      width: 100%;
+//   .homeGridContainer {
+//     grid-template:
+//       "a" 1fr
+//       "b" 1fr
+//       "c" auto / 1fr;
+//   }
+
+  .homeGridContainer {
+    display: grid; 
+    grid-template-rows: 1fr 1fr auto; 
+    grid-template-columns: 1fr; 
+    height: auto; 
+  }
+
+  .wochenkursContainer {
+    display: block;
+    margin: 0;
+  }
+
+  .dozentenContainer {
+    width: 100%;
+    height: auto;
+    margin: 0.5rem 0;
+    display: block; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cardContainer {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .imageContainer {
+    img {
       height: auto;
-      margin: 0.5rem 0;
-      display: block; 
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .cardContainer {
       width: 100%;
-      margin: 0.5rem 0;
-    }
-  
-    .imageContainer {
-      img {
-        height: auto;
-        width: 100%;
-      }
-    }
-  
-    .courseTitle {
-      position: static;
-      font-size: 1.25rem;
-      text-align: left;
-      margin: 0.5rem 0;
-      cursor: auto;
-  
-      .markFav {
-        display: none;
-      }
-    }
-  
-    .cardBody {
-      border: none;
-      margin: 0;
-      padding: 0;
-  
-      .AddToCartBtn {
-        width: 100%;
-        margin-top: 0.5rem;
-      }
     }
   }
-  
-  
 
+  .courseTitle {
+    position: static;
+    font-size: 1.25rem;
+    text-align: left;
+    margin: 0.5rem 0;
+    cursor: auto;
+
+    .markFav {
+      display: none;
+    }
+  }
+
+  .cardBody {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    .AddToCartBtn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
+
+  
+}
+
+
+  
   @media (min-width: 768px) and (max-width: 920px) {
     .homeGridContainer {
       grid-template:
