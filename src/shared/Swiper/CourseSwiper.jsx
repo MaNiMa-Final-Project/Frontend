@@ -79,7 +79,7 @@ export default function CourseSwiper() {
                     modules={[Virtual, Autoplay, EffectCoverflow, Pagination, Navigation]}
                     effect={"coverflow"}
                     grabCursor={true}
-                    spaceBetween={10}
+                    spaceBetween={50}
                     slidesPerView={courses.length}
                     coverflowEffect={{
                         rotate: 0,
@@ -90,11 +90,11 @@ export default function CourseSwiper() {
                     // initialSlide={Math.floor(courses.length / 2)} // Setzt den initialen aktiven Index auf die Mitte des Arrays
 
                     pagination={{ el: ".swiper-pagination", clickable: true }}
-                    // navigation={{
-                    //     nextEl: ".swiper-button-next",
-                    //     prevEl: ".swiper-button-prev",
-                    //     clickable: true
-                    // }}
+                    navigation={{
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                        clickable: true
+                    }}
                     virtual
                     autoplay={{ delay: 5000 }}
                     className="swiper_container"
@@ -137,11 +137,11 @@ export default function CourseSwiper() {
                         );
                     })}
 
-                    {/* <div className="slider-controler">
+                    <div className="slider-controler">
                         <SlidePrevButton />
                         <div className="swiper-pagination"></div>
                         <SlideNextButton />
-                    </div> */}
+                    </div>
                 </Swiper>
             )}
         </div>

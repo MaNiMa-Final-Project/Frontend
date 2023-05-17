@@ -43,7 +43,7 @@ export default function Footer() {
             </h2>
 
             <div className="containerlogo">
-                <img className="smallLogos" src="../../src/assets/images/small_logos.png" alt="" />
+                <img className="smallLogos" src="../../src/assets/images/small_logos_noback.png" alt="" />
             </div>
         </div>
     );

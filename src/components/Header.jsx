@@ -60,7 +60,6 @@ function Navbar() {
                             height="100"
                         />
                     </Link>
-                    <p>{"Bringing the Beauty of Art to Your Doorstep"}</p>
                 </li>
                 {dashboard}
                 {createEvent}

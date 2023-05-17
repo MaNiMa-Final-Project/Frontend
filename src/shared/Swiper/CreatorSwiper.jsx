@@ -57,7 +57,7 @@ export default function SwiperCarousel() {
     function creatorCard(x) {
         return (
             <div className="card">
-                <div className="card-title">{creators[x].firstName} {creators[x].lastName}</div>
+                <div className="card-title">{creators[x].nickName}</div>
                 <div className="card-body">
                     <div className="card-buttons-container">
                         <button
@@ -104,10 +104,9 @@ export default function SwiperCarousel() {
                     }}
                     modules={[EffectCoverflow, Autoplay]}
                     autoplay={{
-                        delay: 100000, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
+                        delay: 3000, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
                         disableOnInteraction: true, // Autoplay stoppt nicht, wenn der Benutzer mit dem Swiper interagiert
-                        pauseOnMouseEnter: true,
-                        waitForTransition: true
+                        pauseOnMouseEnter: true
                     }}
                     className="swiper_container"
                 >
