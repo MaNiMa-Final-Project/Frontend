@@ -3,7 +3,7 @@
     justify-content: center;
     flex-direction: column;
     margin: 0rem;
-    background-color: #fdfdfd84;
+    background-color: #fff;
     position: absolute;
     top: auto;
     width: 100%;
@@ -74,22 +74,7 @@
     justify-content: space-evenly;
 
     .smallLogos {
-        height: 200px !important;
+        height: 370px !important;
     }
 
-    // .logo-wrapper {
-    //     border: solid;
-
-    //     height: fit-content;
-
-    //     #staatliche_Museen {
-    //         width: 150px;
-    //         height: 100px;
-    //     }
-
-    //     #solidrock {
-    //         width: 50px;
-    //         height: 200px;
-    //     }
-    // }
 }
