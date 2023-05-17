@@ -1,5 +1,4 @@
 .logreg {
-
     margin: 10rem auto;
     width: 50%;
     display: flex;
@@ -13,20 +12,18 @@
         font-size: 1.5rem;
     }
 
-
-
     .logreg-form {
         display: flex;
         flex-direction: column;
         padding: 2rem;
 
-        input{
+        input {
             border: solid 1px rgb(23, 175, 198);
             border-radius: 1px;
             margin: 1rem;
             padding: 1rem;
         }
-        .logreg-button{
+        .logreg-button {
             border: solid;
             border-radius: 5px;
             margin: 0 2rem;
@@ -41,7 +38,7 @@
             color: blue;
         }
 
-        .mailLabel{
+        .mailLabel {
             margin: auto;
         }
 
@@ -54,73 +51,57 @@
         .btn-group {
             display: flex;
             justify-content: space-between;
-            button{
+            button {
                 margin: 0;
                 width: 35%;
             }
         }
-          
     }
 }
-
-
-
 
 /* Fuer Smartphones */
 @media (max-width: 550px) {
     /* Ihre CSS-Regeln hier */
 
-    
-    .logreg{
+    .logreg {
         width: 100%;
         margin: 0 auto;
     }
-   
-
 }
-
 
 /* Fuer mittelgrosse Tablets */
 @media (min-width: 551px) and (max-width: 991px) {
     /* Ihre SCSS-Regeln hier */
 
-    .logreg{
+    .logreg {
         width: 75%;
         margin: 0 auto;
     }
 }
-
 
 /* Fuer grosse Tablets */
 @media (min-width: 992px) and (max-width: 1199px) {
-
-    .logreg{
+    .logreg {
         width: 75%;
         margin: 0 auto;
     }
 
-    .logreg-form{
-        
+    .logreg-form {
         padding: 1rem 0 !important;
-       
     }
 }
-
 
 /* Fuer mittelgrosse Monitore */
 @media (min-width: 1200px) and (max-width: 1679px) {
     /* Ihre CSS-Regeln hier */
 
-
-    .logreg{
+    .logreg {
         width: 85%;
         margin: 0 auto;
     }
 
-    .logreg-form{
-        
+    .logreg-form {
         padding: 3rem 0 !important;
         font-size: 2rem;
     }
-
 }

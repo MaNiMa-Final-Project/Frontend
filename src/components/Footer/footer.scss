@@ -1,29 +1,20 @@
-
 .containerlogo {
     display: flex;
     justify-content: space-evenly;
-
 
     .logo-wrapper {
         border: solid;
 
         height: fit-content;
 
-
-
-
         #staatliche_Museen {
-            width: 150px;   
-            height: 100px; 
+            width: 150px;
+            height: 100px;
         }
-    
+
         #solidrock {
             width: 50px;
-            height: 200px; 
+            height: 200px;
         }
-        
-
-
     }
-
 }

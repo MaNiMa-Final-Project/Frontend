@@ -1,15 +1,14 @@
 .coursePreviewContainer {
     display: grid;
 
-    grid-template:             
-        "a a d" 1fr        
+    grid-template:
+        "a a d" 1fr
         "b b d" 1fr
         "c c d" 1fr / 1fr 1fr 1fr;
 
-
     gap: 1.5rem;
 
-    button{
+    button {
         border: 2px solid;
         width: fit-content;
         border-radius: 10px;
@@ -17,12 +16,8 @@
         padding: 0.4rem;
     }
 
-
-
-    .sidebar{
-
-
-        .profileForm{
+    .sidebar {
+        .profileForm {
             display: flex;
             flex-direction: column;
             border: 1px solid black;
@@ -30,79 +25,64 @@
             margin: 1rem;
             padding: 1rem;
 
-            button{
+            button {
                 margin: 0.5rem auto;
-
             }
         }
-        
+
         .profileForm label {
             margin-top: 1rem;
         }
-
     }
-
-
 
     .coursePreview {
         border: 1px solid black;
         padding: 20px;
-        .innerCourseContainer{
+
+        .innerCourseContainer {
             border: 1px solid black;
             padding: 1rem;
-            
 
-            li{
+            li {
                 display: flex;
                 justify-content: space-between;
                 border: 1px solid black;
                 align-items: center;
                 padding-left: 1rem;
-
             }
-
-
-
         }
     }
 
-    .section1{
+    .section1 {
         grid-area: a;
         border: solid red;
     }
 
-    .section2{
+    .section2 {
         grid-area: b;
     }
-
 
     .sidebar {
         border: 1px solid black;
         padding: 20px;
         grid-area: d;
-        
     }
-
-
-
 }
 
 //! Admin
 
-
 .adminViewContainer {
-
-
+    min-height: 700px;
     display: grid;
 
-    grid-template:             
-        " a b " 80px
-        " c c " 1fr        
-        " c c " 1fr / 1fr 1fr;
+    grid-template:
+        " a b d" 80px
+        " c c d" 1fr
+        " c c d" 1fr / 1fr 1fr 1fr;
 
     gap: 1.5rem;
 
-    h1{
+    h1 {
         text-align: center;
     }
 
@@ -122,7 +102,7 @@
         justify-content: space-between;
     }
 
-    form{
+    form {
         height: 75px;
         padding: 0.5rem 2rem;
         display: flex;
@@ -137,29 +117,30 @@
         margin: 0.5rem;
     }
 
-    button, select{
+    button,
+    select {
         border: solid 1px;
         border-radius: 5px;
         padding: 0.5rem;
         margin: 0.5rem;
         background-color: blue;
         color: aliceblue;
-        font-weight:600;
+        font-weight: 600;
     }
 
-    .resultSection{
+    .resultSection {
         grid-area: c;
         width: 100%;
         border: solid 1px;
 
-        h1{
+        h1 {
             font-weight: 800;
         }
-        .resultList {
 
+        .resultList {
             margin: 1rem;
 
-            li{
+            li {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -168,15 +149,15 @@
                 border-top: solid 1px;
                 border-bottom: solid 1px;
 
-                p{
-                    margin:0.2rem;
+                p {
+                    margin: 0.2rem;
                 }
 
                 .role {
                     font-weight: 600;
                 }
 
-                .selectForm{
+                .selectForm {
                     border: solid 1px;
                     border-radius: 5px;
                 }
@@ -185,37 +166,150 @@
     }
 }
 
-
-
-
 //! Creator
 
 .creatorDashboardContainer {
-
     display: grid;
 
-    grid-template:             
-        "a a d" 1fr        
+    grid-template:
+        "a a d" 1fr
         "b b d" 1fr
         "c c d" 1fr / 1fr 1fr 0.5fr;
 
-
     gap: 1.5rem;
 
-    .section1{
+    .section1 {
         grid-area: a;
         border: solid red;
     }
 
-    .section2{
+    .section2 {
         grid-area: b;
     }
-
-
-
-
-
 }
 
+@media only screen and (max-width: 767px) {
+    .coursePreviewContainer {
+        display: block;
 
+        .section1 {
+            order: 1;
+        }
 
+        .section2 {
+            order: 2;
+        }
+
+        .sidebar {
+            order: 3;
+        }
+    }
+
+    .adminViewContainer {
+        grid-template:
+            " a " auto
+            " b " auto
+            " c " 1fr
+            " c " 1fr / 1fr;
+
+        .userSection {
+            order: 1;
+        }
+
+        .courseSection {
+            order: 2;
+        }
+
+        .resultSection {
+            order: 3;
+        }
+    }
+
+    .creatorDashboardContainer {
+        grid-template:
+            "a d" 1fr
+            "b d" 1fr
+            "c d" 1fr / 1fr 0.5fr;
+
+        .section1 {
+            order: 1;
+        }
+
+        .section2 {
+            order: 2;
+        }
+
+        .sidebar {
+            order: 3;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 920px) {
+    .coursePreviewContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 1fr;
+
+        .sidebar {
+            .profileForm {
+                button {
+                    margin: 0.5rem;
+                }
+            }
+        }
+
+        .coursePreview {
+            .innerCourseContainer {
+                li {
+                    padding-left: 0;
+                    justify-content: space-around;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+    .creatorDashboardContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 0.5fr;
+
+        .section1 {
+            border: none;
+        }
+    }
+}
+
+@media (min-width: 921px) and (max-width: 1200px) {
+    .coursePreviewContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 1fr;
+    }
+
+    .adminViewContainer {
+        grid-template:
+            " a b " 80px
+            " c c " 1fr
+            " c c " 1fr / 1fr 1fr;
+
+        .resultSection {
+            .resultList {
+                li {
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+
+    .creatorDashboardContainer {
+        grid-template:
+            "a a d" 1fr
+            "b b d" 1fr
+            "c c d" 1fr / 1fr 1fr 0.5fr;
+    }
+}
