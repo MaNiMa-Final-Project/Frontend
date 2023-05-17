@@ -18,7 +18,13 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const [passwordMismatch, setPasswordMismatch] = useState(false);
-    const [image, setImage] = useState("");
+
+    const [originalImage, setOriginalImage] = useState(
+        "https://res.cloudinary.com/dppp3plo6/image/upload/v1682773122/users/5324000f-428b-4956-9695-279a62d908b7.png"
+    );
+    
+    const [croppedImage, setCroppedImage] = useState(" ");
+
 
     const [message, setMessage] = useState("");
 
@@ -62,7 +68,7 @@ export default function RegisterForm() {
             lastName: surname,
             email: email,
             password: password,
-            image: image
+            image: originalImage
         };
 
         try {
@@ -73,6 +79,7 @@ export default function RegisterForm() {
         } catch (error) {
             setMessage(error.response.data.message);
         }
+        
     };
 
     return (
@@ -116,7 +123,7 @@ export default function RegisterForm() {
                     onChange={handleConfirmPasswordChange}
                 />
 
-                <ImageCrop ownImageWidth={"600"} />
+                <ImageCrop originalImage={originalImage} setCroppedImage={setCroppedImage} />
 
                 <fieldset className="btn-group">
                     <button className="logreg-button" type="button" onClick={handleBackButton}>

@@ -1,20 +1,100 @@
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0rem;
+    background-color: #fdfdfd84;
+    position: absolute;
+    top: auto;
+    width: 100%;
+
+    p {
+        margin: 2rem;
+        color: #324c85;
+    }
+
+    //LOGO CUSTOMER
+    .grayscale {
+        filter: grayscale(100%);
+    }
+
+    // .containerlogo {
+    //     padding: 25px 25px;
+    //     display: flex;
+    //     img {
+    //         width: 100px;
+    //         height: 20px;
+    //     }
+    // }
+
+    .social-container {
+        display: flex;
+        justify-content: center;
+        padding: 25px 50px;
+        background-color: #fdfdfd84;
+    }
+
+    .shortcuts {
+        display: flex;
+        justify-content: center;
+    }
+
+    a.social {
+        margin: 0 1rem;
+        transition: transform 250ms;
+    }
+
+    a.social:hover {
+        transform: translateY(-2px);
+    }
+
+    a.youtube {
+        color: #eb3223;
+    }
+
+    a.facebook {
+        color: #4968ad;
+    }
+
+    a.linkedin {
+        color: #184bba;
+    }
+
+    a.twitter {
+        color: #49a1eb;
+    }
+
+    a.instagram {
+        color: black;
+    }
+}
+
 .containerlogo {
     display: flex;
     justify-content: space-evenly;
 
-    .logo-wrapper {
-        border: solid;
 
-        height: fit-content;
 
-        #staatliche_Museen {
-            width: 150px;
-            height: 100px;
-        }
 
-        #solidrock {
-            width: 50px;
-            height: 200px;
-        }
+    .smallLogos{
+        height: 200px !important;
+        
     }
+
+    // .logo-wrapper {
+    //     border: solid;
+
+    //     height: fit-content;
+
+    //     #staatliche_Museen {
+    //         width: 150px;
+    //         height: 100px;
+    //     }
+
+    //     #solidrock {
+    //         width: 50px;
+    //         height: 200px;
+    //     }
+    // }
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import SideBar from '../../shared/Sidebar/SideBar'
 
 import "./dashboard.scss";
 
@@ -75,45 +76,8 @@ export default function UserDashboard({ user }) {
                 )}
             </section>
 
-            <aside className="sidebar">
-                {/* Profil bearbeiten Formular */}
+            <SideBar user={user}/>     
 
-                <>
-                    <form
-                        className="profileForm"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            const formData = new FormData(e.target);
-                            handleProfileEdit({
-                                firstName: formData.get("firstName"),
-                                lastName: formData.get("lastName"),
-                                avatar: formData.get("avatar")
-                            });
-                        }}
-                    >
-                        <label htmlFor="avatar">Avatar:</label>
-                        <input type="file" id="avatar" name="avatar" accept="image/*" />
-
-                        <label htmlFor="firstName">Vorname:</label>
-                        <input type="text" id="firstName" name="firstName" defaultValue={user.firstName} />
-
-                        <label htmlFor="lastName">Nachname:</label>
-                        <input type="text" id="lastName" name="lastName" defaultValue={user.lastName} />
-
-                        <hr />
-
-                        {/* Profil bearbeiten Button */}
-                        <button onClick={() => setEditingProfile(true)}>Profil bearbeiten</button>
-
-                        {editingProfile && (
-                            <>
-                                <button type="submit">Änderungen speichern</button>
-                                <button onClick={() => setEditingProfile(false)}>Abbrechen</button>
-                            </>
-                        )}
-                    </form>
-                </>
-            </aside>
         </div>
     );
 }

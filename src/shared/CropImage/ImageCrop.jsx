@@ -13,6 +13,9 @@ const IMG_VIEW_SIZE = 300;
 const IMG_SIZE = 0.5;
 
 const ImageCrop = ({ originalImage, setCroppedImage }) => {
+    console.log("🚀 ----------------------------------------------------------🚀")
+    console.log("🚀 ~ file: ImageCrop.jsx:16 ~ originalImage:", originalImage)
+    console.log("🚀 ----------------------------------------------------------🚀")
     const [isLoading, setIsLoading] = useState(true);
     const [resizedImage, setResizedImage] = useState("");
     const [originalSize, setOriginalSize] = useState("");

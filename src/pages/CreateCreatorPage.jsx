@@ -52,52 +52,6 @@ export default function CreateCreatorPage() {
         );
     }
 
-    // //screensize
-    // useEffect(() => {
-    //     function handleResize() {
-    //         setScreenSize({
-    //             width: window.innerWidth,
-    //             height: window.innerHeight
-    //         });
-    //     }
-
-    //     // Add a resize event listener to update the screen size when the window is resized.
-    //     window.addEventListener("resize", handleResize);
-
-    //     // Call the handler once on mount to capture the initial screen size.
-    //     handleResize();
-
-    //     // Remove the resize event listener when the component unmounts.
-    //     return () => {
-    //         window.removeEventListener("resize", handleResize);
-    //     };
-    // }, []);
-
-    // useEffect(() => {
-    //     if (originalImage) {
-    //         let img = new Image();
-    //         img.src = originalImage;
-
-    //         //img.src = 'https://res.cloudinary.com/dppp3plo6/image/upload/v1682604112/users/ChristinaEisenberg.jpg'
-
-    //         img.onload = function () {
-    //             let newSize = calculateImageSize(
-    //                 screenSize.width,
-    //                 screenSize.height,
-    //                 img.naturalWidth,
-    //                 img.naturalHeight
-    //             );
-
-    //             let splitImage = originalImage.split("upload");
-    //             let scaledImage = splitImage[0] + `upload/w_${newSize.width},h_${newSize.height}` + splitImage[1];
-
-    //             setResizedImage(scaledImage);
-    //             setResizedImageSize({ width: newSize.width, height: newSize.height });
-    //             setOriginalImageSize({ width: img.naturalWidth, height: img.naturalHeight });
-    //         };
-    //     }
-    // }, [originalImage]);
-
     const handleConfirmPasswordChange = (event) => {
         const confirmedValue = event.target.value;
         setConfirmedPassword(confirmedValue);
@@ -176,22 +130,20 @@ export default function CreateCreatorPage() {
                 folder: "course",
                 id: crypto.randomUUID()
             };
-            console.log("🚀 ------------------------------------------------🚀");
-            console.log("🚀 ~ file: CreateCoursePage.jsx:178 ~ body:", body);
-            console.log("🚀 ------------------------------------------------🚀");
 
-            // try {
-            //     // let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
-            //     // setOriginalImage(response.data.url);
-            //     // console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
+            try {
+                let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
+                let image = "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/"+response.data.url+".png"
+                setOriginalImage(image);
+                console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
 
-            // } catch (error) {
-            //     console.error(error);
-            // }
+            } catch (error) {
+                console.error(error);
+            }
 
-            setOriginalImage(
-                "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/course/31f5e254-8554-41f2-9e32-1a8cb8e83831.jpg"
-            );
+            // setOriginalImage(
+            //     "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/course/31f5e254-8554-41f2-9e32-1a8cb8e83831.jpg"
+            // );
 
             setShowImageModal(true);
         };

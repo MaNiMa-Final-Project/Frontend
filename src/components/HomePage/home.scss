@@ -98,7 +98,6 @@
 
         .cardContainer {
             position: relative;
-
             display: flex;
             flex-direction: column;
             justify-items: center;
@@ -139,13 +138,13 @@
             }
 
             .courseDescription {
-                height: 50px;
+                height: 200px;
             }
 
             .cardBody {
                 display: flex;
                 flex-direction: column;
-
+            
                 border: solid 1px;
 
                 margin: 0.5rem;

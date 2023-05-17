@@ -72,7 +72,6 @@ export default function CreateCoursePage() {
             duration: milliseconds,
             description: description
         };
-        console.log("🚀 ~ file: CreateCoursePage.jsx:36 ~ handleSubmit ~ newCourse:", newCourse);
 
         try {
             let response = await axios.post(BASE_URL_PROTECTED + "createcourse", newCourse, {
