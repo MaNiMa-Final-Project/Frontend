@@ -57,7 +57,9 @@ export default function SwiperCarousel() {
     function creatorCard(x) {
         return (
             <div className="card">
-                <div className="card-title">{creators[x].firstName} {creators[x].lastName}</div>
+                <div className="card-title">
+                    {creators[x].firstName} {creators[x].lastName}
+                </div>
                 <div className="card-body">
                     <div className="card-buttons-container">
                         <button

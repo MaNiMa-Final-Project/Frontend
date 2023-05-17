@@ -27,7 +27,7 @@ export default function HomePage() {
                 {/* <CourseCards /> */}
                 <CourseSwiper />
             </div>
-            
+
             <div className="slogan">
                 <h2>Bringing the Beauty of Art to Your Doorstep</h2>
             </div>
