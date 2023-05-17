@@ -133,10 +133,10 @@ export default function CreateCreatorPage() {
 
             try {
                 let response = await axios.post(BASE_URL_PUBLIC + "upload", body);
-                let image = "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/"+response.data.url+".png"
+                let image =
+                    "https://res.cloudinary.com/dppp3plo6/image/upload/v1683273590/" + response.data.url + ".png";
                 setOriginalImage(image);
                 console.log("🚀 ~ file: ImageCrop.jsx:47 ~ response.data.url:", response.data.url);
-
             } catch (error) {
                 console.error(error);
             }

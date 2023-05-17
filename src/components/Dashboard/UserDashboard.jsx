@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import SideBar from '../../shared/Sidebar/SideBar'
+import SideBar from "../../shared/Sidebar/SideBar";
 
 import "./dashboard.scss";
 
@@ -76,8 +76,7 @@ export default function UserDashboard({ user }) {
                 )}
             </section>
 
-            <SideBar user={user}/>     
-
+            <SideBar user={user} />
         </div>
     );
 }
