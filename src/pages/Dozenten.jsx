@@ -20,9 +20,7 @@ export default function HomePage() {
     return (
         <div>
             {/* <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} /> */}
-            <div className="dozentenContainer">
-                {/* <SwiperCarousel /> */}
-            </div>
+            <div className="dozentenContainer">{/* <SwiperCarousel /> */}</div>
         </div>
     );
 }
