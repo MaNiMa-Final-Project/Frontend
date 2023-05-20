@@ -115,14 +115,14 @@ export default function StaticCourseSwiper() {
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(4)}</SwiperSlide>
-                    <SwiperSlide>{creatorCard(2)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(5)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(0)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(1)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(4)}</SwiperSlide>
-                    <SwiperSlide>{creatorCard(2)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(5)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                 </Swiper>
             )}
