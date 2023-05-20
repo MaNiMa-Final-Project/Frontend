@@ -4,9 +4,10 @@ import { loadFull } from "tsparticles";
 
 import CourseCards from "../components/HomePage/CourseCards";
 import CreatorCards from "../components/HomePage/CreatorCards";
-import SwiperCarousel from "../shared/Swiper/Swiper";
 
-import CourseSwiper from "../shared/Swiper/CourseSwiper";
+import StaticCreatorSwiper from "../shared/Swiper/StaticCreatorSwiper"
+
+import StaticCourseSwiper from "../shared/Swiper/StaticCourseSwiper";
 
 export default function HomePage() {
     // const particlesInit = useCallback(async (engine) => {
@@ -25,7 +26,7 @@ export default function HomePage() {
 
             <div className="wochenkursContainer">
                 {/* <CourseCards /> */}
-                <CourseSwiper />
+                <StaticCourseSwiper />
             </div>
 
             <div className="slogan">
@@ -33,7 +34,7 @@ export default function HomePage() {
             </div>
 
             <div className="dozentenContainer">
-                <SwiperCarousel />
+                <StaticCreatorSwiper />
             </div>
         </div>
     );

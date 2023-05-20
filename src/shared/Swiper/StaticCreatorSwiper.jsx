@@ -23,7 +23,7 @@ import { useEffect, useState } from "react";
 import BeatSpinner from "../Spinners/BeatLoader.jsx";
 import { useNavigate } from "react-router-dom";
 
-export default function SwiperCarousel() {
+export default function StaticCreatorSwiper() {
     const [creators, setCreators] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -102,14 +102,14 @@ export default function SwiperCarousel() {
                         rotate: 0,
                         stretch: 0,
                         depth: 100,
-                        modifier: 2.5
+                        modifier: 2.5,
                     }}
                     modules={[EffectCoverflow, Autoplay]}
                     autoplay={{
-                        delay: 100000, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
+                        delay: 5000, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
                         disableOnInteraction: true, // Autoplay stoppt nicht, wenn der Benutzer mit dem Swiper interagiert
                         pauseOnMouseEnter: true,
-                        waitForTransition: true
+                        
                     }}
                     className="swiper_container"
                 >
@@ -127,6 +127,8 @@ export default function SwiperCarousel() {
                     <SwiperSlide>{creatorCard(4)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
+
+
                 </Swiper>
             )}
         </div>

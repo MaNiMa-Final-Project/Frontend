@@ -247,6 +247,7 @@ body {
     position: relative;
     overflow: hidden;
 
+
     // border: solid blue ;
 }
 
@@ -254,6 +255,9 @@ body {
     position: relative;
 
     width: fit-content;
+
+    transition-duration: 5s; 
+
 
     // border: solid green ;
 }
@@ -370,6 +374,7 @@ body {
     padding: 1rem;
     background-color: #385ea0;
     color: #fff;
+    text-align: center;
 }
 
 .card-body {

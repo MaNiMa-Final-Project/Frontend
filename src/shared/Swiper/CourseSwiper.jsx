@@ -22,7 +22,7 @@ import { useCartData } from "../../hooks/useCartData.jsx";
 import { useNavigate } from "react-router-dom";
 import MarkAsFavorite from "../../components/HomePage/MarkAsFavorite.jsx";
 
-export default function CourseSwiper() {
+export default function StaticCourseSwiper() {
     const [isLoading, setIsLoading] = useState(false);
     const [courses, setCourses] = useState([]);
 

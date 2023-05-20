@@ -23,8 +23,8 @@ import { useEffect, useState } from "react";
 import BeatSpinner from "../Spinners/BeatLoader.jsx";
 import { useNavigate } from "react-router-dom";
 
-export default function SwiperCarousel() {
-    const [creators, setCreators] = useState([]);
+export default function StaticCourseSwiper() {
+    const [courses, setCourses] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
@@ -32,9 +32,9 @@ export default function SwiperCarousel() {
     useEffect(() => {
         (async () => {
             try {
-                let response = await axios.get(BASE_URL_PUBLIC + `dozenten`);
+                let response = await axios.get(BASE_URL_PUBLIC + `all`);
                 if (response.status === 200) {
-                    setCreators(response.data);
+                    setCourses(response.data);
                     setIsLoading(false);
                 }
             } catch (error) {
@@ -57,23 +57,23 @@ export default function SwiperCarousel() {
     function creatorCard(x) {
         return (
             <div className="card">
-                <div className="card-title">{creators[x].nickName}</div>
+                <div className="card-title">{courses[x].title}</div>
                 <div className="card-body">
                     <div className="card-buttons-container">
                         <button
-                            onClick={(evt) => handleCreatorDetailView(evt, creators[x]._id)}
+                            // onClick={(evt) => handleCreatorDetailView(evt, creators[x]._id)}
                             className="card-button"
                         >
                             Kurse anzeigen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
                         </button>
                     </div>
                     <div className="card-image-container">
-                        <img src={creators[x].croppedImage} alt={creators[x].nickName} className="card-image" />
+                        <img src={courses[x].croppedImage} className="card-image" />
                     </div>
                     <div className="card-buttons-container">
                         <button
                             style={{ fontSize: "10pt" }}
-                            onClick={(evt) => handleMeeting(evt, creators[x]._id)}
+                            onClick={(evt) => handleMeeting(evt, courses[x]._id)}
                             className="card-button"
                         >
                             kostenfreies Erstgespräch buchen
