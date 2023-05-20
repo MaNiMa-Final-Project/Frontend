@@ -114,7 +114,7 @@ body {
         display: flex;
 
         .creatorCourseContainer {
-            background-color: #184bba;
+            background-color: #d8dbe3;
             padding: 2rem;
             margin: 2rem;
 
@@ -317,9 +317,9 @@ body {
     padding: 1rem;
     border-radius: 50%;
     opacity: 80%;
-    color: #f2f2f6;
+    color: #1b1bec;
 
-    background-color: grey;
+    background-color: rgb(249, 243, 243);
 }
 
 .slider-controler .slider-arrow::after {
@@ -335,7 +335,7 @@ body {
 .courseSwiperSlide {
     width: 350px;
 
-    background-color: #385ea0;
+    background-color: #fff;
 
     border-radius: 5px;
 
@@ -353,7 +353,7 @@ body {
 .card {
     width: 422px;
     transition: transform 0.5s ease-in-out;
-    background-color: #f5f5f5;
+    background-color: #fff;
     border-radius: 15px;
 
     -webkit-box-shadow: -14px 14px 20px -7px rgba(128, 128, 128, 0.79);
@@ -370,8 +370,8 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 1rem;
-    background-color: #385ea0;
-    color: #fff;
+    background-color: #fff;
+    color: #070ee2;
     text-align: center;
 }
 
@@ -400,8 +400,8 @@ body {
 .card-button {
     padding: 10px;
     margin: 0.5rem 0;
-    background-color: #4080ee;
-    color: #fff;
+    background-color: #fff;
+    color: #070ee2;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -418,7 +418,7 @@ body {
 }
 
 .card-button--view-courses:hover {
-    background-color: #4a5568;
+    background-color: #0f55cd;
     color: #fff;
 }
 
@@ -427,8 +427,8 @@ body {
 }
 
 .card-button:hover {
-    background-color: #008cba;
+    background-color: #e7ebed;
     color: #fff;
 }
 
-//!Footer
+

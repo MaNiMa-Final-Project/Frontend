@@ -38,12 +38,12 @@ export default function Footer() {
                 <p>© 2023 VG Bildkunst</p>
             </div>
 
-            <h2 className="text-3xl font-bold mb-12">
+            <p className="text-3xl font-bold mb-12">
                 Trusted by <u className="">2,000+</u> users
-            </h2>
+            </p>
 
             <div className="containerlogo">
-                <img className="smallLogos" src="../../src/assets/images/small_logos_noback.png" alt="" />
+                <img className="smallLogos" src="../../src/assets/images/sw_logos_small.png" alt="Logos Auftraggeber" />
             </div>
         </div>
     );
