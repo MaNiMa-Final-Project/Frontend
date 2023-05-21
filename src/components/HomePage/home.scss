@@ -1,8 +1,5 @@
 .homeGridContainer {
-
-
     display: grid;
-
 
     grid-template:
         "a a a" 1fr
@@ -12,8 +9,6 @@
     gap: 1.5rem;
 
     .slogan {
-
-
         grid-area: ab;
 
         display: flex;
@@ -28,8 +23,6 @@
 
     //! section2
     .wochenkursContainer {
-
-
         grid-area: a;
 
         display: flex;

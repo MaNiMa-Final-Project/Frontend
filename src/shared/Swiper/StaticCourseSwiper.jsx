@@ -1,4 +1,3 @@
-
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -54,10 +53,7 @@ export default function StaticCourseSwiper() {
                 <div className="card-title">{courses[x].title}</div>
                 <div className="card-body">
                     <div className="card-buttons-container">
-                        <button
-                            onClick={(evt) => handleMeeting(evt, courses[x].creator._id)}
-                            className="card-button"
-                        >
+                        <button onClick={(evt) => handleMeeting(evt, courses[x].creator._id)} className="card-button">
                             Jetzt Teilnehmen! <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
                         </button>
                     </div>
@@ -74,9 +70,7 @@ export default function StaticCourseSwiper() {
                         </button>
                     </div> */}
 
-                    <div className="descriptionContainer">
-                        {courses[x].shortDescription}
-                    </div>
+                    <div className="descriptionContainer">{courses[x].shortDescription}</div>
                 </div>
             </div>
         );

@@ -113,7 +113,7 @@ body {
 
             color: #ffffff;
 
-            strong{
+            strong {
                 color: black;
             }
 
@@ -237,7 +237,6 @@ body {
 }
 
 .dozentenContainer {
-
     grid-area: b;
 
     // width: 500px;
@@ -247,7 +246,6 @@ body {
 .container {
     height: 100%;
     // max-width: 124rem;
-
 
     width: 100% !important;
 }
@@ -259,7 +257,6 @@ body {
 }
 
 .swiper_container {
-
     height: 100%;
     width: 100%;
     position: relative;
@@ -272,8 +269,6 @@ body {
     position: relative;
 
     width: fit-content;
-
-
 
     // border: solid green ;
 }
@@ -373,7 +368,7 @@ body {
 
     width: 422px;
     transition: transform 0.5s ease-in-out;
-    background-color: rgba(255, 255, 255, 0.95);;
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
 
     -webkit-box-shadow: -14px 14px 20px -7px rgba(128, 128, 128, 0.79);
@@ -413,8 +408,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.descriptionContainer{
-
+.descriptionContainer {
     margin: 1rem 0;
     width: 140%;
 }
@@ -458,7 +452,6 @@ body {
     color: black;
 }
 
-
 .coursePageContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -475,14 +468,14 @@ body {
             display: flex;
             justify-content: space-between;
 
-            h2{
+            h2 {
                 padding: 1rem;
                 color: #fff;
                 font-size: 1.5rem;
                 font-weight: 600;
             }
 
-            img{
+            img {
                 margin: 0.5rem;
                 border: solid rgb(0, 0, 0, 0.3);
                 border-radius: 50%;
@@ -492,18 +485,13 @@ body {
         }
 
         .courseBody {
-
             margin: 1rem;
             padding: 1rem;
             background-color: rgb(255, 255, 255, 0.4);
-
-
         }
 
-        .courseFooter{
+        .courseFooter {
             background-color: rgb(255, 255, 255, 0.4);
-
-
         }
     }
 }
