@@ -69,7 +69,7 @@ export default function CreatorPage() {
                 <BeatSpinner isLoading={isLoading} />
             ) : (
                 <>
-                    <div className="innerContainer">
+                    <section className="innerContainer">
                         <div className="imageContainer">
                             <img src={data.creatorData.croppedImage} alt="" />
                         </div>
@@ -77,8 +77,8 @@ export default function CreatorPage() {
                             className="textContainer"
                             dangerouslySetInnerHTML={{ __html: data.creatorData.profileText }}
                         ></p>
-                    </div>
-                    <div className="outerCourseContainer">
+                    </section>
+                    <section className="outerCourseContainer">
                         {data.courses.map((course) => {
                             let temp = new Date(course.beginning).toLocaleString("de-DE").split(",");
                             let date = temp[0] + ` - ${course.start} Uhr`;
@@ -109,7 +109,7 @@ export default function CreatorPage() {
                                 </div>
                             );
                         })}
-                    </div>
+                    </section>
                     {isModalOpen && (
                         <div className="modal">
                             {message ? (

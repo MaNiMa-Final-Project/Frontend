@@ -24,18 +24,18 @@ export default function HomePage() {
         <div className="homeGridContainer">
             {/* <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} /> */}
 
-            <div className="wochenkursContainer">
+            <section className="wochenkursContainer">
                 {/* <CourseCards /> */}
                 <StaticCourseSwiper />
-            </div>
+            </section>
 
-            <div className="slogan">
+            <section className="slogan">
                 <h2>Bringing the Beauty of Art to Your Doorstep</h2>
-            </div>
+            </section>
 
-            <div className="dozentenContainer">
+            <section className="dozentenContainer">
                 <StaticCreatorSwiper />
-            </div>
+            </section>
         </div>
     );
 }

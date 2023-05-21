@@ -1,27 +1,21 @@
-import React, { useRef } from "react";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-// import '../../assets/global.scss'
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "../../components/HomePage/home.scss";
 
-import { EffectCoverflow, EffectFade, Autoplay } from "swiper";
-
+import { EffectCoverflow, Autoplay } from "swiper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import axios from "axios";
 import { BASE_URL_PUBLIC } from "../../service/config.js";
 
-import "../../components/HomePage/home.scss";
-
-import { useEffect, useState } from "react";
-
 import BeatSpinner from "../Spinners/BeatLoader.jsx";
-import { useNavigate } from "react-router-dom";
 
 export default function StaticCreatorSwiper() {
     const [creators, setCreators] = useState([]);
@@ -98,6 +92,7 @@ export default function StaticCreatorSwiper() {
                     spaceBetween={1}
                     centeredSlides={true}
                     slidesPerView={"auto"}
+                    speed={5000}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 0,
@@ -106,7 +101,7 @@ export default function StaticCreatorSwiper() {
                     }}
                     modules={[EffectCoverflow, Autoplay]}
                     autoplay={{
-                        delay: 5000, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
+                        delay: 1500, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
                         disableOnInteraction: true, // Autoplay stoppt nicht, wenn der Benutzer mit dem Swiper interagiert
                         pauseOnMouseEnter: true
                     }}
@@ -117,15 +112,16 @@ export default function StaticCreatorSwiper() {
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(4)}</SwiperSlide>
-                    <SwiperSlide>{creatorCard(2)}</SwiperSlide>
-                    <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(0)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(1)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(4)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(0)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(1)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(2)}</SwiperSlide>
                     <SwiperSlide>{creatorCard(3)}</SwiperSlide>
+                    <SwiperSlide>{creatorCard(4)}</SwiperSlide>
                 </Swiper>
             )}
         </div>
