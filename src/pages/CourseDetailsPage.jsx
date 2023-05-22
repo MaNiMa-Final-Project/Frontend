@@ -39,7 +39,7 @@ export default function CourseDetailsPage() {
     return (
         <div className="courseDetailContainer">
             <h1 className="courseTitle">{course.title}</h1>
-            <MarkAsFavorite courseId={course._id}/>
+            <MarkAsFavorite courseId={course._id} />
             <div className="courseInfo">
                 <p>Nächster Kursbeginn: {date}</p>
                 <p>Dauer : {dauer}</p>

@@ -25,7 +25,6 @@ export default function CreatorPage() {
     };
 
     useEffect(() => {
-
         if (location.state.show) {
             setIsModalOpen(true);
         }

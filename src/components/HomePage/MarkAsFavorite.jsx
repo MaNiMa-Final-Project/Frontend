@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 export default function MarkAsFavorite({ evt, courseId }) {
     const userData = useLegitUser();
 
-
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
@@ -22,15 +21,13 @@ export default function MarkAsFavorite({ evt, courseId }) {
         event.stopPropagation();
 
         if (event.target.checked) {
-
             let body = {
                 courseId: courseId
-            }
+            };
             try {
-                let resp = await axios.put(BASE_URL_PUBLIC+'addtofav', body, {
+                let resp = await axios.put(BASE_URL_PUBLIC + "addtofav", body, {
                     withCredentials: true
                 });
-                
             } catch (error) {
                 console.log(error);
             }
@@ -38,12 +35,11 @@ export default function MarkAsFavorite({ evt, courseId }) {
         } else {
             let body = {
                 courseId: courseId
-            }
+            };
             try {
-                let resp = await axios.put(BASE_URL_PUBLIC+'removefromfav', body, {
+                let resp = await axios.put(BASE_URL_PUBLIC + "removefromfav", body, {
                     withCredentials: true
                 });
-                
             } catch (error) {
                 console.log(error);
             }
@@ -76,17 +72,19 @@ export default function MarkAsFavorite({ evt, courseId }) {
     };
 
     return (
-        userData.user && <label style={labelStyle} id="MASF">
-            <input type="checkbox" checked={isFavorite} onChange={handleFavoriteChange} style={checkboxStyle} />
-            {isFavorite ? (
-                <span style={{ textShadow: "0 0 5px white", color: "#f7c134" }}>
-                    <FontAwesomeIcon icon={faStar} />
-                </span>
-            ) : (
-                <span style={{ textShadow: "0 0 5px #3f80ee" }}>
-                    <FontAwesomeIcon icon={faStar} />
-                </span>
-            )}
-        </label>
+        userData.user && (
+            <label style={labelStyle} id="MASF">
+                <input type="checkbox" checked={isFavorite} onChange={handleFavoriteChange} style={checkboxStyle} />
+                {isFavorite ? (
+                    <span style={{ textShadow: "0 0 5px white", color: "#f7c134" }}>
+                        <FontAwesomeIcon icon={faStar} />
+                    </span>
+                ) : (
+                    <span style={{ textShadow: "0 0 5px #3f80ee" }}>
+                        <FontAwesomeIcon icon={faStar} />
+                    </span>
+                )}
+            </label>
+        )
     );
 }

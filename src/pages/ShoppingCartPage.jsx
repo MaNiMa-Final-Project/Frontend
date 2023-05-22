@@ -5,7 +5,7 @@ import "../components/ShoppingCart/shoppingCart.scss";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import getHoursAndMinutes from '../shared/getHoursAndMinutes.js'
+import getHoursAndMinutes from "../shared/getHoursAndMinutes.js";
 
 import axios from "axios";
 import { TEMP_URL_COURSE } from "../service/config";

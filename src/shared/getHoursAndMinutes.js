@@ -1,5 +1,3 @@
-
-
 export default function getHoursAndMinutes(milliseconds) {
     let hours = Math.floor(milliseconds / (60 * 60 * 1000));
     let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;

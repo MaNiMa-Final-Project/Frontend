@@ -27,7 +27,6 @@ body {
     /* Stile für das Modal */
     /* Stile für das Modal */
 
-
     .modal {
         position: fixed;
         top: 0;
@@ -467,7 +466,6 @@ body {
             justify-content: space-between;
             height: 170px;
 
-
             h2 {
                 margin: 1.6rem;
                 padding: 1rem;
@@ -503,7 +501,6 @@ body {
 
             overflow-y: auto;
 
-
             p {
                 font-size: 1.35rem;
             }
@@ -514,17 +511,12 @@ body {
         .courseFooter {
             margin: 1rem;
             padding: 1rem;
-            color: rgb(20, 18, 18) ;
-
-            
-
-
+            color: rgb(20, 18, 18);
 
             background-color: rgb(255, 255, 255, 0.4);
 
             p {
                 font-size: 1.5rem;
-
             }
         }
     }
@@ -541,7 +533,7 @@ body {
     }
 }
 
-#dozentenCard{
+#dozentenCard {
     height: fit-content;
 }
 

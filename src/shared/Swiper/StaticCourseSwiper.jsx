@@ -59,7 +59,7 @@ export default function StaticCourseSwiper() {
         return (
             <div id="courseCardContainer" className="card">
                 <div className="card-title">{courses[x].title}</div>
-                <MarkAsFavorite courseId={courses[x]._id}/>
+                <MarkAsFavorite courseId={courses[x]._id} />
                 <div className="card-body">
                     <div className="card-buttons-container">
                         <button onClick={(evt) => handleMeeting(evt, courses[x].creator._id)} className="card-button">
