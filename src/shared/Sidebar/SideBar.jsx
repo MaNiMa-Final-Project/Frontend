@@ -208,9 +208,6 @@ export default function SideBar({ user }) {
                     withCredentials: true
                 }
             );
-            console.log("🚀 -----------------------------------------------🚀");
-            console.log("🚀 ~ file: SideBar.jsx:220 ~ response:", response);
-            console.log("🚀 -----------------------------------------------🚀");
             if (response.status === 200) {
                 setCroppedImage(response.data.croppedImage);
                 handleImageModalClose();
@@ -388,6 +385,7 @@ export default function SideBar({ user }) {
                                             type={showOldPassword ? "text" : "password"}
                                             id="oldPassword"
                                             name="oldPassword"
+                                            placeholder="Passwort"
                                             required
                                             value={oldPassword}
                                             onChange={(e) => setOldPassword(e.target.value)}
@@ -407,6 +405,7 @@ export default function SideBar({ user }) {
                                             type={showNewPassword ? "text" : "password"}
                                             id="newPassword"
                                             name="newPassword"
+                                            placeholder="Neues Passwort"
                                             required
                                             value={newPassword}
                                             onChange={(e) => setNewPassword(e.target.value)}
@@ -426,6 +425,7 @@ export default function SideBar({ user }) {
                                             type={showConfirmPassword ? "text" : "password"}
                                             id="confirmPassword"
                                             name="confirmPassword"
+                                            placeholder="Bestätige Passwort"
                                             required
                                             value={confirmPassword}
                                             onChange={(e) => setConfirmPassword(e.target.value)}

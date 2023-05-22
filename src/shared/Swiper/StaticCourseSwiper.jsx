@@ -41,7 +41,7 @@ export default function StaticCourseSwiper() {
 
     const handleCreatorDetailView = (evt, id) => {
         evt.preventDefault();
-        navigate(`/creator/${id}`, { state: { show: false } });
+        navigate(`creator/${id}`, { state: { show: false } });
     };
 
     const handleMeeting = (evt, id) => {

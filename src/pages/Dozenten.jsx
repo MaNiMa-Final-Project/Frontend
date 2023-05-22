@@ -6,6 +6,8 @@
 // import CreatorCards from "../components/HomePage/CreatorCards";
 // import SwiperCarousel from "../shared/Swiper/Swiper";
 
+import StaticCourseSwiper from '../shared/Swiper/StaticCreatorSwiper'
+
 export default function HomePage() {
     // const particlesInit = useCallback(async (engine) => {
     //     console.log(engine);
@@ -20,7 +22,7 @@ export default function HomePage() {
     return (
         <div>
             {/* <Particles id="tsparticles" url="particles.json" init={particlesInit} loaded={particlesLoaded} /> */}
-            <div className="dozentenContainer">{/* <SwiperCarousel /> */}</div>
+            <div className="spezielDozentenContainer"> <StaticCourseSwiper /></div>
         </div>
     );
 }

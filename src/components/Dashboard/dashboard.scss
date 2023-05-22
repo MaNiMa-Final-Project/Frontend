@@ -37,8 +37,8 @@
     }
 
     .coursePreview {
-        border: 1px solid white;
         padding: 20px;
+        background-color: rgb(116, 125, 133, 0.5);
 
         .innerCourseContainer {
             border: 1px solid white;
@@ -56,11 +56,29 @@
 
     .section1 {
         grid-area: a;
-        border: solid red;
+
     }
 
     .section2 {
         grid-area: b;
+    }
+
+    .section3 {
+        grid-area: c;
+    }
+
+    .infoContainer{
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .innerInfoContainer{
+            display: flex;
+            align-items: center;
+            img{
+                margin: 0.5rem 1rem; 
+            }
+        }
     }
 
     .sidebar {

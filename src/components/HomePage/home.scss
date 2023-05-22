@@ -126,8 +126,8 @@
     .dozentenContainer {
         width: 100%;
         height: auto;
-        margin: 0.5rem 0;
-        display: block;
+        margin: 0.5rem auto;
+        display: flex;
         justify-content: center;
         align-items: center;
     }

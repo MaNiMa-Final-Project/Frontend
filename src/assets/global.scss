@@ -16,7 +16,10 @@
 html {
     letter-spacing: 1.2px;
 }
+.buttonContainer{
 
+    margin: 2rem;
+}
 body {
     background-color: rgb(240, 229, 229);
 
@@ -228,6 +231,11 @@ body {
     // padding:  1rem calc(0em + 33.33vw / 3);
     padding: 0.5rem 3rem;
     height: max-content;
+}
+.spezielDozentenContainer{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
 }
 
 .dozentenContainer {

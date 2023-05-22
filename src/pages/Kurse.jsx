@@ -3,9 +3,15 @@ import { useState, useEffect } from "react";
 import CreatorDashboard from "../components/Dashboard/CreatorDashboard";
 import { BASE_URL_PUBLIC } from "../service/config.js";
 import MarkAsFavorite from "../components/HomePage/MarkAsFavorite";
+import getHoursAndMinutes from "../shared/getHoursAndMinutes";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function courses() {
     const [courses, setCourses] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getData();
@@ -20,13 +26,25 @@ export default function courses() {
         }
     };
 
-    function getHoursAndMinutes(milliseconds) {
-        let hours = Math.floor(milliseconds / (60 * 60 * 1000));
-        let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
-        if (hours === 0) return `${minutes} min`;
-        if (minutes === 0) return `${hours} Std.`;
-        return `${hours} Std. und ${minutes} min`;
-    }
+    // function getHoursAndMinutes(milliseconds) {
+    //     let hours = Math.floor(milliseconds / (60 * 60 * 1000));
+    //     let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
+    //     if (hours === 0) return `${minutes} min`;
+    //     if (minutes === 0) return `${hours} Std.`;
+    //     return `${hours} Std. und ${minutes} min`;
+    // }
+
+    const handleMeeting = (evt, id) => {
+        evt.stopPropagation();
+        console.log("asf");
+        navigate(`/creator/${id}`, { state: { show: true } });
+        // cartData.addToCart(id);
+    };
+
+    const handleAddToCart = (evt, id) => {
+        evt.stopPropagation();
+        cartData.addToCart(id);
+    };
 
     return (
         <div className="coursePageContainer">
@@ -50,7 +68,12 @@ export default function courses() {
                                 </p>
                                 <p>Preis: {course.price}€</p>
                             </div>
-                            <div className="buttonContainer"></div>
+                            <div className="buttonContainer">
+                            <button onClick={(evt) => handleMeeting(evt, course.creator._id)} className="card-button">
+                            Jetzt Teilnehmen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
+                        </button>
+
+                            </div>
                         </div>
                     );
                 })}
