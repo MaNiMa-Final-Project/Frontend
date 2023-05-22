@@ -50,18 +50,18 @@ export default function MarkAsFavorite({ evt, courseId }) {
         height: "1.5em",
         lineHeight: "1.8rem",
         margin: "0 5px",
-        color: "gray"
+        color: "#3F80EE"
     };
 
     return (
-        <label style={labelStyle}>
+        <label style={labelStyle} id="MASF" >
             <input type="checkbox" checked={isFavorite} onChange={handleFavoriteChange} style={checkboxStyle} />
             {isFavorite ? (
-                <span style={{ textShadow: "0 0 5px white", color: "rgb(237, 237, 43)" }}>
+                <span style={{ textShadow: "0 0 5px white", color: "#f7c134" }}>
                     <FontAwesomeIcon icon={faStar} />
                 </span>
             ) : (
-                <span style={{ textShadow: "0 0 5px white" }}>
+                <span style={{ textShadow: "0 0 5px #3f80ee" }}>
                     <FontAwesomeIcon icon={faStar} />
                 </span>
             )}

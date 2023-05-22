@@ -49,7 +49,7 @@ export default function MyEditor({ onDataChange }) {
                         shouldNotGroupWhenFull: false
                     }
                 }}
-                data="<p>Enter your Course Description</p>"
+                data="<p>Kursbeschreibung hier eintragen</p>"
                 onReady={(editor) => {
                     console.log("Editor is ready to use!", editor);
                 }}

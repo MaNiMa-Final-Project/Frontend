@@ -60,7 +60,7 @@ export default function RegisterPage() {
         <div className="logreg">
             <div className="logreg-form">
                 <label className="mailLabel" htmlFor="mailInput">
-                    Gib die E-Mail-Adresse ein, die du für Konto verwenden möchtest
+                    Gib die E-Mail-Adresse ein, die du für Konto verwenden möchtest.
                 </label>
                 <input
                     type="email"

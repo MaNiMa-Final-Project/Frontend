@@ -1,4 +1,5 @@
 .coursePreviewContainer {
+    color: white;
     display: grid;
 
     grid-template:
@@ -9,7 +10,7 @@
     gap: 1.5rem;
 
     button {
-        border: 2px solid;
+        border: 2px solid white;
         width: fit-content;
         border-radius: 10px;
         margin: 1rem;
@@ -20,7 +21,7 @@
         .profileForm {
             display: flex;
             flex-direction: column;
-            border: 1px solid black;
+            border: 1px solid white;
 
             margin: 1rem;
             padding: 1rem;
@@ -36,17 +37,17 @@
     }
 
     .coursePreview {
-        border: 1px solid black;
+        border: 1px solid white;
         padding: 20px;
 
         .innerCourseContainer {
-            border: 1px solid black;
+            border: 1px solid white;
             padding: 1rem;
 
             li {
                 display: flex;
                 justify-content: space-between;
-                border: 1px solid black;
+                border: 1px solid white;
                 align-items: center;
                 padding-left: 1rem;
             }
@@ -63,7 +64,7 @@
     }
 
     .sidebar {
-        border: 1px solid black;
+        border: 1px solid white;
         padding: 20px;
         grid-area: d;
     }
@@ -72,6 +73,7 @@
 //! Admin
 
 .adminViewContainer {
+    color: white;
     min-height: 700px;
     display: grid;
 
@@ -115,6 +117,7 @@
         border-radius: 5px;
         padding: 0.5rem;
         margin: 0.5rem;
+        color: black;
     }
 
     button,
@@ -134,7 +137,9 @@
         border: solid 1px;
 
         h1 {
+            margin-top: 1rem;
             font-weight: 800;
+            font-size: 1.5rem;
         }
 
         .resultList {

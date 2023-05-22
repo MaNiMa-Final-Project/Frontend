@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BASE_URL_PUBLIC, BASE_URL_PROTECTED } from "../service/config";
 import axios from "axios";
-import "../components/CreateCourse/createCourse.scss";
+//import "../components/CreateCourse/createCourse.scss";
 import { useEffect } from "react";
 
 import ImageCrop from "../shared/CropImage/ImageCrop";
@@ -134,46 +134,44 @@ export default function CreateCoursePage() {
     };
 
     return (
-        <div className="CreateCourse">
+        <div className="logreg">
             <h2>Kurs Erstellen</h2>
-            <form className="CourseForm" onSubmit={handleSubmit}>
-                <label>Title</label>
+            <form className="logreg-form" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     id="title"
                     value={title}
-                    placeholder="Title"
+                    placeholder="Kursname"
                     onChange={(event) => setTitle(event.target.value)}
                 />
 
-                <label>Creator</label>
                 <input
                     type="text"
                     id="creator"
                     value={creator}
-                    placeholder="Creator"
+                    placeholder="Dozent"
                     onChange={(event) => setCreator(event.target.value)}
                 />
 
-                <label>Price</label>
                 <input
                     type="number"
                     id="price"
                     value={price}
-                    placeholder="Price"
+                    placeholder="Preis"
                     onChange={(event) => setPrice(event.target.value)}
                 />
 
-                <label>Beginning</label>
+                <label>Datum</label>
+
                 <input
                     type="date"
                     id="beginning"
                     value={beginning}
-                    placeholder="Beginning"
+                    placeholder="KursStart"
                     onChange={(event) => setBeginning(event.target.value)}
                 />
 
-                <label>Start</label>
+                <label>Beginn</label>
                 <input
                     type="time"
                     id="start"
@@ -182,7 +180,7 @@ export default function CreateCoursePage() {
                     onChange={(event) => setStart(event.target.value)}
                 />
 
-                <label>End</label>
+                <label>Ende</label>
                 <input
                     type="time"
                     id="end"
@@ -191,12 +189,11 @@ export default function CreateCoursePage() {
                     onChange={(event) => setEnd(event.target.value)}
                 />
 
-                <label htmlFor="image">Place Image</label>
-                <input type="file" accept="image/*" id="image" onChange={handleFileSelect} />
+                <label htmlFor="image">Bild hochladen</label>
+                <input className="fileInput" type="file" accept="image/*" id="image" onChange={handleFileSelect} />
 
                 {croppedImage && !showImageModal && <img src={croppedImage} />}
 
-                <label>Description</label>
                 {/* <textarea
                     id="description"
                     value={description}
@@ -206,7 +203,7 @@ export default function CreateCoursePage() {
 
                 <MyEditor onDataChange={handleEditorDataChange} />
 
-                <button type="submit">Create Course</button>
+                <button className="createCourseBtn" type="submit">Kurs erstellen</button>
             </form>
             {showImageModal && (
                 <div className="modalOverlay">
@@ -220,7 +217,7 @@ export default function CreateCoursePage() {
                                     <label htmlFor="file-input" className="file-input-label">
                                         <FontAwesomeIcon icon={faUpload} />
                                     </label>
-                                    <input id="file-input" type="file" accept="image/*" onChange={handleFileSelect} />
+                                    <input id="file-input" type="file" accept="image/*"  onChange={handleFileSelect} />
                                 </fieldset>
                                 <fieldset>
                                     <button type="button" onClick={handleImageModalClose}>

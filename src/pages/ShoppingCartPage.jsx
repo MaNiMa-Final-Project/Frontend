@@ -38,7 +38,7 @@ export default function ShoppingCartPage() {
         let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
         if (hours === 0) return `${minutes} m`;
         if (minutes === 0) return `${hours} h`;
-        return `${hours} h and ${minutes} m`;
+        return `${hours} Std. and ${minutes} min`;
     }
 
     const handleBackToShop = () => {
@@ -48,7 +48,7 @@ export default function ShoppingCartPage() {
     let subTotal = 0;
     let cartItem = courses.map((course) => {
         let splitImage = course.image.split("upload");
-        let scaledImage = splitImage[0] + `upload/w_${50},h_${50}` + splitImage[1];
+        let scaledImage = splitImage[0] + `upload/w_${90},h_${70}` + splitImage[1];
 
         let formattedDuration = getHoursAndMinutes(course.duration);
 
@@ -59,7 +59,7 @@ export default function ShoppingCartPage() {
             <tr key={course._id} className="tableRow">
                 <td className="tableDataCell">
                     <button onClick={() => handleCartDelete(course._id)}>
-                        <FontAwesomeIcon icon={faSquareXmark} />
+                        <FontAwesomeIcon className="x-icon" icon={faSquareXmark} />
                     </button>
                 </td>
 
@@ -90,15 +90,15 @@ export default function ShoppingCartPage() {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Course</th>
+                        <th>Kurs</th>
 
-                        <th>Date</th>
+                        <th>Datum</th>
 
-                        <th>Duration</th>
+                        <th>Dauer</th>
 
-                        <th>Price</th>
+                        <th>Preis</th>
                         <th></th>
-                        <th>Subtotal</th>
+                        <th>Zwischensumme</th>
                     </tr>
                 </thead>
                 <tbody>{cartItem}</tbody>
@@ -108,19 +108,19 @@ export default function ShoppingCartPage() {
             <div className="cartSummary">
                 <div className="cartTotal">
                     <div className="cartSummaryHeader">
-                        <h1>Cart totals</h1>
+                        <strong><h1 className="zusammenfassung" >Zusammenfassung</h1></strong>
                     </div>
 
                     <div className="cartSummaryBody">
                         <strong>
-                            <h2>Total</h2>
+                            <h2>Summe</h2>
                         </strong>
                         <strong>{subTotal} €</strong>
                     </div>
 
                     <div className="cartSummaryFooter">
-                        <button>Proceed to checkout</button>
-                        <button onClick={handleBackToShop}>Back to Shop</button>
+                        <button>Jetzt bezahlen</button>
+                        <button onClick={handleBackToShop}>Zurück zum Shop</button>
                     </div>
                 </div>
             </div>

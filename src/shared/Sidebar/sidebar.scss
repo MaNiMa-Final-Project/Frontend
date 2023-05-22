@@ -90,6 +90,8 @@
 
         .pwForm {
             height: fit-content;
+            color: black;
+
 
             display: flex;
             flex-direction: column;
@@ -112,6 +114,7 @@
                         width: 100%;
                         border: none;
                         padding: 0.2rem;
+                        color: black;
                     }
                 }
             }

@@ -25,15 +25,19 @@ export default function courses() {
         <div className="coursePageContainer">
             {courses &&
                 courses.map((course) => {
-                    console.log("🚀 ----------------------------------------🚀");
-                    console.log("🚀 ~ file: Kurse.jsx:37 ~ course:", course);
-                    console.log("🚀 ----------------------------------------🚀");
+
+                    console.log("🚀 ----------------------------------------🚀")
+                console.log("🚀 ~ file: Kurse.jsx:43 ~ course:", course)
+                console.log("🚀 ----------------------------------------🚀")
+
 
                     return (
                         <div className="courseContainer" key={course.id}>
                             <div className="courseHeader">
                                 <h2>{course.title}</h2>
-                                <img src={course.creator.croppedImage} alt="" />
+                                <img src={course.croppedImage} alt="" />
+                                <img id="creatorCardPicture" src={course.creator.croppedImage} alt="" />
+
                             </div>
                             <div className="courseBody">
                                 <p>{course.description}</p>
@@ -42,6 +46,7 @@ export default function courses() {
                         </div>
                     );
                 })}
+
         </div>
     );
 }

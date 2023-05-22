@@ -10,15 +10,19 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import MarkAsFavorite from "../../components/HomePage/MarkAsFavorite";
 
 import axios from "axios";
 import { BASE_URL_PUBLIC } from "../../service/config.js";
 
 import BeatSpinner from "../Spinners/BeatLoader.jsx";
+import { useCartData } from "../../hooks/useCartData";
 
 export default function StaticCourseSwiper() {
     const [courses, setCourses] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const cartData = useCartData();
+
 
     const navigate = useNavigate();
 
@@ -47,14 +51,20 @@ export default function StaticCourseSwiper() {
         // cartData.addToCart(id);
     };
 
+    const handleAddToCart = (evt, id) => {
+        evt.stopPropagation();
+        cartData.addToCart(id);
+    };
+
     function creatorCard(x) {
         return (
-            <div className="card">
+            <div id="courseCardContainer" className="card">
                 <div className="card-title">{courses[x].title}</div>
+                <MarkAsFavorite />
                 <div className="card-body">
                     <div className="card-buttons-container">
                         <button onClick={(evt) => handleMeeting(evt, courses[x].creator._id)} className="card-button">
-                            Jetzt Teilnehmen! <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
+                            Jetzt Teilnehmen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
                         </button>
                     </div>
                     <div className="card-image-container">
@@ -71,6 +81,11 @@ export default function StaticCourseSwiper() {
                     </div> */}
 
                     <div className="descriptionContainer">{courses[x].shortDescription}</div>
+                        <button 
+                            className="card-button" 
+                            id="zumWarenkorb" 
+                            onClick={(evt) => handleAddToCart(evt, courses[x]._id)}
+                            >Zum Warenkorb </button>
                 </div>
             </div>
         );
@@ -96,12 +111,14 @@ export default function StaticCourseSwiper() {
                         modifier: 2.5,
                         shadowOffset: 20
                     }}
+                    
                     modules={[EffectCoverflow, Autoplay]}
                     autoplay={{
                         delay: 1500, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
                         disableOnInteraction: true, // Autoplay stoppt nicht, wenn der Benutzer mit dem Swiper interagiert
                         pauseOnMouseEnter: true
                     }}
+
                     className="swiper_container"
                 >
                     <SwiperSlide>{creatorCard(0)}</SwiperSlide>

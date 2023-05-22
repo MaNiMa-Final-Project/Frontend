@@ -10,7 +10,7 @@ function Navbar() {
     const handleLogout = () => userData.userLogout(navigate);
 
     let dashboard = userData.success ? (
-        <li>
+        <li style={{marginLeft: '5rem'}}>
             <Link to="/dashboard">DASHBOARD</Link>
         </li>
     ) : (
@@ -19,8 +19,8 @@ function Navbar() {
 
     let createEvent =
         userData.isAdmin || userData.isCreator ? (
-            <li>
-                <Link to="/newcourse">Kurs erstellen</Link>
+            <li style={{marginLeft: '5rem'}}>
+                <Link to="/newcourse">KURS ERSTELLEN</Link>
             </li>
         ) : (
             <></>
@@ -28,7 +28,7 @@ function Navbar() {
 
     let createCreator = userData.isAdmin ? (
         <li>
-            <Link to="/newcreator">Dozenten erstellen</Link>
+            <Link to="/newcreator">DOZENT ERSTELLEN</Link>
         </li>
     ) : (
         <></>
@@ -57,7 +57,7 @@ function Navbar() {
                         <img
                             src={"../../src/assets/images/artshuttle_logo_noBackground.png"}
                             width="100"
-                            height="100"
+                            
                         />
                     </Link>
                 </li>

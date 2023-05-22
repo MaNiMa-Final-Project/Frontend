@@ -194,7 +194,7 @@ export default function CreateCreatorPage() {
                 />
 
                 {/* Hier ein Beispiel für das Hochladen eines Bildes */}
-                <input type="file" accept="image/*" onChange={handleFileSelect} />
+                <input className="fileInput" type="file" accept="image/*" onChange={handleFileSelect} />
 
                 {/* <ImageCrop                             
                     originalImage={originalImage}
