@@ -108,7 +108,9 @@ export default function ShoppingCartPage() {
             <div className="cartSummary">
                 <div className="cartTotal">
                     <div className="cartSummaryHeader">
-                        <strong><h1 className="zusammenfassung" >Zusammenfassung</h1></strong>
+                        <strong>
+                            <h1 className="zusammenfassung">Zusammenfassung</h1>
+                        </strong>
                     </div>
 
                     <div className="cartSummaryBody">

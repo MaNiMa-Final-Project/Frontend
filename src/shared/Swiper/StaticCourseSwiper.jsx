@@ -23,7 +23,6 @@ export default function StaticCourseSwiper() {
     const [isLoading, setIsLoading] = useState(true);
     const cartData = useCartData();
 
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -81,11 +80,13 @@ export default function StaticCourseSwiper() {
                     </div> */}
 
                     <div className="descriptionContainer">{courses[x].shortDescription}</div>
-                        <button 
-                            className="card-button" 
-                            id="zumWarenkorb" 
-                            onClick={(evt) => handleAddToCart(evt, courses[x]._id)}
-                            >Zum Warenkorb </button>
+                    <button
+                        className="card-button"
+                        id="zumWarenkorb"
+                        onClick={(evt) => handleAddToCart(evt, courses[x]._id)}
+                    >
+                        Zum Warenkorb{" "}
+                    </button>
                 </div>
             </div>
         );
@@ -111,14 +112,12 @@ export default function StaticCourseSwiper() {
                         modifier: 2.5,
                         shadowOffset: 20
                     }}
-                    
                     modules={[EffectCoverflow, Autoplay]}
                     autoplay={{
                         delay: 1500, // Verzögerung zwischen den Slide-Wechseln in Millisekunden
                         disableOnInteraction: true, // Autoplay stoppt nicht, wenn der Benutzer mit dem Swiper interagiert
                         pauseOnMouseEnter: true
                     }}
-
                     className="swiper_container"
                 >
                     <SwiperSlide>{creatorCard(0)}</SwiperSlide>

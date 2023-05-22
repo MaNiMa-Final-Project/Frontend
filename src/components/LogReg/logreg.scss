@@ -11,7 +11,6 @@
         margin: auto;
         font-size: 2rem;
         color: white;
-
     }
 
     .logreg-form {
@@ -34,7 +33,6 @@
             margin: 1.5rem 1rem;
             padding: 0.5rem;
             color: white;
-
         }
 
         .passwort-vergessen {
@@ -68,18 +66,20 @@
     }
 }
 
-label {color: white;}
-.createCourseBtn{
+label {
+    color: white;
+}
+.createCourseBtn {
     font-weight: 500;
     font-size: 1.5rem;
 }
 
-.fileInput{
+.fileInput {
     border: none !important;
     margin-bottom: 2rem !important;
 }
 
-.createCourseBtn{
+.createCourseBtn {
     color: white;
     border: solid;
     margin: 1.5rem;

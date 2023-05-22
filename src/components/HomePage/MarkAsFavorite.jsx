@@ -54,7 +54,7 @@ export default function MarkAsFavorite({ evt, courseId }) {
     };
 
     return (
-        <label style={labelStyle} id="MASF" >
+        <label style={labelStyle} id="MASF">
             <input type="checkbox" checked={isFavorite} onChange={handleFavoriteChange} style={checkboxStyle} />
             {isFavorite ? (
                 <span style={{ textShadow: "0 0 5px white", color: "#f7c134" }}>

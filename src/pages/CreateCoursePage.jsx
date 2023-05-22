@@ -203,7 +203,9 @@ export default function CreateCoursePage() {
 
                 <MyEditor onDataChange={handleEditorDataChange} />
 
-                <button className="createCourseBtn" type="submit">Kurs erstellen</button>
+                <button className="createCourseBtn" type="submit">
+                    Kurs erstellen
+                </button>
             </form>
             {showImageModal && (
                 <div className="modalOverlay">
@@ -217,7 +219,7 @@ export default function CreateCoursePage() {
                                     <label htmlFor="file-input" className="file-input-label">
                                         <FontAwesomeIcon icon={faUpload} />
                                     </label>
-                                    <input id="file-input" type="file" accept="image/*"  onChange={handleFileSelect} />
+                                    <input id="file-input" type="file" accept="image/*" onChange={handleFileSelect} />
                                 </fieldset>
                                 <fieldset>
                                     <button type="button" onClick={handleImageModalClose}>

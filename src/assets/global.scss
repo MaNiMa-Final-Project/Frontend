@@ -19,7 +19,7 @@ html {
 
 body {
     background-color: rgb(240, 229, 229);
-    
+
     // font-family: "Roboto", sans-serif;
 }
 
@@ -199,9 +199,6 @@ body {
         font-weight: 500;
     }
 
-
-
-
     .controls button {
         gap: 1rem;
         padding: 1rem;
@@ -363,7 +360,7 @@ body {
 }
 
 .card {
-    border: solid 1px #2C5EE2;
+    border: solid 1px #2c5ee2;
 
     width: 422px;
     transition: transform 0.5s ease-in-out;
@@ -448,7 +445,7 @@ body {
 }
 
 .card-button:hover {
-    background-color: #3F80EE;
+    background-color: #3f80ee;
     color: rgb(252, 252, 252);
 }
 
@@ -485,14 +482,13 @@ body {
                 aspect-ratio: 1/1;
             }
 
-            #creatorCardPicture{
+            #creatorCardPicture {
                 position: absolute;
 
                 top: 90px;
                 right: 0px;
                 width: 60px;
                 aspect-ratio: 1/1;
-
             }
         }
 
@@ -500,10 +496,9 @@ body {
             margin: 1rem;
             padding: 1rem;
             color: white;
-            p{
+            p {
                 font-size: 1.5rem;
                 text-align: justify;
-
             }
             // background-color: rgb(255, 255, 255, 0.4);
         }
@@ -518,21 +513,20 @@ body {
     display: flex;
     flex-direction: column;
 
-    .kontakt{
+    .kontakt {
         display: flex;
         justify-content: start;
         align-content: center;
-        
     }
 }
 
-.kontaktadresse{
+.kontaktadresse {
     color: white;
-    margin-top:2rem ;
-    
-    p, u{
-        font-size: 1.5rem;
+    margin-top: 2rem;
 
+    p,
+    u {
+        font-size: 1.5rem;
     }
 }
 
@@ -540,52 +534,51 @@ body {
 .form-container {
     width: 600px;
     height: fit-content;
-    margin: 3rem 0 ;
+    margin: 3rem 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0 1rem 1rem 1rem;
-  }
-  
-  /* Formularelemente */
-  .form-container label {
+}
+
+/* Formularelemente */
+.form-container label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: white;
-  }
-  
-  .form-container input,
-  .form-container textarea {
+}
+
+.form-container input,
+.form-container textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 10px;
-  }
-  
-  .form-container textarea {
+}
+
+.form-container textarea {
     height: 100px;
-  }
-  
-  /* Submit-Button */
-  .form-container button {
+}
+
+/* Submit-Button */
+.form-container button {
     background-color: transparent;
     color: white;
     padding: 10px 15px;
     border: solid;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .form-container button:hover {
+}
+
+.form-container button:hover {
     background-color: blue;
-  }
-  
-  /* Fehlermeldung */
-  .error-message {
+}
+
+/* Fehlermeldung */
+.error-message {
     color: red;
     font-size: 14px;
     margin-bottom: 10px;
-  }
-  
+}

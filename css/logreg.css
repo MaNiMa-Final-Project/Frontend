@@ -18,7 +18,6 @@
     flex-direction: column;
     padding: 2rem;
     color: white;
-
 }
 .logreg .logreg-form {
     border: solid 1px black;
@@ -26,14 +25,12 @@
     margin: 1rem;
     padding: 1rem;
     color: white;
-
 }
 .logreg .logreg-form .logreg-button {
     border: solid;
     border-radius: 5px;
     padding: 0.5rem;
     color: white;
-
 }
 .logreg .logreg-form .passwort-vergessen {
     width: fit-content;

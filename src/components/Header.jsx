@@ -10,7 +10,7 @@ function Navbar() {
     const handleLogout = () => userData.userLogout(navigate);
 
     let dashboard = userData.success ? (
-        <li style={{marginLeft: '5rem'}}>
+        <li style={{ marginLeft: "5rem" }}>
             <Link to="/dashboard">DASHBOARD</Link>
         </li>
     ) : (
@@ -19,7 +19,7 @@ function Navbar() {
 
     let createEvent =
         userData.isAdmin || userData.isCreator ? (
-            <li style={{marginLeft: '5rem'}}>
+            <li style={{ marginLeft: "5rem" }}>
                 <Link to="/newcourse">KURS ERSTELLEN</Link>
             </li>
         ) : (
@@ -54,11 +54,7 @@ function Navbar() {
             <ul>
                 <li>
                     <Link to="/" className="site-title">
-                        <img
-                            src={"../../src/assets/images/artshuttle_logo_noBackground.png"}
-                            width="100"
-                            
-                        />
+                        <img src={"../../src/assets/images/artshuttle_logo_noBackground.png"} width="100" />
                     </Link>
                 </li>
                 {dashboard}

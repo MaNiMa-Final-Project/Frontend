@@ -46,7 +46,7 @@ export default function DashboardPage() {
 
     return (
         <>
-            <p style={{fontSize: '2rem', color: 'white', margin: '0.5rem'}} >{`Willkommen, ${user.nickName}!`}</p>
+            <p style={{ fontSize: "2rem", color: "white", margin: "0.5rem" }}>{`Willkommen, ${user.nickName}!`}</p>
 
             {!userData.isCreator && !userData.isAdmin && <UserDashboard user={user} />}
             {userData.isAdmin && <AdminDashboard user={user} />}
