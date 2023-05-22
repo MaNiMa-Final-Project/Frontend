@@ -27,7 +27,6 @@ body {
     /* Stile für das Modal */
     /* Stile für das Modal */
 
-    scroll-snap-type: y mandatory;
 
     .modal {
         position: fixed;
@@ -119,7 +118,7 @@ body {
             color: #ffffff;
 
             strong {
-                color: black;
+                color: rgb(38, 37, 37);
             }
 
             .test {
@@ -159,7 +158,7 @@ body {
 .nav {
     position: sticky;
     top: 0;
-    background-color: #4080ee;
+    background-color: rgba(63, 128, 238, 0.9);
     color: rgb(251, 247, 247);
     display: flex;
     justify-content: space-between;
@@ -367,7 +366,7 @@ body {
     background-color: rgba(255, 255, 255);
     border-radius: 15px;
 
-    height: 620px;
+    height: 650px;
 
     // -webkit-box-shadow: -14px 14px 20px -7px rgba(128, 128, 128, 0.79);
     // -moz-box-shadow: -14px 14px 20px -7px rgba(128, 128, 128, 0.79);
@@ -407,8 +406,9 @@ body {
 }
 
 .descriptionContainer {
-    margin: 1rem 0;
-    width: 140%;
+    margin: 1.5rem 0rem 0.5rem 0rem;
+    width: 110%;
+    color: #4a5568;
 }
 
 .card-buttons-container {
@@ -458,15 +458,18 @@ body {
         border: solid rgb(255, 255, 255, 0.3);
         position: relative;
 
-        min-height: 400px;
+        height: 900px;
 
         background-color: rgb(255, 255, 255, 0.5);
 
         .courseHeader {
             display: flex;
             justify-content: space-between;
+            height: 170px;
+
 
             h2 {
+                margin: 1.6rem;
                 padding: 1rem;
                 color: #fff;
                 font-size: 1.5rem;
@@ -496,15 +499,33 @@ body {
             margin: 1rem;
             padding: 1rem;
             color: white;
+            height: 430px;
+
+            overflow-y: auto;
+
+
             p {
-                font-size: 1.5rem;
-                text-align: justify;
+                font-size: 1.35rem;
             }
+
             // background-color: rgb(255, 255, 255, 0.4);
         }
 
         .courseFooter {
+            margin: 1rem;
+            padding: 1rem;
+            color: rgb(20, 18, 18) ;
+
+            
+
+
+
             background-color: rgb(255, 255, 255, 0.4);
+
+            p {
+                font-size: 1.5rem;
+
+            }
         }
     }
 }
@@ -518,6 +539,10 @@ body {
         justify-content: start;
         align-content: center;
     }
+}
+
+#dozentenCard{
+    height: fit-content;
 }
 
 .kontaktadresse {

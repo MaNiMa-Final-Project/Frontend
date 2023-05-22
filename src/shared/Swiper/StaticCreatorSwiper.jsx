@@ -49,7 +49,7 @@ export default function StaticCreatorSwiper() {
 
     function creatorCard(x) {
         return (
-            <div className="card">
+            <div id="dozentenCard" className="card">
                 <div className="card-title">
                     {creators[x].firstName} {creators[x].lastName}
                 </div>
@@ -67,7 +67,7 @@ export default function StaticCreatorSwiper() {
                     </div>
                     <div className="card-buttons-container">
                         <button
-                            style={{ fontSize: "10pt" }}
+                            style={{ fontSize: "9pt", border: 'solid 1px', margin: '2rem auto', width: '100%' }}
                             onClick={(evt) => handleMeeting(evt, creators[x]._id)}
                             className="card-button"
                         >

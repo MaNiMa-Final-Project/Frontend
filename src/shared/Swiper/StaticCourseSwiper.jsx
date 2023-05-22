@@ -59,7 +59,7 @@ export default function StaticCourseSwiper() {
         return (
             <div id="courseCardContainer" className="card">
                 <div className="card-title">{courses[x].title}</div>
-                <MarkAsFavorite />
+                <MarkAsFavorite courseId={courses[x]._id}/>
                 <div className="card-body">
                     <div className="card-buttons-container">
                         <button onClick={(evt) => handleMeeting(evt, courses[x].creator._id)} className="card-button">
@@ -106,7 +106,7 @@ export default function StaticCourseSwiper() {
                     slidesPerView={"auto"}
                     speed={5000}
                     coverflowEffect={{
-                        rotate: 10,
+                        rotate: 9,
                         stretch: 50,
                         depth: 100,
                         modifier: 2.5,

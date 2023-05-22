@@ -5,6 +5,8 @@ import "../components/ShoppingCart/shoppingCart.scss";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import getHoursAndMinutes from '../shared/getHoursAndMinutes.js'
+
 import axios from "axios";
 import { TEMP_URL_COURSE } from "../service/config";
 import { useNavigate } from "react-router-dom";
@@ -14,8 +16,6 @@ export default function ShoppingCartPage() {
     const [courses, setCourses] = useState([]);
 
     const navigate = useNavigate();
-
-    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         (async () => {
@@ -32,14 +32,6 @@ export default function ShoppingCartPage() {
     const handleCartDelete = (courseId) => {
         cartData.removeFromCart(courseId);
     };
-
-    function getHoursAndMinutes(milliseconds) {
-        let hours = Math.floor(milliseconds / (60 * 60 * 1000));
-        let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
-        if (hours === 0) return `${minutes} m`;
-        if (minutes === 0) return `${hours} h`;
-        return `${hours} Std. and ${minutes} min`;
-    }
 
     const handleBackToShop = () => {
         navigate("/");

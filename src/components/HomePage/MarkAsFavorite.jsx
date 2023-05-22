@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 export default function MarkAsFavorite({ evt, courseId }) {
     const userData = useLegitUser();
 
+
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
@@ -17,14 +18,35 @@ export default function MarkAsFavorite({ evt, courseId }) {
         if (resp) setIsFavorite(resp);
     }, [userData]);
 
-    const handleFavoriteChange = (event) => {
+    const handleFavoriteChange = async (event) => {
         event.stopPropagation();
 
         if (event.target.checked) {
-            console.log("add " + courseId);
+
+            let body = {
+                courseId: courseId
+            }
+            try {
+                let resp = await axios.put(BASE_URL_PUBLIC+'addtofav', body, {
+                    withCredentials: true
+                });
+                
+            } catch (error) {
+                console.log(error);
+            }
             setIsFavorite(!isFavorite);
         } else {
-            console.log("delete " + courseId);
+            let body = {
+                courseId: courseId
+            }
+            try {
+                let resp = await axios.put(BASE_URL_PUBLIC+'removefromfav', body, {
+                    withCredentials: true
+                });
+                
+            } catch (error) {
+                console.log(error);
+            }
             setIsFavorite(false);
         }
     };
@@ -54,7 +76,7 @@ export default function MarkAsFavorite({ evt, courseId }) {
     };
 
     return (
-        <label style={labelStyle} id="MASF">
+        userData.user && <label style={labelStyle} id="MASF">
             <input type="checkbox" checked={isFavorite} onChange={handleFavoriteChange} style={checkboxStyle} />
             {isFavorite ? (
                 <span style={{ textShadow: "0 0 5px white", color: "#f7c134" }}>

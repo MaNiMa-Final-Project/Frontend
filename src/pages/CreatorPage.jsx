@@ -5,6 +5,7 @@ import { BASE_URL_PUBLIC } from "../service/config";
 import BeatSpinner from "../shared/Spinners/BeatLoader";
 import MarkAsFavorite from "../components/HomePage/MarkAsFavorite";
 import Calendar from "react-calendar";
+import getHoursAndMinutes from "../shared/getHoursAndMinutes";
 
 export default function CreatorPage() {
     const { id } = useParams();
@@ -24,9 +25,6 @@ export default function CreatorPage() {
     };
 
     useEffect(() => {
-        console.log("🚀 --------------------------------------------------🚀");
-        console.log("🚀 ~ file: CreatorPage.jsx:13 ~ location:", location.state);
-        console.log("🚀 --------------------------------------------------🚀");
 
         if (location.state.show) {
             setIsModalOpen(true);
@@ -55,13 +53,13 @@ export default function CreatorPage() {
         })();
     }, []);
 
-    function getHoursAndMinutes(milliseconds) {
-        let hours = Math.floor(milliseconds / (60 * 60 * 1000));
-        let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
-        if (hours === 0) return `${minutes} m`;
-        if (minutes === 0) return `${hours} h`;
-        return `${hours} h and ${minutes} m`;
-    }
+    // function getHoursAndMinutes(milliseconds) {
+    //     let hours = Math.floor(milliseconds / (60 * 60 * 1000));
+    //     let minutes = Math.floor(milliseconds / (60 * 1000)) % 60;
+    //     if (hours === 0) return `${minutes} m`;
+    //     if (minutes === 0) return `${hours} h`;
+    //     return `${hours} h and ${minutes} m`;
+    // }
 
     return (
         <div className="CreatorPage">
