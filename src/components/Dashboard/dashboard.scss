@@ -56,7 +56,6 @@
 
     .section1 {
         grid-area: a;
-
     }
 
     .section2 {
@@ -67,16 +66,16 @@
         grid-area: c;
     }
 
-    .infoContainer{
+    .infoContainer {
         width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .innerInfoContainer{
+        .innerInfoContainer {
             display: flex;
             align-items: center;
-            img{
-                margin: 0.5rem 1rem; 
+            img {
+                margin: 0.5rem 1rem;
             }
         }
     }

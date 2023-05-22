@@ -7,7 +7,6 @@ import MarkAsFavorite from "../components/HomePage/MarkAsFavorite";
 import Calendar from "react-calendar";
 import getHoursAndMinutes from "../shared/getHoursAndMinutes";
 
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -43,9 +42,7 @@ export default function CreatorPage() {
     };
 
     useEffect(() => {
-
         (async () => {
-          
             try {
                 let response = await axios.get(BASE_URL_PUBLIC + `creator/${id}`);
                 if (response.status === 200) {
@@ -101,25 +98,25 @@ export default function CreatorPage() {
                                         Erstgespräch buchen
                                     </button>
                                     <div className="courseContainer" key={course.id}>
-                            <div className="courseHeader">
-                                <h2>{course.title}</h2>
-                                <img style={{width: '300px', margin: '1rem auto'}} src={course.croppedImage} alt="" />
-                                <MarkAsFavorite courseId={course._id} />
-                            </div>
-                            <div className="courseBody">
-                                <p>{course.description}</p>
-                            </div>
-                            <div style={{margin:'1rem'}} className="courseFooter">
-                                <p>Dauer: {getHoursAndMinutes(course.duration)} </p>
-                                <p>
-                                </p>
-                                <p>Preis: {course.price}€</p>
-                            </div>
-                            <div className="buttonContainer">
-
-
-                            </div>
-                        </div>
+                                        <div className="courseHeader">
+                                            <h2>{course.title}</h2>
+                                            <img
+                                                style={{ width: "300px", margin: "1rem auto" }}
+                                                src={course.croppedImage}
+                                                alt=""
+                                            />
+                                            <MarkAsFavorite courseId={course._id} />
+                                        </div>
+                                        <div className="courseBody">
+                                            <p>{course.description}</p>
+                                        </div>
+                                        <div style={{ margin: "1rem" }} className="courseFooter">
+                                            <p>Dauer: {getHoursAndMinutes(course.duration)} </p>
+                                            <p></p>
+                                            <p>Preis: {course.price}€</p>
+                                        </div>
+                                        <div className="buttonContainer"></div>
+                                    </div>
                                 </div>
                             );
                         })}

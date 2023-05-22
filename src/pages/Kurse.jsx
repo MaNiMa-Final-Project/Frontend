@@ -69,10 +69,13 @@ export default function courses() {
                                 <p>Preis: {course.price}€</p>
                             </div>
                             <div className="buttonContainer">
-                            <button onClick={(evt) => handleMeeting(evt, course.creator._id)} className="card-button">
-                            Jetzt Teilnehmen <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
-                        </button>
-
+                                <button
+                                    onClick={(evt) => handleMeeting(evt, course.creator._id)}
+                                    className="card-button"
+                                >
+                                    Jetzt Teilnehmen{" "}
+                                    <FontAwesomeIcon icon={faAngleRight} className="card-button-icon" />
+                                </button>
                             </div>
                         </div>
                     );

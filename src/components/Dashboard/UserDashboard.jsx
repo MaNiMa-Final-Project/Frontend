@@ -43,9 +43,10 @@ export default function UserDashboard({ user }) {
                                 return (
                                     <li key={uuidv4()}>
                                         <div className="infoContainer">
-                                        <div className="innerInfoContainer">
-                                        {index + 1}.<img src={scaledImage} alt="" /> 
-                                        </div>{course.title}
+                                            <div className="innerInfoContainer">
+                                                {index + 1}.<img src={scaledImage} alt="" />
+                                            </div>
+                                            {course.title}
                                         </div>
                                         <button
                                             className="card-button"
@@ -76,9 +77,10 @@ export default function UserDashboard({ user }) {
                                 return (
                                     <li key={uuidv4()}>
                                         <div className="infoContainer">
-                                        <div className="innerInfoContainer">
-                                        {index + 1}.<img src={scaledImage} alt="" /> 
-                                        </div>{course.title}
+                                            <div className="innerInfoContainer">
+                                                {index + 1}.<img src={scaledImage} alt="" />
+                                            </div>
+                                            {course.title}
                                         </div>
                                         <button
                                             className="card-button"
@@ -109,9 +111,10 @@ export default function UserDashboard({ user }) {
                                 return (
                                     <li key={uuidv4()}>
                                         <div className="infoContainer">
-                                        <div className="innerInfoContainer">
-                                        {index + 1}.<img src={scaledImage} alt="" /> 
-                                        </div>{course.title}
+                                            <div className="innerInfoContainer">
+                                                {index + 1}.<img src={scaledImage} alt="" />
+                                            </div>
+                                            {course.title}
                                         </div>
                                         <button
                                             className="card-button"
