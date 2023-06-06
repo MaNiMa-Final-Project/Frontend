@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Footer/footer.scss";
 
-
 export default function Footer() {
     return (
         <div className="footer">
@@ -44,7 +43,11 @@ export default function Footer() {
             </p>
 
             <div className="containerlogo">
-                <img className="smallLogos" src={'../../src/assets/images/sw_logos_small.png'} alt="Logos Auftraggeber" />
+                <img
+                    className="smallLogos"
+                    src={"../../src/assets/images/sw_logos_small.png"}
+                    alt="Logos Auftraggeber"
+                />
             </div>
         </div>
     );
