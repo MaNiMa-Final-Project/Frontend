@@ -1,11 +1,22 @@
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLegitUser } from "../hooks/useLegitUser.jsx";
 import { useCartData } from "../hooks/useCartData.jsx";
 
 function Navbar() {
+    const [Logo, setLogo] = useState(null); // State to hold the logo component
     const userData = useLegitUser();
     const cartData = useCartData();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const importLogo = async () => {
+            const logo = await import("../assets/images/artshuttle_logo_noBackground.png");
+            setLogo(() => logo.default);
+        };
+
+        importLogo();
+    }, []);
 
     const handleLogout = () => userData.userLogout(navigate);
 
@@ -54,7 +65,7 @@ function Navbar() {
             <ul>
                 <li>
                     <Link to="/" className="site-title">
-                        <img src="../../src/assets/images/artshuttle_logo_noBackground.png" width="100" />
+                        {Logo && <img src={Logo} width="100" alt="Logo" />} {/* Render the logo when it's loaded */}
                     </Link>
                 </li>
                 {dashboard}

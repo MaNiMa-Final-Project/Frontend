@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { faYoutube, faFacebook, faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Footer/footer.scss";
 
 export default function Footer() {
+    const [Logo, setLogo] = useState(null); // State to hold the logo image
+
+    useEffect(() => {
+        const importLogo = async () => {
+            const logo = await import("../assets/images/sw_logos_small.png");
+            setLogo(() => logo.default);
+        };
+
+        importLogo();
+    }, []);
+
     return (
         <div className="footer">
             <div className="social-container">
@@ -43,7 +54,8 @@ export default function Footer() {
             </p>
 
             <div className="containerlogo">
-                <img className="smallLogos" src="../../src/assets/images/sw_logos_small.png" alt="Logos Auftraggeber" />
+                {Logo && <img className="smallLogos" src={Logo} alt="Logos Auftraggeber" />}{" "}
+                {/* Render the logo when it's loaded */}
             </div>
         </div>
     );
