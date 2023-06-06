@@ -54,7 +54,7 @@ function Navbar() {
             <ul>
                 <li>
                     <Link to="/" className="site-title">
-                        <img src={"../../src/assets/images/artshuttle_logo_noBackground.png"} width="100" />
+                        <img src="../../src/assets/images/artshuttle_logo_noBackground.png" width="100" />
                     </Link>
                 </li>
                 {dashboard}

@@ -45,7 +45,7 @@ export default function Footer() {
             <div className="containerlogo">
                 <img
                     className="smallLogos"
-                    src={"../../src/assets/images/sw_logos_small.png"}
+                    src="../../src/assets/images/sw_logos_small.png"
                     alt="Logos Auftraggeber"
                 />
             </div>
